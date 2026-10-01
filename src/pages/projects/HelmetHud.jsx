@@ -3,11 +3,13 @@ import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
 import StickyTOC from '../../components/StickyTOC'
 import { IconHelmet } from '../../components/Icons'
+import img from '../../img'
 
 const toc = [
   { id: 'overview', label: 'Overview' },
   { id: 'optics',   label: 'Optical Display' },
   { id: 'power',    label: 'Power System' },
+  { id: 'trial',    label: 'Bench Trial Unit' },
   { id: 'takeaways', label: 'What I Learned' },
 ]
 
@@ -68,6 +70,31 @@ export default function HelmetHud() {
               compute package had to fit within a 50 cm³ profile to stay practical for a helmet-mounted
               system, which drove most of the component selection and layout decisions.
             </p>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <div id="trial" className="project-section">
+            <h3>Bench Trial Unit</h3>
+            <p>
+              Before committing to the final helmet-mounted optics, I validated the Android Auto head
+              unit on a larger 7-inch DSI display as a bench trial rig, running the Raspberry Pi's
+              navigation and media interface on an actual drive around Austin to confirm the software
+              stack, touch responsiveness, and routing behaved correctly before shrinking the display
+              and packaging everything into the helmet's smaller optical path.
+            </p>
+            <div className="project-image-grid">
+              <img
+                src={img('/images/helmet-hud/trial-unit-car.webp')}
+                alt="Bench trial unit running the Android Auto interface during a test drive"
+                loading="lazy"
+              />
+              <img
+                src={img('/images/helmet-hud/trial-unit-backside.webp')}
+                alt="Backside of the bench trial unit: Raspberry Pi driving a 7-inch DSI display"
+                loading="lazy"
+              />
+            </div>
           </div>
         </ScrollReveal>
 

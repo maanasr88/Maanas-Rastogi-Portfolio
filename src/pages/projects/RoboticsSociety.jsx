@@ -2,6 +2,7 @@ import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
 import { IconPower } from '../../components/Icons'
+import img from '../../img'
 
 const specs = [
   { value: '12W → 90W', label: 'Power Output' },
@@ -47,6 +48,32 @@ export default function RoboticsSociety() {
             circuit cut system charging times by 75%, meaning far less downtime between test and
             competition runs.
           </p>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div className="project-section">
+          <h3>Board Design</h3>
+          <p>
+            Both boards were laid out at 80 mm × 80 mm to fit the robot's existing mounting footprint.
+            The chassis board brings the supercapacitor bank's output into separate +24V rails feeding
+            the chassis, shooter, and gimbal subsystems, each behind its own current-limiting protection
+            so a fault or stall on one subsystem can't pull down the others. The turret board carries
+            that same rail structure up through a slip ring to the rotating turret assembly, along with
+            CAN bus, UART, and SWD headers for telemetry and in-system debugging.
+          </p>
+          <div className="project-image-grid">
+            <img
+              src={img('/images/robotics-society/chassis-board-supercap-v1.webp')}
+              alt="Chassis board with supercapacitor bank, V1 — PCB layout with +24V rails to chassis, shooter, and gimbal"
+              loading="lazy"
+            />
+            <img
+              src={img('/images/robotics-society/turret-board.webp')}
+              alt="Turret board PCB layout — slip ring interface, CAN/UART/SWD headers, and +24V distribution to chassis, shooter, and gimbal"
+              loading="lazy"
+            />
+          </div>
         </div>
       </ScrollReveal>
 
