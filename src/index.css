@@ -2767,6 +2767,60 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 4px;
 }
 
+/* ===== CODE BLOCK ===== */
+.code-block {
+  margin: 16px 0 24px;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: #0d0d10;
+}
+
+.code-block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 16px;
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--card-border);
+}
+
+.code-block-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.code-block-lang {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  background: var(--accent-dim);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.code-block-pre {
+  margin: 0;
+  padding: 16px 20px;
+  max-height: 480px;
+  overflow: auto;
+  font-family: 'SF Mono', 'Fira Code', Consolas, Monaco, monospace;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: #d4d9e0;
+  white-space: pre;
+}
+
+.code-block-pre code {
+  font-family: inherit;
+}
+
 /* ===== INITIALS AVATAR (no headshot available) ===== */
 .hero-avatar {
   width: 220px;
