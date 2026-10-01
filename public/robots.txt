@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maanasr88.github.io/Maanas-Rastogi-Portfolio/sitemap.xml
