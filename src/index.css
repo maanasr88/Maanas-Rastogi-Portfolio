@@ -926,9 +926,13 @@ h1, h2, h3, h4, h5, h6 {
 /* ===== DETAIL LAYOUT ===== */
 .detail-layout {
   display: grid;
-  grid-template-columns: 1fr 280px;
+  grid-template-columns: minmax(0, 1fr) 280px;
   gap: 32px;
   align-items: start;
+}
+
+.detail-main {
+  min-width: 0;
 }
 
 .detail-sidebar {
@@ -2784,6 +2788,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 8px 16px;
   background: var(--card-bg);
   border-bottom: 1px solid var(--card-border);
+  min-width: 0;
 }
 
 .code-block-title {
@@ -2791,6 +2796,10 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.78rem;
   font-weight: 600;
   color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
 }
 
 .code-block-lang {
@@ -2803,13 +2812,16 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--accent-dim);
   padding: 2px 8px;
   border-radius: 999px;
+  flex-shrink: 0;
 }
 
 .code-block-pre {
   margin: 0;
   padding: 16px 20px;
   max-height: 480px;
+  max-width: 100%;
   overflow: auto;
+  box-sizing: border-box;
   font-family: 'SF Mono', 'Fira Code', Consolas, Monaco, monospace;
   font-size: 0.78rem;
   line-height: 1.6;

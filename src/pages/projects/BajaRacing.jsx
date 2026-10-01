@@ -4,6 +4,7 @@ import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
 import StickyTOC from '../../components/StickyTOC'
 import { IconRacing } from '../../components/Icons'
+import img from '../../img'
 
 const toc = [
   { id: 'overview',    label: 'Overview' },
@@ -41,6 +42,8 @@ export default function BajaRacing() {
         tag="Longhorn Baja Racing · Aug 2025 – Present"
         title="Racing Team Electronics Lead"
         icon={<IconRacing />}
+        heroImage={img('/images/baja-racing/car-render.webp')}
+        heroStyle={{ backgroundPosition: 'center 65%' }}
         software={['Altium Designer', 'Circuit Theory', 'PCB Design', 'Sensor Integration']}
         roles={['Racing Team Electronics Lead']}
       >
