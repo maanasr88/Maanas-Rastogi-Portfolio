@@ -8,6 +8,7 @@ const toc = [
   { id: 'overview',    label: 'Overview' },
   { id: 'power',       label: 'Power & Dashboard' },
   { id: 'coach',       label: 'Virtual Driving Coach' },
+  { id: 'fusion',      label: 'CVT Sensor Fusion' },
   { id: 'control',     label: 'Control Algorithms' },
   { id: 'leadership',  label: 'Leadership' },
 ]
@@ -67,6 +68,31 @@ export default function BajaRacing() {
               practice runs and competition. Pulling in that many independent sensor streams and fusing
               them into something a driver can actually act on mid-run is the core engineering challenge
               of the system.
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <div id="fusion" className="project-section">
+            <h3>CVT Sensor Fusion: RPM + Belt Temperature</h3>
+            <p>
+              One concrete use of the sensor array is tuning the car's CVT (continuously variable
+              transmission), which every Baja SAE car relies on to keep its engine in its usable power
+              band. The spec Briggs &amp; Stratton engine used across the Baja SAE field is governed to
+              roughly 3,800 RPM, and the CVT's primary clutch is tuned to engage somewhere around
+              2,000&ndash;2,400 RPM so the engine climbs straight into its torque band instead of bogging
+              down off the line. Reading engine RPM alone can't tell the difference between a clean
+              engagement and a clutch that's slipping, since both can briefly show the same engine speed.
+            </p>
+            <p>
+              Pairing the RPM signal with a temperature sensor at the belt housing closes that gap.
+              Rubber/aramid CVT belts are typically rated up to roughly 250&ndash;300&deg;F before they
+              start to glaze and lose grip, so a belt temperature that climbs faster than engine load
+              would predict, alongside an RPM trace that's holding higher than the primary clutch's
+              engagement point suggests it should, is the fused signature of a slipping, overheating
+              belt rather than a normal shift. Flagging that combination mid-run, instead of after a
+              belt failure on course, is what turns two raw sensor channels into an actual tuning and
+              reliability tool for the drivetrain.
             </p>
           </div>
         </ScrollReveal>
