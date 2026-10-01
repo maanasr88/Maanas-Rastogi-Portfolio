@@ -92,6 +92,69 @@ export function IconPower(props) {
   )
 }
 
+export function IconFuel(props) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M5 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16" />
+      <path d="M3 21h12" />
+      <path d="M15 8h1.5a1.5 1.5 0 0 1 1.5 1.5V12l2 2v4a1.5 1.5 0 0 1-3 0" />
+      <path d="M7 7h6" />
+    </svg>
+  )
+}
+
+export function IconThermometer(props) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z" />
+    </svg>
+  )
+}
+
+export function IconSatellite(props) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M13 7 9 3 5 7l4 4" />
+      <path d="M17 11l4 4-4 4-4-4" />
+      <path d="M8 12l4 4" />
+      <path d="M2 22l5.5-5.5" />
+      <path d="M14 5l1.5-1.5a2.12 2.12 0 0 1 3 3L17 8" />
+    </svg>
+  )
+}
+
+export function IconRadio(props) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M12 2v6" />
+      <path d="M8.5 5.5a5 5 0 0 0 0 7M15.5 5.5a5 5 0 0 1 0 7" />
+      <path d="M5 8.5a9 9 0 0 0 0 12M19 8.5a9 9 0 0 1 0 12" />
+      <circle cx="12" cy="20" r="1.4" />
+    </svg>
+  )
+}
+
+export function IconPedal(props) {
+  return (
+    <svg {...base} {...props}>
+      <rect x="4" y="4" width="16" height="7" rx="1.5" />
+      <path d="M8 11v9M16 11v9" />
+      <path d="M7 14h2M15 14h2M7 17h2M15 17h2" />
+    </svg>
+  )
+}
+
+export function IconSuspension(props) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M7 3v4M7 17v4" />
+      <path d="M7 7l3 1-3 1 3 1-3 1 3 1-3 1 3 1-3 1" />
+      <circle cx="17" cy="6" r="2.5" />
+      <path d="M17 8.5V21" />
+    </svg>
+  )
+}
+
 export function IconTeam(props) {
   return (
     <svg {...base} {...props}>

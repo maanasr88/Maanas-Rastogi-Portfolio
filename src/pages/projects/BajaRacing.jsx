@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
@@ -8,9 +9,19 @@ const toc = [
   { id: 'overview',    label: 'Overview' },
   { id: 'power',       label: 'Power & Dashboard' },
   { id: 'coach',       label: 'Virtual Driving Coach' },
-  { id: 'fusion',      label: 'CVT Sensor Fusion' },
+  { id: 'suite',       label: 'Sensor Suite Research' },
   { id: 'control',     label: 'Control Algorithms' },
   { id: 'leadership',  label: 'Leadership' },
+]
+
+const subsystems = [
+  { to: '/team/baja-racing/fuel-level-indicator',       title: 'Fuel Level Indicator',          desc: 'Turbine flow meter with a built-in Hall-effect sensor, measuring consumption without modifying the fuel tank.' },
+  { to: '/team/baja-racing/rpm-sensor',                  title: 'RPM Sensor',                    desc: 'Contactless Hall-effect wheel-speed sensing rated to ±2% accuracy from 0–2,000 RPM.' },
+  { to: '/team/baja-racing/engine-temperature-sensing',  title: 'Engine Temperature Sensing',     desc: 'Redundant RTD array read through MAX31865 breakouts, with threshold-based driver warnings.' },
+  { to: '/team/baja-racing/imu-gps',                     title: 'IMU / GPS Vehicle Tracking',     desc: 'Kalman-filtered IMU + GPS fusion to track vehicle position, acceleration, and driver response.' },
+  { to: '/team/baja-racing/driver-input-telemetry',      title: 'Driver Input Telemetry',         desc: 'Pedal-box potentiometer and CAN bus module logging throttle and brake activity in real time.' },
+  { to: '/team/baja-racing/suspension-position-sensor',  title: 'Suspension Position Sensor',     desc: 'Linear potentiometer travel sensing for a semi-active suspension, accurate to ±10mm.' },
+  { to: '/team/baja-racing/telemetry-link',              title: 'Wireless Telemetry Link',        desc: '915 MHz LoRa radio link carrying sensor data from the car to a pit-side dashboard.' },
 ]
 
 const specs = [
@@ -73,27 +84,27 @@ export default function BajaRacing() {
         </ScrollReveal>
 
         <ScrollReveal>
-          <div id="fusion" className="project-section">
-            <h3>CVT Sensor Fusion: RPM + Belt Temperature</h3>
+          <div id="suite" className="project-section">
+            <h3>Sensor Suite Research (Co-Lead)</h3>
             <p>
-              One concrete use of the sensor array is tuning the car's CVT (continuously variable
-              transmission), which every Baja SAE car relies on to keep its engine in its usable power
-              band. The spec Briggs &amp; Stratton engine used across the Baja SAE field is governed to
-              roughly 3,800 RPM, and the CVT's primary clutch is tuned to engage somewhere around
-              2,000&ndash;2,400 RPM so the engine climbs straight into its torque band instead of bogging
-              down off the line. Reading engine RPM alone can't tell the difference between a clean
-              engagement and a clutch that's slipping, since both can briefly show the same engine speed.
+              Alongside the vehicle electronics scope, I co-lead the team's Baja GM-Electronics
+              Research initiative with Sreekant G, researching and prototyping the 2025–26 sensor suite
+              with teammates Clement P, Devak J, Soham M, and Jose V. Each subsystem below went through
+              the same process: research existing approaches, score candidate designs against the Baja
+              SAE rulebook and our own requirements, then prototype and test before committing to
+              vehicle hardware.
             </p>
-            <p>
-              Pairing the RPM signal with a temperature sensor at the belt housing closes that gap.
-              Rubber/aramid CVT belts are typically rated up to roughly 250&ndash;300&deg;F before they
-              start to glaze and lose grip, so a belt temperature that climbs faster than engine load
-              would predict, alongside an RPM trace that's holding higher than the primary clutch's
-              engagement point suggests it should, is the fused signature of a slipping, overheating
-              belt rather than a normal shift. Flagging that combination mid-run, instead of after a
-              belt failure on course, is what turns two raw sensor channels into an actual tuning and
-              reliability tool for the drivetrain.
-            </p>
+            <div className="baja-subprojects-grid">
+              {subsystems.map(s => (
+                <Link key={s.to} to={s.to} className="baja-sub-card">
+                  <div className="baja-sub-card-title-row">
+                    <span className="baja-sub-card-title">{s.title}</span>
+                  </div>
+                  <p className="baja-sub-card-desc">{s.desc}</p>
+                  <span className="baja-sub-card-cta">View Research →</span>
+                </Link>
+              ))}
+            </div>
           </div>
         </ScrollReveal>
 
