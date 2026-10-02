@@ -4,6 +4,7 @@ import StatRow from '../../../components/StatRow'
 import DataTable from '../../../components/DataTable'
 import { IconChip } from '../../../components/Icons'
 import img from '../../../img'
+import BajaSensorMap from '../../../components/BajaSensorMap'
 
 const specs = [
   { value: '±2%',      label: 'Accuracy, 0–2,000 RPM' },
@@ -35,6 +36,7 @@ export default function RpmSensor() {
             count directly. Automotive-grade options like the Honeywell 1GT101DC and ZF Cherry
             GS100502 were identified as suitable references for sealing and compact size.
           </p>
+          <BajaSensorMap highlight={4} />
         </div>
       </ScrollReveal>
 

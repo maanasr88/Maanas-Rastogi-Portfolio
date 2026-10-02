@@ -1,22 +1,27 @@
 import ProjectCard from '../components/ProjectCard'
 import ScrollReveal from '../components/ScrollReveal'
 import { IconRacing, IconDroneArm, IconPower } from '../components/Icons'
+import img from '../img'
 
 const projects = [
   {
     icon: <IconRacing />,
+    image: img('/images/baja-racing/car-render.webp'),
+    imageStyle: { objectPosition: 'center 65%' },
     title: 'Longhorn Baja Racing — Electronics Lead',
     description: 'Vehicle electrical integration for the Baja SAE race car: power distribution, dashboard hardware, and a virtual driving coach interfacing 7+ onboard sensors.',
     to: '/team/baja-racing',
   },
   {
     icon: <IconDroneArm />,
+    image: img('/images/neurotech/electronics-tray.jpg'),
     title: 'Longhorn Neurotech — Manufacturing/Design Lead',
     description: 'Directed a team of 5 engineers building modular electronics mounting systems for a 250-lb electric-powered wheelchair, plus drone motor control.',
     to: '/team/neurotech',
   },
   {
     icon: <IconPower />,
+    image: img('/images/robotics-society/chassis-board-supercap-v1.webp'),
     title: 'UT Robotics & Automation Society — Electrical Engineer',
     description: "Redesigned a robotics system's power delivery and control board, boosting output from 12W to 90W and cutting charge time 75%.",
     to: '/team/robotics-society',

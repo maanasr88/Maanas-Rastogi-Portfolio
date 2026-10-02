@@ -2,7 +2,7 @@ import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
 import StickyTOC from '../../components/StickyTOC'
-import { IconChip } from '../../components/Icons'
+import img from '../../img'
 
 const toc = [
   { id: 'overview',     label: 'Overview' },
@@ -28,7 +28,8 @@ export default function Ironlattice() {
         backLabel="Industry & Research Experience"
         tag="Ironlattice · Internship, Aug 2026 – Present"
         title="Gator Memory™ FeFET Device Validation & Simulation"
-        icon={<IconChip />}
+        heroImage={img('/images/ironlattice/gate-stack-cover.svg')}
+        heroStyle={{ backgroundSize: 'cover' }}
         software={['COMSOL', 'QuantumATK', 'Synopsys TCAD', 'SPICE']}
         roles={['Validation/Design Intern']}
       >

@@ -2833,6 +2833,97 @@ h1, h2, h3, h4, h5, h6 {
   font-family: inherit;
 }
 
+/* ===== BAJA SENSOR MAP ===== */
+.sensor-map {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  margin: 20px 0 32px;
+  padding: 20px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+}
+
+.sensor-map-img-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, rgba(70,130,180,0.10) 1px, transparent 1px) 0 0 / 18px 18px, #0a0a0c;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.sensor-map-img {
+  width: 100%;
+  height: auto;
+  max-width: 420px;
+  display: block;
+  margin: 0 auto;
+}
+
+.sensor-map-legend {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sensor-map-legend li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 6px 8px;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition);
+}
+
+.sensor-map-legend li.active {
+  background: var(--accent-dim);
+}
+
+.sensor-map-num {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sensor-map-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  min-width: 0;
+}
+
+.sensor-map-desc {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.sensor-map-note {
+  grid-column: 1 / -1;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+@media (max-width: 640px) {
+  .sensor-map {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ===== INITIALS AVATAR (no headshot available) ===== */
 .hero-avatar {
   width: 220px;

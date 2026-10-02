@@ -3,6 +3,7 @@ import ScrollReveal from '../../../components/ScrollReveal'
 import DataTable from '../../../components/DataTable'
 import { IconRadio } from '../../../components/Icons'
 import img from '../../../img'
+import BajaSensorMap from '../../../components/BajaSensorMap'
 
 export default function TelemetryLink() {
   return (
@@ -31,6 +32,7 @@ export default function TelemetryLink() {
             loading="lazy"
             style={{ background: '#fff' }}
           />
+          <BajaSensorMap highlight={7} />
         </div>
       </ScrollReveal>
 

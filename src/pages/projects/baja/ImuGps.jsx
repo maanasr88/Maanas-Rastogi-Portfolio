@@ -4,6 +4,7 @@ import DataTable from '../../../components/DataTable'
 import StickyTOC from '../../../components/StickyTOC'
 import { IconSatellite } from '../../../components/Icons'
 import img from '../../../img'
+import BajaSensorMap from '../../../components/BajaSensorMap'
 
 const toc = [
   { id: 'overview', label: 'Overview' },
@@ -49,6 +50,7 @@ export default function ImuGps() {
                 loading="lazy"
               />
             </div>
+            <BajaSensorMap highlight={6} />
           </div>
         </ScrollReveal>
 
