@@ -1,11 +1,22 @@
 import { Link } from 'react-router-dom'
 import ScrollReveal from './ScrollReveal'
 
-export default function ProjectCard({ icon, tag, title, description, to, delay = 0 }) {
+export default function ProjectCard({ icon, image, imageStyle, tag, title, description, to, delay = 0 }) {
   const inner = (
     <div className="card project-card" style={{ cursor: to ? 'pointer' : 'default' }}>
       <div className="project-card-img-wrap">
-        <div className="icon-tile">{icon}</div>
+        {image ? (
+          <>
+            <img src={image} alt={title} className="project-card-img" loading="lazy" style={imageStyle} />
+            <div className="project-card-overlay">
+              <div className="project-card-overlay-title">{title}</div>
+              {description && <p className="project-card-overlay-desc">{description}</p>}
+              {to && <span className="project-card-overlay-cta">View Project →</span>}
+            </div>
+          </>
+        ) : (
+          <div className="icon-tile">{icon}</div>
+        )}
       </div>
       <div className="project-card-body">
         {tag && <div className="project-card-tag">{tag}</div>}

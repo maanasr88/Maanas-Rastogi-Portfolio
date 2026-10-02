@@ -4,6 +4,7 @@ import DataTable from '../../../components/DataTable'
 import StickyTOC from '../../../components/StickyTOC'
 import { IconPedal } from '../../../components/Icons'
 import img from '../../../img'
+import BajaSensorMap from '../../../components/BajaSensorMap'
 
 const toc = [
   { id: 'overview',  label: 'Overview' },
@@ -35,6 +36,7 @@ export default function DriverInputTelemetry() {
               an ESP32 reads and digitizes the signal, and the result is sent out over a CAN bus for
               visualization, laying the groundwork for future integration with the car's ECU.
             </p>
+            <BajaSensorMap highlight={1} />
           </div>
         </ScrollReveal>
 

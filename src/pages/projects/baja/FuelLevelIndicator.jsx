@@ -4,6 +4,7 @@ import StickyTOC from '../../../components/StickyTOC'
 import DataTable from '../../../components/DataTable'
 import { IconFuel } from '../../../components/Icons'
 import img from '../../../img'
+import BajaSensorMap from '../../../components/BajaSensorMap'
 
 const toc = [
   { id: 'overview',  label: 'Overview' },
@@ -47,6 +48,7 @@ export default function FuelLevelIndicator() {
               without touching the tank, and any line break it could cause occurs above the spill pan
               rather than at the tank.
             </p>
+            <BajaSensorMap highlight={2} />
           </div>
         </ScrollReveal>
 

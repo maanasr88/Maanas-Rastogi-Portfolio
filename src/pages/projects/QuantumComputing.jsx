@@ -3,7 +3,6 @@ import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
 import StickyTOC from '../../components/StickyTOC'
 import CodeBlock from '../../components/CodeBlock'
-import { IconQuantum } from '../../components/Icons'
 import img from '../../img'
 
 const toc = [
@@ -13,6 +12,7 @@ const toc = [
   { id: 'source',      label: 'Simulation Pipeline (Source)' },
   { id: 'finding',     label: 'Key Finding' },
   { id: 'takeaways',   label: 'What I Learned' },
+  { id: 'iquhack',     label: 'MIT iQuHack' },
 ]
 
 const specs = [
@@ -110,9 +110,10 @@ export default function QuantumComputing() {
         backLabel="Industry & Research Experience"
         tag="UT Austin · Undergraduate Research, Oct – Dec 2025"
         title="Surface-Code Simulation for Modular Quantum Processors"
-        icon={<IconQuantum />}
+        heroImage={img('/images/quantum-computing/chip-lattice-cover.svg')}
+        heroStyle={{ backgroundSize: 'cover' }}
         software={['Stim', 'Sinter', 'PyMatching', 'Python']}
-        roles={['Quantum Computing Undergraduate Researcher']}
+        roles={['Quantum Computing Undergraduate Researcher', 'MIT iQuHack Participant']}
       >
         <ScrollReveal>
           <div id="overview" className="project-section">
@@ -282,6 +283,23 @@ export default function QuantumComputing() {
               of why modular, chiplet-based quantum computing is being pursued at all, and what has to be
               true about inter-chip connectivity for it to actually pay off at scale.
             </p>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <div id="iquhack" className="project-section">
+            <h3>MIT iQuHack — QuEra Track</h3>
+            <p>
+              Separately from the UT Austin research, I competed in QuEra's track at MIT's
+              interdisciplinary quantum hackathon (iQuHack), working on circuit optimization for
+              near-term quantum hardware.
+            </p>
+            <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 2, fontSize: '0.95rem' }}>
+              <li>Reprogrammed quantum circuits using QuEra's native gates, reducing circuit depth and improving execution efficiency.</li>
+              <li>Developed and tested algorithms in Python, applying quantum logic gates and error-mitigation strategies.</li>
+              <li>Collaborated in a fast-paced, team-based environment to design a solution under strict time constraints.</li>
+              <li>Strengthened skills in quantum circuit compilation, algorithm optimization, and hardware-aware programming.</li>
+            </ul>
           </div>
         </ScrollReveal>
       </DetailPage>

@@ -4,6 +4,7 @@ import DataTable from '../../../components/DataTable'
 import StickyTOC from '../../../components/StickyTOC'
 import { IconThermometer } from '../../../components/Icons'
 import img from '../../../img'
+import BajaSensorMap from '../../../components/BajaSensorMap'
 
 const toc = [
   { id: 'overview',  label: 'Overview' },
@@ -38,6 +39,7 @@ export default function EngineTemperatureSensing() {
               operating even if one sensor fails, with a digital threshold circuit that triggers a
               driver warning when a preset safety limit is crossed.
             </p>
+            <BajaSensorMap highlight={3} />
           </div>
         </ScrollReveal>
 

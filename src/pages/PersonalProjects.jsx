@@ -1,6 +1,7 @@
 import ProjectCard from '../components/ProjectCard'
 import ScrollReveal from '../components/ScrollReveal'
 import { IconChip, IconHelmet, IconCards } from '../components/Icons'
+import img from '../img'
 
 const projects = [
   {
@@ -11,6 +12,7 @@ const projects = [
   },
   {
     icon: <IconHelmet />,
+    image: img('/images/helmet-hud/trial-unit-backside.webp'),
     title: 'Motorcycle Helmet HUD',
     description: 'Raspberry Pi Android Auto head unit with a prism-based optical display, sub-100 ms latency, and 4+ hours of embedded runtime.',
     to: '/projects/helmet-hud',

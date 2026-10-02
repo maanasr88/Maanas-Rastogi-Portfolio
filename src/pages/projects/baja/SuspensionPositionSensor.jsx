@@ -2,6 +2,7 @@ import DetailPage from '../../../components/DetailPage'
 import ScrollReveal from '../../../components/ScrollReveal'
 import DataTable from '../../../components/DataTable'
 import { IconSuspension } from '../../../components/Icons'
+import BajaSensorMap from '../../../components/BajaSensorMap'
 
 export default function SuspensionPositionSensor() {
   return (
@@ -26,6 +27,7 @@ export default function SuspensionPositionSensor() {
             a moving suspension member near the shock, it logs lap-by-lap suspension travel, bottom-out
             events, and motion frequency.
           </p>
+          <BajaSensorMap highlight={5} />
         </div>
       </ScrollReveal>
 

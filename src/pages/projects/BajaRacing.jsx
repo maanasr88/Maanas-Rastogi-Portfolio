@@ -5,6 +5,7 @@ import StatRow from '../../components/StatRow'
 import StickyTOC from '../../components/StickyTOC'
 import { IconRacing } from '../../components/Icons'
 import img from '../../img'
+import BajaSensorMap from '../../components/BajaSensorMap'
 
 const toc = [
   { id: 'overview',    label: 'Overview' },
@@ -97,6 +98,7 @@ export default function BajaRacing() {
               SAE rulebook and our own requirements, then prototype and test before committing to
               vehicle hardware.
             </p>
+            <BajaSensorMap />
             <div className="baja-subprojects-grid">
               {subsystems.map(s => (
                 <Link key={s.to} to={s.to} className="baja-sub-card">
