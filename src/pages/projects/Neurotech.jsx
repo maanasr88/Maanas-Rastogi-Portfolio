@@ -32,7 +32,8 @@ export default function Neurotech() {
         backLabel="Team Projects"
         tag="Longhorn Neurotech · Aug 2024 – Aug 2026"
         title="LHNT Electric Wheelchair — Control System & Electronics Integration"
-        heroImage={img('/images/neurotech/wheelchair-cover.svg')}
+        heroImage={img('/images/neurotech/wheelchair-render-cover.jpg')}
+        heroStyle={{ filter: 'brightness(0.55) saturate(1.1)', transform: 'scale(1.1)' }}
         software={['Mechanical/Electrical Integration', 'SolidWorks FEA', 'ESP32 / Embedded C', 'Team Leadership']}
         roles={['Manufacturing/Design Lead']}
       >
