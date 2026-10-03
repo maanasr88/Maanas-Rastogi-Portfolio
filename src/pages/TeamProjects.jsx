@@ -21,9 +21,10 @@ const projects = [
   },
   {
     icon: <IconPower />,
-    image: img('/images/robotics-society/chassis-board-supercap-v1.webp'),
+    image: img('/images/robotics-society/robots-faceoff.jpg'),
+    imageStyle: { objectFit: 'cover' },
     title: 'UT Robotics & Automation Society — Electrical Engineer',
-    description: "Redesigned a robotics system's power delivery and control board, boosting output from 12W to 90W and cutting charge time 75%.",
+    description: "Power electronics for Stampede's RoboMaster robots: redesigned the supercapacitor bank and control board, boosting output from 12W to 90W and cutting charge time 75%.",
     to: '/team/robotics-society',
   },
 ]
