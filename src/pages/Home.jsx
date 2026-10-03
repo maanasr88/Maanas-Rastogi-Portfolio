@@ -60,7 +60,11 @@ export default function Home() {
 
             {/* Profile card */}
             <ScrollReveal className="hero-profile card" delay={1}>
-              <div className="hero-avatar">MR</div>
+              <img
+                src={img('/images/profile/maanas-photo.jpg')}
+                alt="Maanas Rastogi working on electronics trackside at a Baja Racing event"
+                className="hero-photo"
+              />
               <div className="hero-name">Maanas Rastogi</div>
               <div className="hero-title">Electrical/Computer Engineering Student</div>
               <div className="hero-education">
@@ -74,6 +78,9 @@ export default function Home() {
                 <a href="https://www.linkedin.com/in/maanas-rastogi" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                   <FiLinkedin />
                 </a>
+              </div>
+              <div className="hero-fun-fact" title="March 2026">
+                Survived a motorcycle accident in March 2026 — didn't miss a beat.
               </div>
             </ScrollReveal>
 
