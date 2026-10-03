@@ -1,7 +1,6 @@
 import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
-import StickyTOC from '../../components/StickyTOC'
 import CodeBlock from '../../components/CodeBlock'
 import img from '../../img'
 
@@ -103,15 +102,14 @@ if __name__ == '__main__':
 
 export default function QuantumComputing() {
   return (
-    <>
-      <StickyTOC sections={toc} />
-      <DetailPage
+    <DetailPage
+        toc={toc}
         backTo="/experience"
         backLabel="Industry & Research Experience"
         tag="UT Austin · Undergraduate Research, Oct – Dec 2025"
         title="Surface-Code Simulation for Modular Quantum Processors"
-        heroImage={img('/images/quantum-computing/chip-lattice-cover.svg')}
-        heroStyle={{ backgroundSize: 'cover' }}
+        heroImage={img('/images/quantum-computing/chiplet-render-cover.jpg')}
+        heroStyle={{ filter: 'brightness(0.65) saturate(1.1)', transform: 'scale(1.08)' }}
         software={['Stim', 'Sinter', 'PyMatching', 'Python']}
         roles={['Quantum Computing Undergraduate Researcher', 'MIT iQuHack Participant']}
       >
@@ -303,6 +301,5 @@ export default function QuantumComputing() {
           </div>
         </ScrollReveal>
       </DetailPage>
-    </>
   )
 }

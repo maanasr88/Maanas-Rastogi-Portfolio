@@ -1,7 +1,6 @@
 import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
-import StickyTOC from '../../components/StickyTOC'
 import img from '../../img'
 
 const toc = [
@@ -41,9 +40,8 @@ const robots = [
 
 export default function RoboticsSociety() {
   return (
-    <>
-      <StickyTOC sections={toc} />
-      <DetailPage
+    <DetailPage
+        toc={toc}
         backTo="/team"
         backLabel="Team Projects"
         tag="UT Austin Robotics & Automation Society · Stampede (RoboMaster) · Aug 2024 – Aug 2025"
@@ -198,6 +196,5 @@ export default function RoboticsSociety() {
           </div>
         </ScrollReveal>
       </DetailPage>
-    </>
   )
 }

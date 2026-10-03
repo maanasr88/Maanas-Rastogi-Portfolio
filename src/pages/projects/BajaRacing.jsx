@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
-import StickyTOC from '../../components/StickyTOC'
 import { IconRacing } from '../../components/Icons'
 import img from '../../img'
 import BajaSensorMap from '../../components/BajaSensorMap'
@@ -35,9 +34,8 @@ const specs = [
 
 export default function BajaRacing() {
   return (
-    <>
-      <StickyTOC sections={toc} />
-      <DetailPage
+    <DetailPage
+        toc={toc}
         backTo="/team"
         backLabel="Team Projects"
         tag="Longhorn Baja Racing · Aug 2025 – Present"
@@ -143,6 +141,5 @@ export default function BajaRacing() {
           </div>
         </ScrollReveal>
       </DetailPage>
-    </>
   )
 }

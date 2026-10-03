@@ -1,7 +1,6 @@
 import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
-import StickyTOC from '../../components/StickyTOC'
 import CodeBlock from '../../components/CodeBlock'
 import img from '../../img'
 
@@ -467,9 +466,8 @@ endmodule`
 
 export default function VlsiRiscV() {
   return (
-    <>
-      <StickyTOC sections={toc} />
-      <DetailPage
+    <DetailPage
+        toc={toc}
         backTo="/projects"
         backLabel="Personal Projects"
         tag="Personal Project · VLSI / Digital Design"
@@ -630,6 +628,5 @@ export default function VlsiRiscV() {
           </div>
         </ScrollReveal>
       </DetailPage>
-    </>
   )
 }

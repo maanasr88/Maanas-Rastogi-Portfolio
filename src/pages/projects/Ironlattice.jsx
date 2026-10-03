@@ -1,7 +1,6 @@
 import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
-import StickyTOC from '../../components/StickyTOC'
 import img from '../../img'
 
 const toc = [
@@ -22,9 +21,8 @@ const specs = [
 
 export default function Ironlattice() {
   return (
-    <>
-      <StickyTOC sections={toc} />
-      <DetailPage
+    <DetailPage
+        toc={toc}
         backTo="/experience"
         backLabel="Industry & Research Experience"
         tag="Ironlattice · Internship, Aug 2026 – Present"
@@ -171,6 +169,5 @@ export default function Ironlattice() {
           </div>
         </ScrollReveal>
       </DetailPage>
-    </>
   )
 }
