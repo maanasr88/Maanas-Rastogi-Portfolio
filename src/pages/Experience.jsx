@@ -7,6 +7,7 @@ const projects = [
   {
     icon: <IconChip />,
     image: img('/images/ironlattice/hank-cover.svg'),
+    status: 'in-progress',
     title: 'Gator Memory™ FeFET Device Validation',
     description: 'Ironlattice: simulation pipelines modeling 1-FeFET superlattice device physics and array-level SPICE behavior for a 40 nm node roadmap.',
     to: '/experience/ironlattice',

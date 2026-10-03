@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import ScrollReveal from './ScrollReveal'
+import StatusBadge from './StatusBadge'
 
-export default function ProjectCard({ icon, image, imageStyle, tag, title, description, to, delay = 0 }) {
+export default function ProjectCard({ icon, image, imageStyle, tag, status, title, description, to, delay = 0 }) {
   const inner = (
     <div className="card project-card" style={{ cursor: to ? 'pointer' : 'default' }}>
       <div className="project-card-img-wrap">
@@ -19,7 +20,12 @@ export default function ProjectCard({ icon, image, imageStyle, tag, title, descr
         )}
       </div>
       <div className="project-card-body">
-        {tag && <div className="project-card-tag">{tag}</div>}
+        {(tag || status) && (
+          <div className="project-card-tag-row">
+            {tag && <span className="project-card-tag">{tag}</span>}
+            <StatusBadge status={status} />
+          </div>
+        )}
         <h3 className="project-card-title">{title}</h3>
         {description && <p className="project-card-desc">{description}</p>}
         {to && (

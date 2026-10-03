@@ -1,66 +1,66 @@
 <svg viewBox="0 0 1600 1000" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
 <rect width="1600" height="1000" fill="#0a0a0c"/>
 <defs>
-<radialGradient id="susBgGlow" cx="45%" cy="45%" r="70%"><stop offset="0%" stop-color="#4682B4" stop-opacity="0.14"/><stop offset="100%" stop-color="#4682B4" stop-opacity="0"/></radialGradient>
+<radialGradient id="susBgGlow" cx="45%" cy="45%" r="70%"><stop offset="0%" stop-color="#BF5700" stop-opacity="0.14"/><stop offset="100%" stop-color="#BF5700" stop-opacity="0"/></radialGradient>
 </defs>
 <rect width="1600" height="1000" fill="url(#susBgGlow)"/>
 
 <!-- chassis / frame rail mounts -->
-<rect x="90" y="120" width="340" height="56" rx="4" fill="#15222f" stroke="#4682B4" stroke-width="2"/>
+<rect x="90" y="120" width="340" height="56" rx="4" fill="#1f130c" stroke="#BF5700" stroke-width="2"/>
 <g stroke="#2a3a4a" stroke-width="1">
 <line x1="120" y1="120" x2="120" y2="176"/><line x1="160" y1="120" x2="160" y2="176"/><line x1="200" y1="120" x2="200" y2="176"/><line x1="240" y1="120" x2="240" y2="176"/><line x1="280" y1="120" x2="280" y2="176"/><line x1="320" y1="120" x2="320" y2="176"/><line x1="360" y1="120" x2="360" y2="176"/><line x1="400" y1="120" x2="400" y2="176"/>
 </g>
-<rect x="90" y="560" width="340" height="56" rx="4" fill="#15222f" stroke="#4682B4" stroke-width="2"/>
+<rect x="90" y="560" width="340" height="56" rx="4" fill="#1f130c" stroke="#BF5700" stroke-width="2"/>
 <g stroke="#2a3a4a" stroke-width="1">
 <line x1="120" y1="560" x2="120" y2="616"/><line x1="160" y1="560" x2="160" y2="616"/><line x1="200" y1="560" x2="200" y2="616"/><line x1="240" y1="560" x2="240" y2="616"/><line x1="280" y1="560" x2="280" y2="616"/><line x1="320" y1="560" x2="320" y2="616"/><line x1="360" y1="560" x2="360" y2="616"/><line x1="400" y1="560" x2="400" y2="616"/>
 </g>
 
 <!-- upper control arm (A-arm): two chassis pivots converging to upright pivot -->
-<polygon points="260,130 260,170 760,330 760,300" fill="#24435c" stroke="#5b9fd4" stroke-width="2"/>
-<circle cx="260" cy="150" r="9" fill="#0d1218" stroke="#dce8f5" stroke-width="2.5"/>
-<circle cx="760" cy="315" r="11" fill="#0d1218" stroke="#dce8f5" stroke-width="2.5"/>
+<polygon points="260,130 260,170 760,330 760,300" fill="#3a1f0f" stroke="#F8971F" stroke-width="2"/>
+<circle cx="260" cy="150" r="9" fill="#0d1218" stroke="#FDE8D5" stroke-width="2.5"/>
+<circle cx="760" cy="315" r="11" fill="#0d1218" stroke="#FDE8D5" stroke-width="2.5"/>
 
 <!-- lower control arm (A-arm), wider stance -->
-<polygon points="260,570 260,606 780,630 780,595" fill="#2f6690" stroke="#5b9fd4" stroke-width="2"/>
-<circle cx="260" cy="588" r="9" fill="#0d1218" stroke="#dce8f5" stroke-width="2.5"/>
-<circle cx="780" cy="612" r="11" fill="#0d1218" stroke="#dce8f5" stroke-width="2.5"/>
+<polygon points="260,570 260,606 780,630 780,595" fill="#8a3d00" stroke="#F8971F" stroke-width="2"/>
+<circle cx="260" cy="588" r="9" fill="#0d1218" stroke="#FDE8D5" stroke-width="2.5"/>
+<circle cx="780" cy="612" r="11" fill="#0d1218" stroke="#FDE8D5" stroke-width="2.5"/>
 
 <!-- wheel hub + tire (drawn before the shock/sensor so those read as the inboard assembly) -->
 <circle cx="960" cy="463" r="230" fill="none" stroke="#2a3a4a" stroke-width="26"/>
 <circle cx="960" cy="463" r="230" fill="none" stroke="#1c2a36" stroke-width="2"/>
-<circle cx="960" cy="463" r="150" fill="#11161c" stroke="#4682B4" stroke-width="2" stroke-opacity="0.5"/>
+<circle cx="960" cy="463" r="150" fill="#11161c" stroke="#BF5700" stroke-width="2" stroke-opacity="0.5"/>
 
 <!-- upright / knuckle -->
-<rect x="748" y="315" width="40" height="297" rx="6" fill="#3f78a8" stroke="#5b9fd4" stroke-width="2"/>
-<circle cx="768" cy="463" r="14" fill="#dce8f5" stroke="#5b9fd4" stroke-width="2"/>
-<line x1="748" y1="463" x2="788" y2="463" stroke="#5b9fd4" stroke-width="3"/>
+<rect x="748" y="315" width="40" height="297" rx="6" fill="#A64B00" stroke="#F8971F" stroke-width="2"/>
+<circle cx="768" cy="463" r="14" fill="#FDE8D5" stroke="#F8971F" stroke-width="2"/>
+<line x1="748" y1="463" x2="788" y2="463" stroke="#F8971F" stroke-width="3"/>
 
 <!-- coil-over shock: spring segment (dashed = coil winding) + solid body segment, one straight member -->
-<line x1="1000" y1="140" x2="916" y2="333" stroke="#8fa8bd" stroke-width="14" stroke-linecap="round" stroke-dasharray="3 9"/>
+<line x1="1000" y1="140" x2="916" y2="333" stroke="#c9926b" stroke-width="14" stroke-linecap="round" stroke-dasharray="3 9"/>
 <line x1="916" y1="333" x2="800" y2="600" stroke="#2a3a4a" stroke-width="24" stroke-linecap="round"/>
-<line x1="916" y1="333" x2="800" y2="600" stroke="#5b9fd4" stroke-width="5" stroke-linecap="round" opacity="0.8"/>
-<rect x="987" y="127" width="26" height="26" rx="4" fill="#0d1218" stroke="#dce8f5" stroke-width="2"/>
-<rect x="787" y="587" width="26" height="26" rx="4" fill="#0d1218" stroke="#dce8f5" stroke-width="2"/>
+<line x1="916" y1="333" x2="800" y2="600" stroke="#F8971F" stroke-width="5" stroke-linecap="round" opacity="0.8"/>
+<rect x="987" y="127" width="26" height="26" rx="4" fill="#0d1218" stroke="#FDE8D5" stroke-width="2"/>
+<rect x="787" y="587" width="26" height="26" rx="4" fill="#0d1218" stroke="#FDE8D5" stroke-width="2"/>
 
 <!-- suspension position sensor: slim parallel linear-potentiometer capsule -->
-<line x1="1080" y1="150" x2="880" y2="610" stroke="#17222c" stroke-width="12" stroke-linecap="round"/>
-<line x1="1080" y1="150" x2="880" y2="610" stroke="#dce8f5" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
-<rect x="1067" y="137" width="26" height="26" rx="4" fill="#0d1218" stroke="#dce8f5" stroke-width="2"/>
-<rect x="867" y="597" width="26" height="26" rx="4" fill="#0d1218" stroke="#dce8f5" stroke-width="2"/>
-<circle cx="980" cy="380" r="7" fill="#dce8f5"/>
-<circle cx="980" cy="380" r="18" fill="#5b9fd4" opacity="0.4"/>
+<line x1="1080" y1="150" x2="880" y2="610" stroke="#1a1108" stroke-width="12" stroke-linecap="round"/>
+<line x1="1080" y1="150" x2="880" y2="610" stroke="#FDE8D5" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+<rect x="1067" y="137" width="26" height="26" rx="4" fill="#0d1218" stroke="#FDE8D5" stroke-width="2"/>
+<rect x="867" y="597" width="26" height="26" rx="4" fill="#0d1218" stroke="#FDE8D5" stroke-width="2"/>
+<circle cx="980" cy="380" r="7" fill="#FDE8D5"/>
+<circle cx="980" cy="380" r="18" fill="#F8971F" opacity="0.4"/>
 
 <!-- labels with leader lines -->
-<g font-size="22" fill="#dce8f5" font-weight="700">
+<g font-size="22" fill="#FDE8D5" font-weight="700">
 <text x="60" y="108">Chassis / Frame Rail</text>
 <text x="820" y="235">Upper Control Arm</text>
 <text x="850" y="700">Lower Control Arm (A-arm)</text>
 <text x="1030" y="95">Coil-over Shock &amp; Spring</text>
-<text x="1060" y="760" fill="#8fc1e8">Suspension Position Sensor</text>
-<text x="1060" y="788" font-size="17" fill="#8fc1e8" font-weight="400">Linear potentiometer, travel &#8733; wheel displacement</text>
-<text x="880" y="920" font-size="17" fill="#6b8299" font-weight="400">Wheel hub / upright</text>
+<text x="1060" y="760" fill="#FFBE80">Suspension Position Sensor</text>
+<text x="1060" y="788" font-size="17" fill="#FFBE80" font-weight="400">Linear potentiometer, travel &#8733; wheel displacement</text>
+<text x="880" y="920" font-size="17" fill="#8a6a52" font-weight="400">Wheel hub / upright</text>
 </g>
-<g stroke="#4682B4" stroke-width="1.5" opacity="0.6">
+<g stroke="#BF5700" stroke-width="1.5" opacity="0.6">
 <line x1="818" y1="222" x2="762" y2="305"/>
 <line x1="848" y1="685" x2="782" y2="618"/>
 <line x1="1028" y1="108" x2="958" y2="230"/>

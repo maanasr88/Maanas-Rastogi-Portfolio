@@ -471,6 +471,7 @@ export default function VlsiRiscV() {
         backTo="/projects"
         backLabel="Personal Projects"
         tag="Personal Project · VLSI / Digital Design"
+        status="in-progress"
         title="32-bit Custom RISC-V Processor — RTL to Physical Layout"
         heroImage={img('/images/vlsi-risc-v/die-layout-cover.svg')}
         software={['Verilog', 'Vivado', 'OpenROAD']}

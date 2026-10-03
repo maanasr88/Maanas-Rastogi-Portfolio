@@ -7,6 +7,7 @@ const projects = [
   {
     icon: <IconChip />,
     image: img('/images/vlsi-risc-v/die-layout-cover.svg'),
+    status: 'in-progress',
     title: '32-bit Custom RISC-V Processor',
     description: 'Full-stack ASIC development flow from architectural spec to physical layout: Verilog RTL in Vivado, hardened to silicon via OpenROAD.',
     to: '/projects/vlsi-risc-v',
@@ -14,6 +15,7 @@ const projects = [
   {
     icon: <IconHelmet />,
     image: img('/images/helmet-hud/trial-unit-backside.webp'),
+    status: 'hiatus',
     title: 'Motorcycle Helmet HUD',
     description: 'Raspberry Pi Android Auto head unit with a prism-based optical display, sub-100 ms latency, and 4+ hours of embedded runtime.',
     to: '/projects/helmet-hud',
