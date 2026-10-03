@@ -3,6 +3,7 @@ import ScrollReveal from '../../../components/ScrollReveal'
 import DataTable from '../../../components/DataTable'
 import { IconSuspension } from '../../../components/Icons'
 import BajaSensorMap from '../../../components/BajaSensorMap'
+import img from '../../../img'
 
 export default function SuspensionPositionSensor() {
   return (
@@ -26,6 +27,15 @@ export default function SuspensionPositionSensor() {
             to travel distance that the ESP32's ADC can sample directly. Mounted between the chassis and
             a moving suspension member near the shock, it logs lap-by-lap suspension travel, bottom-out
             events, and motion frequency.
+          </p>
+          <img
+            src={img('/images/baja-racing/suspension/suspension-assembly-diagram.svg')}
+            alt="Labeled diagram of a double-wishbone suspension assembly, showing the upper and lower control arms, coil-over shock and spring, wheel upright, and the suspension position sensor mounted parallel to the shock"
+            className="project-image-single"
+          />
+          <p style={{ marginTop: 8, fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+            Illustrative diagram of the double-wishbone layout the sensor mounts into, running parallel
+            to the coil-over shock between the chassis and the lower control arm.
           </p>
           <BajaSensorMap highlight={5} />
         </div>
@@ -63,6 +73,11 @@ export default function SuspensionPositionSensor() {
             converter stages feeding the potentiometer and the ESP32's 12-bit ADC, which firmware then
             converts into a physical travel distance calibrated against known suspension positions.
           </p>
+          <img
+            src={img('/images/baja-racing/suspension/sensor-electrical-chain.svg')}
+            alt="Block diagram of the sensor's power and signal chain: 12V vehicle rail into a 12V-to-5V buck converter, then a 5V-to-3.3V buck converter, into the linear potentiometer, into the ESP32's 12-bit ADC"
+            className="project-image-single"
+          />
         </div>
       </ScrollReveal>
 

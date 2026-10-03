@@ -17,13 +17,13 @@ const toc = [
 ]
 
 const subsystems = [
-  { to: '/team/baja-racing/fuel-level-indicator',       title: 'Fuel Level Indicator',          desc: 'Turbine flow meter with a built-in Hall-effect sensor, measuring consumption without modifying the fuel tank.' },
-  { to: '/team/baja-racing/rpm-sensor',                  title: 'RPM Sensor',                    desc: 'Contactless Hall-effect wheel-speed sensing rated to ±2% accuracy from 0–2,000 RPM.' },
-  { to: '/team/baja-racing/engine-temperature-sensing',  title: 'Engine Temperature Sensing',     desc: 'Redundant RTD array read through MAX31865 breakouts, with threshold-based driver warnings.' },
-  { to: '/team/baja-racing/imu-gps',                     title: 'IMU / GPS Vehicle Tracking',     desc: 'Kalman-filtered IMU + GPS fusion to track vehicle position, acceleration, and driver response.' },
-  { to: '/team/baja-racing/driver-input-telemetry',      title: 'Driver Input Telemetry',         desc: 'Pedal-box potentiometer and CAN bus module logging throttle and brake activity in real time.' },
-  { to: '/team/baja-racing/suspension-position-sensor',  title: 'Suspension Position Sensor',     desc: 'Linear potentiometer travel sensing for a semi-active suspension, accurate to ±10mm.' },
-  { to: '/team/baja-racing/telemetry-link',              title: 'Wireless Telemetry Link',        desc: '915 MHz LoRa radio link carrying sensor data from the car to a pit-side dashboard.' },
+  { to: '/team/baja-racing/fuel-level-indicator',       title: 'Fuel Level Indicator',          desc: 'Turbine flow meter with a built-in Hall-effect sensor, measuring consumption without modifying the fuel tank.', image: img('/images/baja-racing/fuel-level/turbine-flow-meter.jpg') },
+  { to: '/team/baja-racing/rpm-sensor',                  title: 'RPM Sensor',                    desc: 'Contactless Hall-effect wheel-speed sensing rated to ±2% accuracy from 0–2,000 RPM.', image: img('/images/baja-racing/rpm-sensor/hall-effect-circuit.jpg') },
+  { to: '/team/baja-racing/engine-temperature-sensing',  title: 'Engine Temperature Sensing',     desc: 'Redundant RTD array read through MAX31865 breakouts, with threshold-based driver warnings.', image: img('/images/baja-racing/engine-temp/esp32-rtd-wiring.jpg') },
+  { to: '/team/baja-racing/imu-gps',                     title: 'IMU / GPS Vehicle Tracking',     desc: 'Kalman-filtered IMU + GPS fusion to track vehicle position, acceleration, and driver response.', image: img('/images/baja-racing/imu-gps/wiring-diagram.jpg') },
+  { to: '/team/baja-racing/driver-input-telemetry',      title: 'Driver Input Telemetry',         desc: 'Pedal-box potentiometer and CAN bus module logging throttle and brake activity in real time.', image: img('/images/baja-racing/driver-inputs/system-wiring.jpg') },
+  { to: '/team/baja-racing/suspension-position-sensor',  title: 'Suspension Position Sensor',     desc: 'Linear potentiometer travel sensing for a semi-active suspension, accurate to ±10mm.', image: img('/images/baja-racing/suspension/suspension-assembly-diagram.svg') },
+  { to: '/team/baja-racing/telemetry-link',              title: 'Wireless Telemetry Link',        desc: '915 MHz LoRa radio link carrying sensor data from the car to a pit-side dashboard.', image: img('/images/baja-racing/telemetry/signal-flow.jpg') },
 ]
 
 const specs = [
@@ -102,11 +102,16 @@ export default function BajaRacing() {
             <div className="baja-subprojects-grid">
               {subsystems.map(s => (
                 <Link key={s.to} to={s.to} className="baja-sub-card">
-                  <div className="baja-sub-card-title-row">
-                    <span className="baja-sub-card-title">{s.title}</span>
+                  <div className="baja-sub-card-img-wrap">
+                    <img src={s.image} alt="" loading="lazy" className="baja-sub-card-img" />
                   </div>
-                  <p className="baja-sub-card-desc">{s.desc}</p>
-                  <span className="baja-sub-card-cta">View Research →</span>
+                  <div className="baja-sub-card-body">
+                    <div className="baja-sub-card-title-row">
+                      <span className="baja-sub-card-title">{s.title}</span>
+                    </div>
+                    <p className="baja-sub-card-desc">{s.desc}</p>
+                    <span className="baja-sub-card-cta">View Research →</span>
+                  </div>
                 </Link>
               ))}
             </div>

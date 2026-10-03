@@ -1,0 +1,53 @@
+<svg viewBox="0 0 1600 420" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+<rect width="1600" height="420" fill="#0a0a0c"/>
+<defs>
+<marker id="susArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#5b9fd4"/>
+</marker>
+</defs>
+
+<!-- 12V rail -->
+<rect x="40" y="160" width="190" height="100" rx="8" fill="#15222f" stroke="#4682B4" stroke-width="2"/>
+<text x="135" y="205" text-anchor="middle" font-size="22" font-weight="700" fill="#dce8f5">12V</text>
+<text x="135" y="230" text-anchor="middle" font-size="15" fill="#8fa8bd">Vehicle Rail</text>
+
+<line x1="230" y1="210" x2="330" y2="210" stroke="#5b9fd4" stroke-width="2.5" marker-end="url(#susArrow)"/>
+
+<!-- buck converter 1 -->
+<rect x="340" y="150" width="220" height="120" rx="8" fill="#15222f" stroke="#4682B4" stroke-width="2"/>
+<text x="450" y="200" text-anchor="middle" font-size="19" font-weight="700" fill="#dce8f5">Buck Converter</text>
+<text x="450" y="226" text-anchor="middle" font-size="22" font-weight="700" fill="#5b9fd4">12V &#8594; 5V</text>
+<text x="450" y="252" text-anchor="middle" font-size="14" fill="#8fa8bd">Stage 1</text>
+
+<line x1="560" y1="210" x2="660" y2="210" stroke="#5b9fd4" stroke-width="2.5" marker-end="url(#susArrow)"/>
+
+<!-- buck converter 2 -->
+<rect x="670" y="150" width="220" height="120" rx="8" fill="#15222f" stroke="#4682B4" stroke-width="2"/>
+<text x="780" y="200" text-anchor="middle" font-size="19" font-weight="700" fill="#dce8f5">Buck Converter</text>
+<text x="780" y="226" text-anchor="middle" font-size="22" font-weight="700" fill="#5b9fd4">5V &#8594; 3.3V</text>
+<text x="780" y="252" text-anchor="middle" font-size="14" fill="#8fa8bd">Stage 2</text>
+
+<line x1="890" y1="210" x2="990" y2="210" stroke="#5b9fd4" stroke-width="2.5" marker-end="url(#susArrow)"/>
+
+<!-- linear potentiometer -->
+<rect x="1000" y="140" width="250" height="140" rx="8" fill="#15222f" stroke="#dce8f5" stroke-width="2"/>
+<text x="1125" y="178" text-anchor="middle" font-size="18" font-weight="700" fill="#dce8f5">Linear Potentiometer</text>
+<rect x="1030" y="200" width="190" height="10" fill="#2a3a4a"/>
+<rect x="1030" y="200" width="100" height="10" fill="#5b9fd4"/>
+<rect x="1118" y="190" width="14" height="30" rx="3" fill="#dce8f5"/>
+<text x="1125" y="252" text-anchor="middle" font-size="14" fill="#8fa8bd">wiper &#8594; travel-proportional V</text>
+
+<path d="M 1250 210 Q 1290 210 1290 210" stroke="#5b9fd4" stroke-width="2.5" fill="none"/>
+<line x1="1290" y1="210" x2="1370" y2="210" stroke="#5b9fd4" stroke-width="2.5" marker-end="url(#susArrow)"/>
+
+<!-- ESP32 ADC -->
+<rect x="1380" y="130" width="190" height="160" rx="8" fill="#15222f" stroke="#4682B4" stroke-width="2"/>
+<text x="1475" y="175" text-anchor="middle" font-size="18" font-weight="700" fill="#dce8f5">ESP32</text>
+<text x="1475" y="200" text-anchor="middle" font-size="15" fill="#8fa8bd">12-bit ADC</text>
+<text x="1475" y="226" text-anchor="middle" font-size="14" fill="#8fa8bd">0&#8211;3.3V in</text>
+<circle cx="1475" cy="255" r="10" fill="#5b9fd4" opacity="0.4"/>
+<circle cx="1475" cy="255" r="4" fill="#dce8f5"/>
+
+<text x="800" y="60" text-anchor="middle" font-size="22" font-weight="700" fill="#dce8f5">Suspension Sensor — Power &amp; Signal Chain</text>
+<text x="800" y="360" text-anchor="middle" font-size="15" fill="#6b8299">12V vehicle rail is stepped down in two stages so the potentiometer's wiper output stays within the ADC's 0&#8211;3.3V input range.</text>
+</svg>
