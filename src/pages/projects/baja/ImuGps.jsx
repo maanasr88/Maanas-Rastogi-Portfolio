@@ -1,7 +1,6 @@
 import DetailPage from '../../../components/DetailPage'
 import ScrollReveal from '../../../components/ScrollReveal'
 import DataTable from '../../../components/DataTable'
-import StickyTOC from '../../../components/StickyTOC'
 import { IconSatellite } from '../../../components/Icons'
 import img from '../../../img'
 import BajaSensorMap from '../../../components/BajaSensorMap'
@@ -15,9 +14,8 @@ const toc = [
 
 export default function ImuGps() {
   return (
-    <>
-      <StickyTOC sections={toc} />
-      <DetailPage
+    <DetailPage
+        toc={toc}
         backTo="/team/baja-racing"
         backLabel="Longhorn Baja Racing"
         tag="Baja GM-Electronics Research · Sensor Suite"
@@ -114,6 +112,5 @@ export default function ImuGps() {
           </div>
         </ScrollReveal>
       </DetailPage>
-    </>
   )
 }

@@ -14,7 +14,7 @@ const projects = [
   },
   {
     icon: <IconDroneArm />,
-    image: img('/images/neurotech/wheelchair-cover.svg'),
+    image: img('/images/neurotech/wheelchair-render-cover.jpg'),
     title: 'Longhorn Neurotech — Manufacturing/Design Lead',
     description: 'Directed a team of 5 engineers on the LHNT electric wheelchair: joystick, EEG, and ultrasonic sensor fusion on an ESP32, plus the motor/drivetrain and electronics mounting.',
     to: '/team/neurotech',

@@ -18,8 +18,8 @@ export default function StickyTOC({ sections }) {
   }, [sections])
 
   return (
-    <nav className="sticky-toc">
-      <div className="sticky-toc-label">On this page</div>
+    <nav className="sidebar-card sticky-toc">
+      <h4>On This Page</h4>
       {sections.map(({ id, label }) => (
         <a
           key={id}

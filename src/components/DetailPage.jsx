@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import { PillGroup } from './PillBadge'
+import StickyTOC from './StickyTOC'
 
-export default function DetailPage({ backTo, backLabel, tag, title, icon, heroImage, heroStyle, software, roles, children }) {
+export default function DetailPage({ backTo, backLabel, tag, title, icon, heroImage, heroStyle, software, roles, toc, children }) {
   return (
     <div className="project-detail">
       {heroImage ? (
@@ -46,6 +47,7 @@ export default function DetailPage({ backTo, backLabel, tag, title, icon, heroIm
             {children}
           </div>
           <aside className="detail-sidebar">
+            {toc && toc.length > 0 && <StickyTOC sections={toc} />}
             {software && software.length > 0 && (
               <div className="sidebar-card">
                 <h4>Software &amp; Skills</h4>

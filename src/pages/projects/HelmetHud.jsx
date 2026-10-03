@@ -1,7 +1,6 @@
 import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
-import StickyTOC from '../../components/StickyTOC'
 import { IconHelmet } from '../../components/Icons'
 import img from '../../img'
 
@@ -22,9 +21,8 @@ const specs = [
 
 export default function HelmetHud() {
   return (
-    <>
-      <StickyTOC sections={toc} />
-      <DetailPage
+    <DetailPage
+        toc={toc}
         backTo="/projects"
         backLabel="Personal Projects"
         tag="Personal Project · Embedded Systems / Optics"
@@ -111,6 +109,5 @@ export default function HelmetHud() {
           </div>
         </ScrollReveal>
       </DetailPage>
-    </>
   )
 }

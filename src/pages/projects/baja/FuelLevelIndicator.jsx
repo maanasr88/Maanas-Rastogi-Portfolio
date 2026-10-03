@@ -1,6 +1,5 @@
 import DetailPage from '../../../components/DetailPage'
 import ScrollReveal from '../../../components/ScrollReveal'
-import StickyTOC from '../../../components/StickyTOC'
 import DataTable from '../../../components/DataTable'
 import { IconFuel } from '../../../components/Icons'
 import img from '../../../img'
@@ -16,9 +15,8 @@ const toc = [
 
 export default function FuelLevelIndicator() {
   return (
-    <>
-      <StickyTOC sections={toc} />
-      <DetailPage
+    <DetailPage
+        toc={toc}
         backTo="/team/baja-racing"
         backLabel="Longhorn Baja Racing"
         tag="Baja GM-Electronics Research · Sensor Suite"
@@ -168,6 +166,5 @@ export default function FuelLevelIndicator() {
           </div>
         </ScrollReveal>
       </DetailPage>
-    </>
   )
 }

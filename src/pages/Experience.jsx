@@ -6,14 +6,14 @@ import img from '../img'
 const projects = [
   {
     icon: <IconChip />,
-    image: img('/images/ironlattice/gate-stack-cover.svg'),
+    image: img('/images/ironlattice/hank-cover.svg'),
     title: 'Gator Memory™ FeFET Device Validation',
     description: 'Ironlattice: simulation pipelines modeling 1-FeFET superlattice device physics and array-level SPICE behavior for a 40 nm node roadmap.',
     to: '/experience/ironlattice',
   },
   {
     icon: <IconQuantum />,
-    image: img('/images/quantum-computing/chip-lattice-cover.svg'),
+    image: img('/images/quantum-computing/chiplet-render-cover.jpg'),
     title: 'Surface-Code Simulation for Modular Quantum Processors',
     description: 'UT Austin: 100,000+ Monte Carlo simulations quantifying logical error scaling across chiplet-based quantum processors.',
     to: '/experience/quantum-computing',

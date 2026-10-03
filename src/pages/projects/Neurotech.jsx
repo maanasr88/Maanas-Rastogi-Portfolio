@@ -2,7 +2,6 @@ import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
 import DataTable from '../../components/DataTable'
-import StickyTOC from '../../components/StickyTOC'
 import img from '../../img'
 
 const toc = [
@@ -25,9 +24,8 @@ const specs = [
 
 export default function Neurotech() {
   return (
-    <>
-      <StickyTOC sections={toc} />
-      <DetailPage
+    <DetailPage
+        toc={toc}
         backTo="/team"
         backLabel="Team Projects"
         tag="Longhorn Neurotech · Aug 2024 – Aug 2026"
@@ -325,6 +323,5 @@ export default function Neurotech() {
           </div>
         </ScrollReveal>
       </DetailPage>
-    </>
   )
 }

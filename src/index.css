@@ -2679,62 +2679,39 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ===== STICKY TOC =====
-   Positioned in the page's outer margin, outside the 1200px container, so it
-   never overlaps the detail-sidebar. The container's margin on each side is
-   (100vw - 1200px) / 2; `right` is set to stay inside that margin with a
-   constant 24px gap from the container edge (reserving ~210px for the widest
-   TOC label). Only shown once the viewport is wide enough for that margin to
-   actually fit the TOC without touching the sidebar. */
+   Lives in-flow as the first card in .detail-sidebar, so it scrolls and
+   sticks together with the Software/Roles cards and can never overlap the
+   page content at any viewport width. Long labels wrap onto a second line
+   instead of being forced onto one (which is what caused them to overflow
+   their box at some widths previously). */
 .sticky-toc {
-  display: none;
-  position: fixed;
-  right: calc((100vw - 1200px) / 2 - 234px);
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 200;
+  display: flex;
   flex-direction: column;
-  gap: 4px;
-  align-items: flex-end;
-}
-
-@media (min-width: 1700px) {
-  .sticky-toc {
-    display: flex;
-  }
-}
-
-.sticky-toc-label {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 8px;
-  text-align: right;
+  gap: 2px;
 }
 
 .sticky-toc-item {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 500;
   color: var(--text-muted);
-  text-align: right;
-  padding: 4px 8px;
-  border-right: 2px solid transparent;
-  border-radius: 2px 0 0 2px;
-  transition: color var(--transition), border-color var(--transition);
+  padding: 7px 10px;
+  border-left: 2px solid transparent;
+  border-radius: 0 3px 3px 0;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
   text-decoration: none;
-  white-space: nowrap;
+  line-height: 1.4;
 }
 
 .sticky-toc-item:hover {
   color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .sticky-toc-item.active {
   color: var(--accent-light);
-  border-right-color: var(--accent-light);
+  border-left-color: var(--accent-light);
+  background: var(--accent-dim);
   font-weight: 600;
 }
 
