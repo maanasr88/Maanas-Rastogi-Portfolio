@@ -78,15 +78,7 @@ export default function RoboticsSociety() {
               Stampede is UT Austin's RoboMaster team, competing in RoboMaster North America, an
               esports-robotics fusion where custom-built robots fight in physical arenas in
               shooter-style gamemodes against collegiate teams from the U.S., Canada, Europe, and Japan.
-              We launched in 2021 and found our stride quickly, taking 4th place among 16 competitors in
-              our first University League competition. By the 2023-24 season, with the field grown to
-              25+ of the best university teams in the world, we fought our way to a Top 8 finish.
             </p>
-            <img
-              src={img('/images/robotics-society/stampede-team-photo.jpg')}
-              alt="The Stampede team posing with their RoboMaster robots after a competition"
-              className="project-image-single"
-            />
           </div>
         </ScrollReveal>
 

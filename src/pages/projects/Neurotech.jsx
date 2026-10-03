@@ -6,18 +6,21 @@ import StickyTOC from '../../components/StickyTOC'
 import img from '../../img'
 
 const toc = [
-  { id: 'overview',   label: 'Overview' },
-  { id: 'components', label: 'Mounting & Enclosures' },
-  { id: 'motor',      label: 'Motor & Drivetrain' },
-  { id: 'drone',      label: 'Drone Motor Control' },
-  { id: 'learned',    label: 'What I Learned' },
+  { id: 'overview',     label: 'Overview' },
+  { id: 'architecture', label: 'System Architecture' },
+  { id: 'manual',       label: 'Manual Input & Mounting' },
+  { id: 'sensing',      label: 'Neural & Spatial Sensing' },
+  { id: 'power',        label: 'Power System & Safety' },
+  { id: 'drivetrain',   label: 'Motor Driver & Drivetrain' },
+  { id: 'drone',        label: 'Drone Motor Control' },
+  { id: 'learned',      label: 'What I Learned' },
 ]
 
 const specs = [
   { value: '5',      label: 'Engineers Directed' },
-  { value: '250 lb',  label: 'Wheelchair Platform' },
-  { value: '30%',     label: 'Faster Integration' },
-  { value: '10 ms',   label: 'Motor Control Latency' },
+  { value: '80 lbs', label: 'Target Chassis Weight' },
+  { value: '20 ms',  label: 'Wireless Control Latency' },
+  { value: '30%',    label: 'Faster Integration' },
 ]
 
 export default function Neurotech() {
@@ -28,10 +31,9 @@ export default function Neurotech() {
         backTo="/team"
         backLabel="Team Projects"
         tag="Longhorn Neurotech · Aug 2024 – Aug 2026"
-        title="Modular Electronics Mounting for an Assistive Wheelchair Platform"
-        heroImage={img('/images/neurotech/electronics-tray.jpg')}
-        heroStyle={{ backgroundPosition: 'center 55%' }}
-        software={['Mechanical/Electrical Integration', 'SolidWorks FEA', 'Motor Control', 'Team Leadership']}
+        title="LHNT Electric Wheelchair — Control System & Electronics Integration"
+        heroImage={img('/images/neurotech/wheelchair-cover.svg')}
+        software={['Mechanical/Electrical Integration', 'SolidWorks FEA', 'ESP32 / Embedded C', 'Team Leadership']}
         roles={['Manufacturing/Design Lead']}
       >
         <ScrollReveal>
@@ -39,12 +41,15 @@ export default function Neurotech() {
             <h3>Overview</h3>
             <p>
               As Manufacturing/Design Lead at Longhorn Neurotech, I directed a team of 5 engineers
-              developing modular electronics mounting systems for a 250-lb electric-powered wheelchair.
-              The scope covered everything from the joystick housing and arm-mounted controls down to
-              the drivetrain: a laser-cut electronics tray, 3D-printed enclosures, and a redesigned motor
-              mount validated with FEA before going on the chair. The modular approach meant hardware
-              could be swapped or upgraded without re-engineering the whole platform, which cut hardware
-              integration time by 30%.
+              designing the propulsion and control electronics for the LHNT electric wheelchair, an
+              assistive mobility platform built for users with severe neuromuscular impairments. Most
+              medical brain-computer-interface wheelchairs rely on proprietary sensors that cost tens of
+              thousands of dollars; our goal was a responsive, secure platform built almost entirely from
+              affordable, off-the-shelf components instead, centered on an ESP32 that fuses a manual
+              joystick, a wireless EEG headset, and an ultrasonic sensor array into a single navigation
+              system. My own scope covered the mechanical integration &mdash; mounting hardware, the
+              electronics tray, and the motor/drivetrain &mdash; while coordinating with the team's
+              hardware-software implementation (HSI) group on the control logic that ties it together.
             </p>
           </div>
         </ScrollReveal>
@@ -54,15 +59,55 @@ export default function Neurotech() {
         </ScrollReveal>
 
         <ScrollReveal>
-          <div id="components" className="project-section">
-            <h3>Mounting &amp; Enclosures</h3>
+          <div id="architecture" className="project-section">
+            <h3>System Architecture</h3>
             <p>
-              Each control component on the chair got its own enclosure, designed to mount modularly to
-              the wheelchair's existing frame rather than requiring custom brackets for every part.
+              The control system takes in three input streams &mdash; manual joystick position, EEG
+              signals, and ultrasonic range data &mdash; and fuses them on an ESP32 before driving the
+              motor controller. An ADC digitizes the joystick's analog output, while the EEG headset and
+              ultrasonic sensors already transmit digital data directly to the microcontroller. Power is
+              tiered the same way the logic is: a 24V battery bank runs the motors directly and feeds two
+              buck converters that step down to 3.3V for the microcontroller and 5V for the motor
+              driver, so the high-current drivetrain rail never touches the sensitive logic supply
+              directly.
+            </p>
+            <img
+              src={img('/images/neurotech/system-architecture-diagram.png')}
+              alt="Wheelchair control system block diagram: joystick, EEG headset, and spatial sensors feed an ESP32 microcontroller powered by a tiered 24V/5V/3.3V supply, which drives a motor controller and brushed motors"
+              className="project-image-single"
+              style={{ background: '#fff' }}
+            />
+            <p style={{ marginTop: 16 }}>
+              Two constraints shaped every decision downstream of that diagram. First, the EEG and
+              ultrasonic streams run at different frequencies and had to be fused without introducing
+              navigational lag, which is why the ESP32's dual-core architecture splits neural signal
+              decoding onto its own core, in parallel with the drivetrain control loop. Second, safety
+              had to be deterministic rather than best-effort: a stop command from the ultrasonic array
+              must be able to override user intent immediately, not queue behind other traffic on the
+              same loop.
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <div id="manual" className="project-section">
+            <h3>Manual Input &amp; Mounting</h3>
+            <p>
+              The manual interface is a JH-D202X-R2 dual-axis potentiometer joystick. A 12-bit ADC
+              digitizes its output to a 0&ndash;4095 range, and the software applies a &plusmn;120-unit
+              deadzone around center so mechanical tolerance and electrical noise in the resting joystick
+              can't trigger the 250W motors on their own. Conditioned coordinates are packaged into a
+              single JoyPkt struct and broadcast over ESP-NOW, a connectionless wireless protocol chosen
+              specifically to skip the standard Wi-Fi handshake; that keeps the gap between user intent
+              and motor response to about 20 ms.
             </p>
 
             <h4 style={{ marginTop: 20, marginBottom: 8, fontSize: '1rem', color: 'var(--text-primary)' }}>Joystick Box</h4>
-            <p>A two-piece housing for the drive joystick, with an internal post that locates and secures the joystick module inside the shell.</p>
+            <p>
+              The joystick is secured inside a custom two-piece 3D-printed enclosure with an internal
+              post that locates and secures the potentiometer module, isolating its leads and analog
+              wiring from the vibration the geared motors put through the frame.
+            </p>
             <div className="project-image-grid">
               <img src={img('/images/neurotech/joystick-box-1.jpg')} alt="CAD render of the joystick box lower shell with mounting flanges" loading="lazy" style={{ background: '#fff' }} />
               <img src={img('/images/neurotech/joystick-box-2.jpg')} alt="CAD render of the joystick box upper cover" loading="lazy" style={{ background: '#fff' }} />
@@ -71,30 +116,14 @@ export default function Neurotech() {
             <h4 style={{ marginTop: 24, marginBottom: 8, fontSize: '1rem', color: 'var(--text-primary)' }}>Arm Extension &amp; Wheelchair Clasps</h4>
             <p>
               An L-shaped arm-extension bracket carries the joystick box out to a usable position for
-              the rider, while a separate clasp part clamps onto the wheelchair's tubular frame to
-              anchor it without drilling into the chair itself.
+              the rider, while a separate wrap-around clasp clamps onto the wheelchair's tubular armrest
+              rail to anchor it. The modular clamp allows the whole assembly to slide to a new position
+              along the frame without any permanent structural modification to the chair.
             </p>
             <div className="project-image-grid">
               <img src={img('/images/neurotech/arm-extension.jpg')} alt="CAD render of the L-shaped arm-extension mounting bracket" loading="lazy" style={{ background: '#fff' }} />
               <img src={img('/images/neurotech/wheelchair-clasp.jpg')} alt="CAD render of the wheelchair frame clasp" loading="lazy" style={{ background: '#fff' }} />
             </div>
-
-            <h4 style={{ marginTop: 24, marginBottom: 8, fontSize: '1rem', color: 'var(--text-primary)' }}>Electronics Tray</h4>
-            <p>
-              A laser-cut plywood tray holds the chair's electronic components, with a 3D-printed clasp
-              system (shown in orange/pink) that clamps the tray to the wheelchair frame.
-            </p>
-            <img
-              src={img('/images/neurotech/electronics-tray.jpg')}
-              alt="Laser-cut plywood electronics tray with a 3D-printed orange and pink clasp clamping it to the wheelchair frame"
-              className="project-image-single"
-              loading="lazy"
-            />
-            <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 1.9, fontSize: '0.95rem', marginTop: 12 }}>
-              <li>Laser-cut prototype of the tray to hold electronic components.</li>
-              <li>Designed a clasp system that clamps the tray to the wheelchair.</li>
-              <li>Next steps: CNC the tray to increase weight capacity, and add rubber inserts to reduce rotation.</li>
-            </ul>
 
             <h4 style={{ marginTop: 24, marginBottom: 8, fontSize: '1rem', color: 'var(--text-primary)' }}>ESP Case Design</h4>
             <p>A two-piece snap-fit enclosure for the ESP32 control board, keeping it protected while still accessible for wiring.</p>
@@ -106,11 +135,75 @@ export default function Neurotech() {
         </ScrollReveal>
 
         <ScrollReveal>
-          <div id="motor" className="project-section">
-            <h3>Motor &amp; Drivetrain Integration</h3>
+          <div id="sensing" className="project-section">
+            <h3>Neural &amp; Spatial Sensing</h3>
             <p>
-              The drivetrain is built around a MY1016Z-W DC gear motor, selected and specified against
-              the chair's target speed and torque requirements:
+              A wireless EEG headset detects microvolt-level scalp activity and transmits it to the ESP32
+              over Bluetooth, eliminating a physical tether between the headset and the chair. That
+              stream is decoded on its own ESP32 core precisely so high-bandwidth neural signal
+              processing can run in parallel with the drivetrain loop without introducing lag; further
+              refining that decoding into a fully seamless neural-control mode is the team's next phase
+              of work on top of this foundation.
+            </p>
+            <p>
+              Spatial awareness comes from a symmetrical array of four HC-SR04 ultrasonic sensors at the
+              corners of the frame, each emitting 40 kHz pulses to measure distance on both forward and
+              reverse maneuvers. That spatial data feeds a high-priority safety interrupt: if an object
+              crosses a predefined proximity threshold, a STOP command preempts whatever the user is
+              doing, which is the one case in the whole system where the software is deliberately allowed
+              to override driver intent.
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <div id="power" className="project-section">
+            <h3>Power System &amp; Safety</h3>
+            <p>
+              Two 24V 10Ah lithium batteries wired in parallel supply 20Ah of total capacity, enough
+              current headroom to run both drive motors simultaneously without exceeding the control
+              electronics' voltage limits. Buck converters bridge that 24V rail down to 3.3V for the
+              ESP32 and 5V for the motor driver logic. Three hardware fail-safes sit on top of that:
+              a 30A waterproof toggle switch for an immediate manual power-kill, and two 30A inline blade
+              fuses on the battery rails that break the circuit during a motor stall or short before it
+              can reach thermal runaway.
+            </p>
+            <p>
+              All of that sits in a laser-cut plywood electronics tray, mounted beneath the seat to keep
+              the system's center of gravity low. Wood was chosen deliberately: it insulates and damps
+              vibration without the weight of a metal enclosure, shielding the ESP32 and motor drivers
+              from the oscillation the geared motors put through the frame. A 3D-printed clasp system
+              (shown in orange/pink) clamps the tray to the chair without drilling into it.
+            </p>
+            <img
+              src={img('/images/neurotech/electronics-tray.jpg')}
+              alt="Laser-cut plywood electronics tray with a 3D-printed orange and pink clasp clamping it to the wheelchair frame"
+              className="project-image-single"
+              loading="lazy"
+            />
+            <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 1.9, fontSize: '0.95rem', marginTop: 12 }}>
+              <li>Laser-cut prototype of the tray to hold the battery, ESP32, and motor drivers.</li>
+              <li>3D-printed clasp system clamps the tray to the wheelchair frame without drilling.</li>
+              <li>Next steps: CNC the tray to increase weight capacity, and add rubber inserts to reduce rotation.</li>
+            </ul>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <div id="drivetrain" className="project-section">
+            <h3>Motor Driver &amp; Drivetrain</h3>
+            <p>
+              The ESP32's 3.3V logic can't directly energize the 250W drive motors, so a BTS7960 H-bridge
+              driver sits between them: four MOSFETs arranged in a bridge let the low-power PWM signal
+              from the microcontroller switch the much larger current flowing from the battery, while
+              also protecting the logic board from the motors' back-EMF. PWM runs at 20,000 Hz, both to
+              push the motor's acoustic signature above human hearing and to keep torque response linear
+              across the full duty cycle, and each driver carries its own aluminum heatsink to stay
+              thermally stable at that switching frequency.
+            </p>
+            <p>
+              The drivetrain itself is built around a MY1016Z-W DC gear motor, selected against the
+              chair's target speed and torque requirements:
             </p>
             <img
               src={img('/images/neurotech/motor-drawing-data.jpg')}
@@ -159,8 +252,9 @@ export default function Neurotech() {
 
             <h4 style={{ marginTop: 24, marginBottom: 8, fontSize: '1rem', color: 'var(--text-primary)' }}>Motor Mount Redesign</h4>
             <p>
-              The mount was originally designed to hold the motor in the middle, attached with C-clamps
-              on the vertical side of the wheelchair's frame bars.
+              The motors attach to the chassis through custom CNC-machined L-brackets. The first
+              iteration mounted the motor in the middle of a single flat plate, held on with C-clamps on
+              the frame's vertical bar.
             </p>
             <img
               src={img('/images/neurotech/motor-mount-cad.jpg')}
@@ -170,11 +264,11 @@ export default function Neurotech() {
               style={{ background: '#fff' }}
             />
             <p style={{ marginTop: 16 }}>
-              Upon testing with FEA, the original mount was found to be at risk of fracturing under the
-              motor's weight, since the design put all of that load through a single attachment plane.
-              The revised design instead uses two areas of attachment for the motor &mdash; the vertical
-              side and below the wheelchair &mdash; distributing the motor's weight more evenly across
-              the bracket.
+              FEA on that first design showed it was at risk of fracturing under the motor's weight,
+              since the single mounting plane concentrated all the load at one attachment point. The
+              revised L-bracket instead attaches at two points &mdash; the frame's vertical bar and the
+              bar underneath &mdash; distributing the motor's weight across both the vertical and lower
+              members of the chassis.
             </p>
             <img
               src={img('/images/neurotech/motor-mount-revised-cad.jpg')}
@@ -191,23 +285,13 @@ export default function Neurotech() {
               2.1×10⁴ N/m² against the material's 1.7×10⁸ N/m² yield strength &mdash; roughly four orders
               of magnitude of margin. A companion displacement plot shows resultant deflection on the
               order of 10⁻⁶ mm under the same load, confirming the bracket is effectively rigid at the
-              motor's actual operating loads.
+              motor's actual operating loads and keeps motor alignment stable during high-torque
+              maneuvers.
             </p>
             <div className="project-image-grid">
               <img src={img('/images/neurotech/fea-von-mises.jpg')} alt="SolidWorks von Mises stress plot on the motor mount bracket, showing peak stress of 2.122e4 N/m^2 against a yield strength of 1.724e8 N/m^2" loading="lazy" style={{ background: '#fff' }} />
               <img src={img('/images/neurotech/fea-displacement.jpg')} alt="SolidWorks resultant displacement plot on the motor mount bracket, showing deflection on the order of 1e-6 mm" loading="lazy" style={{ background: '#fff' }} />
             </div>
-            <img
-              src={img('/images/neurotech/motor-mounted-reference.jpg')}
-              alt="Reference photo of dual hub motors mounted beneath a similar wheelchair platform"
-              className="project-image-single"
-              loading="lazy"
-              style={{ marginTop: 16, maxHeight: 320, objectFit: 'contain' }}
-            />
-            <p style={{ marginTop: 8, fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-              Reference image illustrating how dual hub motors integrate beneath a wheelchair platform
-              of this type.
-            </p>
           </div>
         </ScrollReveal>
 
@@ -229,11 +313,13 @@ export default function Neurotech() {
             <h3>What I Learned</h3>
             <p>
               Leading a 5-person team on hardware meant for an assistive device raised the bar on
-              reliability in a way purely competitive projects don't: every mounting bracket and
-              connector has to hold up for a daily user, not just for one competition weekend. Running
-              the motor mount through FEA before committing to a redesign, rather than just reasoning
-              about it qualitatively, is the same habit that constraint instilled. It shaped both the
-              modular mounting design and how I structured reviews across the team.
+              reliability in a way purely competitive projects don't: every mounting bracket, wireless
+              link, and failsafe has to hold up for a daily user, not just for one competition weekend.
+              Running the motor mount through FEA before committing to a redesign, rather than just
+              reasoning about it qualitatively, is the same habit that constraint instilled, and it's the
+              same reason the safety-override logic was built to be deterministic rather than
+              best-effort. It shaped both the modular mounting design and how I structured reviews across
+              the team.
             </p>
           </div>
         </ScrollReveal>
