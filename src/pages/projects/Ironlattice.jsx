@@ -6,6 +6,7 @@ import img from '../../img'
 
 const toc = [
   { id: 'overview',     label: 'Overview' },
+  { id: 'about',        label: 'About Ironlattice' },
   { id: 'architecture', label: 'Gator Memory Architecture' },
   { id: 'targets',      label: 'Targets & Trade-offs' },
   { id: 'pipeline',     label: 'Simulation Pipeline' },
@@ -28,8 +29,8 @@ export default function Ironlattice() {
         backLabel="Industry & Research Experience"
         tag="Ironlattice · Internship, Aug 2026 – Present"
         title="Gator Memory™ FeFET Device Validation & Simulation"
-        heroImage={img('/images/ironlattice/gate-stack-cover.svg')}
-        heroStyle={{ backgroundSize: 'cover' }}
+        heroImage={img('/images/ironlattice/wafer-dark-blue.webp')}
+        heroStyle={{ filter: 'brightness(0.4) saturate(1.2)', transform: 'scale(1.15)' }}
         software={['COMSOL', 'QuantumATK', 'Synopsys TCAD', 'SPICE']}
         roles={['Validation/Design Intern']}
       >
@@ -51,6 +52,51 @@ export default function Ironlattice() {
         </ScrollReveal>
 
         <ScrollReveal>
+          <div id="about" className="project-section">
+            <h3>About Ironlattice</h3>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16, flexWrap: 'wrap' }}>
+              <img
+                src={img('/images/ironlattice/ironlattice-icon-color.png')}
+                alt="Ironlattice logo mark"
+                style={{ width: 48, height: 48 }}
+                loading="lazy"
+              />
+              <img
+                src={img('/images/ironlattice/ironlattice-logo-white.png')}
+                alt="Ironlattice"
+                style={{ height: 22, width: 'auto' }}
+                loading="lazy"
+              />
+            </div>
+            <p style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '1.1rem', color: 'var(--accent-light)', fontWeight: 600, marginBottom: 4 }}>
+              "More Memory. Less Power.™"
+            </p>
+            <p>
+              Ironlattice is a Houston-based, Rice University-born startup building{' '}
+              <strong>Gator Memory™</strong>, a nonvolatile memory architecture designed as a drop-in
+              replacement for DRAM and HBM. Every computer built so far has had to choose: DRAM is fast
+              but forgets everything the instant power drops, while NAND remembers but is far too slow
+              to sit in the memory hierarchy DRAM occupies. Gator Memory is built to close that gap,
+              fast enough to serve AI and high-performance-computing workloads, persistent like NAND,
+              and manufacturable in standard CMOS fabs without exotic materials, new tooling, or
+              rare-earth and conflict minerals.
+            </p>
+            <p>
+              The company's device-validation work (what my internship sits inside of) is the layer
+              that turns that pitch into something fabricable: proving, cell by cell and then
+              array by array, that the physics actually holds up against the 40 nm roadmap below.
+            </p>
+            <img
+              src={img('/images/ironlattice/wafer-dark-blue.webp')}
+              alt="Ironlattice Gator Memory wafer"
+              className="project-image-single"
+              style={{ background: '#fff', maxHeight: 360 }}
+              loading="lazy"
+            />
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
           <div id="architecture" className="project-section">
             <h3>Gator Memory Architecture</h3>
             <p>
@@ -66,6 +112,12 @@ export default function Ironlattice() {
               speed, and how reliably the device can be driven into intermediate polarization states
               rather than just a binary "on/off."
             </p>
+            <img
+              src={img('/images/ironlattice/gate-stack-cover.svg')}
+              alt="Illustrative diagram of a 1-FeFET superlattice gate-stack array"
+              className="project-image-single"
+              loading="lazy"
+            />
           </div>
         </ScrollReveal>
 

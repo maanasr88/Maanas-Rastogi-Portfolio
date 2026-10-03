@@ -3,7 +3,7 @@ import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
 import StickyTOC from '../../components/StickyTOC'
 import CodeBlock from '../../components/CodeBlock'
-import { IconChip } from '../../components/Icons'
+import img from '../../img'
 
 const toc = [
   { id: 'overview',  label: 'Overview' },
@@ -474,7 +474,7 @@ export default function VlsiRiscV() {
         backLabel="Personal Projects"
         tag="Personal Project · VLSI / Digital Design"
         title="32-bit Custom RISC-V Processor — RTL to Physical Layout"
-        icon={<IconChip />}
+        heroImage={img('/images/vlsi-risc-v/die-layout-cover.svg')}
         software={['Verilog', 'Vivado', 'OpenROAD']}
         roles={['Designer']}
       >

@@ -7,6 +7,7 @@ export default function DetailPage({ backTo, backLabel, tag, title, icon, heroIm
       {heroImage ? (
         <div className="cinematic-header">
           <div className="cinematic-header-bg" style={{ backgroundImage: `url('${heroImage}')`, ...heroStyle }} />
+          <div className="cinematic-header-vignette" />
           <div className="cinematic-header-overlay" />
           <div className="container cinematic-header-content">
             <Link to={backTo} className="project-detail-back">← {backLabel}</Link>

@@ -6,6 +6,7 @@ import img from '../img'
 const projects = [
   {
     icon: <IconChip />,
+    image: img('/images/vlsi-risc-v/die-layout-cover.svg'),
     title: '32-bit Custom RISC-V Processor',
     description: 'Full-stack ASIC development flow from architectural spec to physical layout: Verilog RTL in Vivado, hardened to silicon via OpenROAD.',
     to: '/projects/vlsi-risc-v',
@@ -19,6 +20,7 @@ const projects = [
   },
   {
     icon: <IconCards />,
+    image: img('/images/gamble-on-the-go/handheld-cover.svg'),
     title: 'Gamble on the Go',
     description: 'Portable bilingual blackjack game on the TI LP-MSPM0G3507 board — 1st place out of 15+ projects in the class competition.',
     to: '/projects/gamble-on-the-go',

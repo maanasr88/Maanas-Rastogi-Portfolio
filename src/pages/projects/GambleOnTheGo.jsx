@@ -1,7 +1,7 @@
 import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
-import { IconCards } from '../../components/Icons'
+import img from '../../img'
 
 const specs = [
   { value: '1st',   label: 'Place of 15+ Projects' },
@@ -17,7 +17,7 @@ export default function GambleOnTheGo() {
       backLabel="Personal Projects"
       tag="Personal Project · Embedded Systems"
       title="Gamble on the Go — Portable Blackjack Game"
-      icon={<IconCards />}
+      heroImage={img('/images/gamble-on-the-go/handheld-cover.svg')}
       software={['TI LP-MSPM0G3507', 'Embedded C', 'ADC / Sound Design']}
       roles={['Designer & Builder']}
     >

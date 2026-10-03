@@ -1733,17 +1733,19 @@ h1, h2, h3, h4, h5, h6 {
 /* ===== BAJA SUB-PROJECT CARDS ===== */
 .baja-subprojects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 14px;
   margin-top: 8px;
   margin-bottom: 48px;
 }
 
 .baja-sub-card {
-  display: block;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
   text-decoration: none;
   color: inherit;
-  padding: 22px 24px;
+  padding: 18px 20px;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-left: 3px solid var(--accent);
@@ -1757,12 +1759,39 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 4px 24px rgba(70, 130, 180, 0.12);
 }
 
+.baja-sub-card-img-wrap {
+  flex-shrink: 0;
+  width: 84px;
+  height: 84px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: #0d1218;
+  border: 1px solid var(--card-border);
+}
+
+.baja-sub-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s var(--transition);
+}
+
+.baja-sub-card:hover .baja-sub-card-img {
+  transform: scale(1.08);
+}
+
+.baja-sub-card-body {
+  flex: 1;
+  min-width: 0;
+}
+
 .baja-sub-card-title-row {
   display: flex;
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .baja-sub-card-title {
@@ -2198,6 +2227,13 @@ h1, h2, h3, h4, h5, h6 {
   background-position: center;
   filter: blur(0px) brightness(0.55);
   transform: scale(1.04);
+}
+
+.cinematic-header-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(10, 10, 12, 0) 40%, rgba(10, 10, 12, 0.8) 95%);
+  pointer-events: none;
 }
 
 .cinematic-header-overlay {
@@ -2642,11 +2678,17 @@ h1, h2, h3, h4, h5, h6 {
   animation: pulse-dot-orange 1.8s ease-in-out infinite;
 }
 
-/* ===== STICKY TOC ===== */
+/* ===== STICKY TOC =====
+   Positioned in the page's outer margin, outside the 1200px container, so it
+   never overlaps the detail-sidebar. The container's margin on each side is
+   (100vw - 1200px) / 2; `right` is set to stay inside that margin with a
+   constant 24px gap from the container edge (reserving ~210px for the widest
+   TOC label). Only shown once the viewport is wide enough for that margin to
+   actually fit the TOC without touching the sidebar. */
 .sticky-toc {
   display: none;
   position: fixed;
-  right: 28px;
+  right: calc((100vw - 1200px) / 2 - 234px);
   top: 50%;
   transform: translateY(-50%);
   z-index: 200;
@@ -2655,7 +2697,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: flex-end;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1700px) {
   .sticky-toc {
     display: flex;
   }
