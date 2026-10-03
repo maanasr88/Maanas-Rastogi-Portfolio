@@ -2678,6 +2678,40 @@ h1, h2, h3, h4, h5, h6 {
   animation: pulse-dot-orange 1.8s ease-in-out infinite;
 }
 
+/* ===== ON HIATUS BADGE ===== */
+.hiatus-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.12);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  font-size: 0.65rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.hiatus-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #94a3b8;
+  flex-shrink: 0;
+}
+
+/* ===== PROJECT CARD STATUS ROW ===== */
+.project-card-tag-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
 /* ===== STICKY TOC =====
    Lives in-flow as the first card in .detail-sidebar, so it scrolls and
    sticks together with the Software/Roles cards and can never overlap the

@@ -26,6 +26,7 @@ export default function Ironlattice() {
         backTo="/experience"
         backLabel="Industry & Research Experience"
         tag="Ironlattice · Internship, Aug 2026 – Present"
+        status="in-progress"
         title="Gator Memory™ FeFET Device Validation & Simulation"
         heroImage={img('/images/ironlattice/wafer-dark-blue.webp')}
         heroStyle={{ filter: 'brightness(0.4) saturate(1.2)', transform: 'scale(1.15)' }}

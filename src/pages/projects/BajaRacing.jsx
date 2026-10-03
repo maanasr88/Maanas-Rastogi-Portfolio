@@ -39,6 +39,7 @@ export default function BajaRacing() {
         backTo="/team"
         backLabel="Team Projects"
         tag="Longhorn Baja Racing · Aug 2025 – Present"
+        status="in-progress"
         title="Racing Team Electronics Lead"
         icon={<IconRacing />}
         heroImage={img('/images/baja-racing/car-render.webp')}

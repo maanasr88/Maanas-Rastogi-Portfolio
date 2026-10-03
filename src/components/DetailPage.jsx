@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import { PillGroup } from './PillBadge'
 import StickyTOC from './StickyTOC'
+import StatusBadge from './StatusBadge'
 
-export default function DetailPage({ backTo, backLabel, tag, title, icon, heroImage, heroStyle, software, roles, toc, children }) {
+export default function DetailPage({ backTo, backLabel, tag, title, icon, heroImage, heroStyle, software, roles, toc, status, children }) {
   return (
     <div className="project-detail">
       {heroImage ? (
@@ -14,6 +15,7 @@ export default function DetailPage({ backTo, backLabel, tag, title, icon, heroIm
             <Link to={backTo} className="project-detail-back">← {backLabel}</Link>
             <div className="cinematic-header-meta">
               {tag && <span className="cinematic-header-tag">{tag}</span>}
+              <StatusBadge status={status} />
             </div>
             <h1 className="cinematic-header-title">{title}</h1>
           </div>
@@ -26,7 +28,12 @@ export default function DetailPage({ backTo, backLabel, tag, title, icon, heroIm
             <div className="detail-icon-banner">
               {icon}
               <div>
-                {tag && <div className="project-detail-tag">{tag}</div>}
+                {(tag || status) && (
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', marginBottom: 4 }}>
+                    {tag && <div className="project-detail-tag" style={{ marginBottom: 0 }}>{tag}</div>}
+                    <StatusBadge status={status} />
+                  </div>
+                )}
                 <h1 className="project-detail-title" style={{ marginBottom: 0 }}>{title}</h1>
               </div>
             </div>
@@ -34,7 +41,12 @@ export default function DetailPage({ backTo, backLabel, tag, title, icon, heroIm
 
           {!icon && (
             <div className="project-detail-header">
-              {tag && <div className="project-detail-tag">{tag}</div>}
+              {(tag || status) && (
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', marginBottom: 8 }}>
+                  {tag && <div className="project-detail-tag" style={{ marginBottom: 0 }}>{tag}</div>}
+                  <StatusBadge status={status} />
+                </div>
+              )}
               <h1 className="project-detail-title">{title}</h1>
             </div>
           )}

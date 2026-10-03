@@ -26,6 +26,7 @@ export default function HelmetHud() {
         backTo="/projects"
         backLabel="Personal Projects"
         tag="Personal Project · Embedded Systems / Optics"
+        status="hiatus"
         title="Motorcycle Helmet Heads-Up Display"
         icon={<IconHelmet />}
         software={['Raspberry Pi', 'Python', 'Optical/Prism Design', 'Power Electronics']}
