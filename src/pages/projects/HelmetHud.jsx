@@ -1,7 +1,6 @@
 import DetailPage from '../../components/DetailPage'
 import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
-import { IconHelmet } from '../../components/Icons'
 import img from '../../img'
 
 const toc = [
@@ -28,10 +27,19 @@ export default function HelmetHud() {
         tag="Personal Project · Embedded Systems / Optics"
         status="hiatus"
         title="Motorcycle Helmet Heads-Up Display"
-        icon={<IconHelmet />}
+        heroImage={img('/images/helmet-hud/helmet-hud-render-cover.jpg')}
+        heroStyle={{ filter: 'brightness(0.6) saturate(1.1)', transform: 'scale(1.08)' }}
         software={['Raspberry Pi', 'Python', 'Optical/Prism Design', 'Power Electronics']}
         roles={['Designer & Builder']}
       >
+        <ScrollReveal>
+          <div className="project-notice">
+            <strong>On hiatus:</strong> I was in a motorcycle accident in March 2026, and I no longer
+            have the helmet or riding gear this project was built around. Development is paused until
+            I'm back on a bike — everything below reflects where the project stood before that.
+          </div>
+        </ScrollReveal>
+
         <ScrollReveal>
           <div id="overview" className="project-section">
             <h3>Overview</h3>

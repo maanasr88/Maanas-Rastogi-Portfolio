@@ -14,7 +14,7 @@ const projects = [
   },
   {
     icon: <IconHelmet />,
-    image: img('/images/helmet-hud/trial-unit-backside.webp'),
+    image: img('/images/helmet-hud/helmet-hud-render-cover.jpg'),
     status: 'hiatus',
     title: 'Motorcycle Helmet HUD',
     description: 'Raspberry Pi Android Auto head unit with a prism-based optical display, sub-100 ms latency, and 4+ hours of embedded runtime.',

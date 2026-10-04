@@ -254,7 +254,7 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--accent-dim);
   color: var(--accent-light);
   border: 1px solid rgba(191, 87, 0, 0.25);
-  white-space: nowrap;
+  max-width: 100%;
 }
 
 .pill-group {
@@ -726,6 +726,22 @@ h1, h2, h3, h4, h5, h6 {
 
 .project-section {
   margin-bottom: 48px;
+}
+
+/* ===== PROJECT NOTICE (e.g. on-hiatus callout) ===== */
+.project-notice {
+  padding: 16px 20px;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid #94a3b8;
+  background: rgba(148, 163, 184, 0.08);
+  margin-bottom: 40px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.project-notice strong {
+  color: var(--text-primary);
 }
 
 .project-section h3 {
