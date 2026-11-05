@@ -97,7 +97,7 @@ export default function Home() {
               <div className="hero-bio-label">Portfolio</div>
               <h1 className="hero-bio-heading">
                 From Silicon<br />
-                to <span style={{ color: 'var(--accent)' }}>Race Cars</span>,<br />
+                to <span className="accent-serif">Race Cars</span>,<br />
                 I Build It.
               </h1>
               <p className="hero-bio-text">
