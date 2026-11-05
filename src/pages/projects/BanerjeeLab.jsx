@@ -44,6 +44,16 @@ export default function BanerjeeLab() {
             researchers John Komoll and Luke Sloan on ferroelectric and high-k dielectric thin films,
             with weekly cleanroom and characterization time booked through the MRC facility.
           </p>
+          <img
+            src={img('/images/banerjee-lab/cleanroom-bay.svg')}
+            alt="Illustrative cleanroom bay: wet chemical bench, wafer cassette, and cleanroom gowning under yellow photolithography-safe lighting"
+            className="project-image-single"
+            loading="lazy"
+          />
+          <p style={{ marginTop: 8, fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+            Illustrative diagram of a UT-MRC-style cleanroom bay &mdash; not a photo of the actual
+            facility.
+          </p>
         </div>
       </ScrollReveal>
 
@@ -84,6 +94,24 @@ export default function BanerjeeLab() {
               { cells: ['Characterization', 'Ellipsometry for film thickness; X-ray diffraction and atomic force microscopy for structural/phase analysis; electrical probe stations with parameter analyzers for P-V hysteresis, C-V curves, and leakage current.'] },
             ]}
           />
+          <img
+            src={img('/images/banerjee-lab/ald-pvd-chamber.svg')}
+            alt="Illustrative schematic of an ALD/PVD deposition chamber: precursor gas inlet, showerhead, heated wafer chuck, vacuum pump, and a PVD sputter-target inset"
+            className="project-image-single"
+            loading="lazy"
+            style={{ marginTop: 16 }}
+          />
+          <img
+            src={img('/images/banerjee-lab/xrd-afm-characterization.svg')}
+            alt="Illustrative diagram of X-ray diffraction (source/sample/detector goniometer) and atomic force microscopy (cantilever and tip scanning a film's surface topography)"
+            className="project-image-single"
+            loading="lazy"
+            style={{ marginTop: 16, background: '#0a0a0c' }}
+          />
+          <p style={{ marginTop: 8, fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+            Illustrative schematics of the deposition and characterization equipment this process
+            relies on &mdash; not photos of the lab's actual tools.
+          </p>
         </div>
       </ScrollReveal>
 

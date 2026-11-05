@@ -1,0 +1,55 @@
+<svg viewBox="0 0 1400 760" xmlns="http://www.w3.org/2000/svg">
+<rect width="1400" height="760" fill="#0a0a0c"/>
+<defs>
+<radialGradient id="pglow" cx="50%" cy="30%" r="60%"><stop offset="0%" stop-color="#e8432c" stop-opacity="0.18"/><stop offset="100%" stop-color="#e8432c" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1400" height="760" fill="url(#pglow)"/>
+<rect x="380" y="160" width="640" height="460" rx="24" fill="none" stroke="#ff7a52" stroke-width="4" opacity="0.9"/>
+<rect x="380" y="160" width="640" height="460" rx="24" fill="#4a1f16" opacity="0.35"/>
+<rect x="660" y="100" width="80" height="60" fill="#2a1310" stroke="#e8432c" stroke-width="2"/>
+<text x="700" y="85" font-family="monospace" font-size="15" fill="#ff7a52" text-anchor="middle">PRECURSOR / GAS INLET</text>
+<line x1="700" y1="160" x2="700" y2="290" stroke="#ff7a52" stroke-width="3"/>
+<circle cx="700" cy="180" r="5" fill="#ffe4d1" opacity="0.90"/>
+<circle cx="700" cy="202" r="5" fill="#ffe4d1" opacity="0.80"/>
+<circle cx="700" cy="224" r="5" fill="#ffe4d1" opacity="0.70"/>
+<circle cx="700" cy="246" r="5" fill="#ffe4d1" opacity="0.60"/>
+<circle cx="700" cy="268" r="5" fill="#ffe4d1" opacity="0.50"/>
+<rect x="560" y="290" width="280" height="18" rx="6" fill="#e8432c" opacity="0.85"/>
+<line x1="580" y1="308" x2="580" y2="325" stroke="#ff7a52" stroke-width="2" opacity="0.6"/>
+<line x1="604" y1="308" x2="604" y2="325" stroke="#ff7a52" stroke-width="2" opacity="0.6"/>
+<line x1="628" y1="308" x2="628" y2="325" stroke="#ff7a52" stroke-width="2" opacity="0.6"/>
+<line x1="652" y1="308" x2="652" y2="325" stroke="#ff7a52" stroke-width="2" opacity="0.6"/>
+<line x1="676" y1="308" x2="676" y2="325" stroke="#ff7a52" stroke-width="2" opacity="0.6"/>
+<line x1="700" y1="308" x2="700" y2="325" stroke="#ff7a52" stroke-width="2" opacity="0.6"/>
+<line x1="724" y1="308" x2="724" y2="325" stroke="#ff7a52" stroke-width="2" opacity="0.6"/>
+<line x1="748" y1="308" x2="748" y2="325" stroke="#ff7a52" stroke-width="2" opacity="0.6"/>
+<line x1="772" y1="308" x2="772" y2="325" stroke="#ff7a52" stroke-width="2" opacity="0.6"/>
+<line x1="796" y1="308" x2="796" y2="325" stroke="#ff7a52" stroke-width="2" opacity="0.6"/>
+<line x1="820" y1="308" x2="820" y2="325" stroke="#ff7a52" stroke-width="2" opacity="0.6"/>
+<ellipse cx="700" cy="360" rx="150" ry="16" fill="#7a2a1a" stroke="#ff7a52" stroke-width="2"/>
+<rect x="550" y="354" width="300" height="12" fill="#ff7a52" opacity="0.9"/>
+<rect x="670" y="366" width="60" height="140" fill="#2a1310" stroke="#7a2a1a" stroke-width="2"/>
+<text x="700" y="535" font-family="monospace" font-size="15" fill="#ff7a52" text-anchor="middle">Ge / Si WAFER ON HEATED CHUCK</text>
+<line x1="900" y1="480" x2="1020" y2="480" stroke="#e8432c" stroke-width="4"/>
+<circle cx="1060" cy="480" r="38" fill="#4a1f16" stroke="#ff7a52" stroke-width="2.5"/>
+<text x="1060" y="486" font-family="monospace" font-size="13" fill="#ffe4d1" text-anchor="middle">PUMP</text>
+<rect x="270" y="240" width="120" height="340" rx="10" fill="none" stroke="#7a2a1a" stroke-width="2" opacity="0.8" stroke-dasharray="6 5"/>
+<circle cx="330" cy="300" r="26" fill="#e8432c" opacity="0.8"/>
+<text x="330" y="350" font-family="monospace" font-size="13" fill="#ff7a52" text-anchor="middle">PVD</text>
+<text x="330" y="370" font-family="monospace" font-size="13" fill="#ff7a52" text-anchor="middle">SPUTTER</text>
+<text x="330" y="390" font-family="monospace" font-size="13" fill="#ff7a52" text-anchor="middle">TARGET</text>
+<line x1="330" y1="320" x2="320" y2="334" stroke="#ffe4d1" stroke-width="1.2" opacity="0.5"/>
+<line x1="330" y1="338" x2="320" y2="352" stroke="#ffe4d1" stroke-width="1.2" opacity="0.5"/>
+<line x1="330" y1="356" x2="320" y2="370" stroke="#ffe4d1" stroke-width="1.2" opacity="0.5"/>
+<line x1="330" y1="374" x2="320" y2="388" stroke="#ffe4d1" stroke-width="1.2" opacity="0.5"/>
+<line x1="330" y1="392" x2="320" y2="406" stroke="#ffe4d1" stroke-width="1.2" opacity="0.5"/>
+<line x1="330" y1="410" x2="320" y2="424" stroke="#ffe4d1" stroke-width="1.2" opacity="0.5"/>
+<line x1="330" y1="428" x2="320" y2="442" stroke="#ffe4d1" stroke-width="1.2" opacity="0.5"/>
+<line x1="330" y1="446" x2="320" y2="460" stroke="#ffe4d1" stroke-width="1.2" opacity="0.5"/>
+<line x1="330" y1="464" x2="320" y2="478" stroke="#ffe4d1" stroke-width="1.2" opacity="0.5"/>
+<line x1="330" y1="482" x2="320" y2="496" stroke="#ffe4d1" stroke-width="1.2" opacity="0.5"/>
+<line x1="330" y1="500" x2="320" y2="514" stroke="#ffe4d1" stroke-width="1.2" opacity="0.5"/>
+<line x1="330" y1="518" x2="320" y2="532" stroke="#ffe4d1" stroke-width="1.2" opacity="0.5"/>
+<line x1="330" y1="536" x2="320" y2="550" stroke="#ffe4d1" stroke-width="1.2" opacity="0.5"/>
+<text x="700" y="660" font-family="monospace" font-size="16" fill="#ff7a52" text-anchor="middle" opacity="0.85">ALD / PVD DEPOSITION CHAMBER (SCHEMATIC)</text>
+</svg>
