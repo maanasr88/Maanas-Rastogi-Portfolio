@@ -59,46 +59,78 @@ export default function BanerjeeLab() {
             BanerjeeLab is housed at the Microelectronics Research Center in the J. J. Pickle Research
             Campus in North Austin &mdash; home to a class-100/1000 nanofabrication cleanroom and
             extensive support facilities, funded by the NSF through the National Nanotechnology
-            Coordinated Infrastructure (NNCI). A few of the deposition and characterization tools
-            available in the lab:
+            Coordinated Infrastructure (NNCI). Photos below are real equipment from the lab's own site
+            and the shared UT-MRC equipment list, organized by where each tool fits in the process flow.
           </p>
-          <div className="project-image-grid">
-            <img
-              src={img('/images/banerjee-lab/molecular-beam-epitaxy.jpg')}
-              alt="Molecular Beam Epitaxy system at the Banerjee Lab, UT Austin MRC"
-              loading="lazy"
-            />
-            <img
-              src={img('/images/banerjee-lab/rpcvd-system.jpg')}
-              alt="RPCVD (plasma-enhanced low-temperature epitaxial growth) system at the Banerjee Lab"
-              loading="lazy"
-            />
+
+          <h4 className="project-subheading">Deposition</h4>
+          <div className="project-image-grid equipment-grid">
+            <figure>
+              <img src={img('/images/banerjee-lab/molecular-beam-epitaxy.jpg')} alt="Molecular Beam Epitaxy system" loading="lazy" />
+              <figcaption><strong>Molecular Beam Epitaxy</strong>UHV MBE with in-situ XPS, variable-temp STM/AFM, UPS, Auger XPS</figcaption>
+            </figure>
+            <figure>
+              <img src={img('/images/banerjee-lab/rpcvd-system.jpg')} alt="RPCVD system" loading="lazy" />
+              <figcaption><strong>RPCVD</strong>Si/Ge plasma-enhanced low-temperature epitaxial growth</figcaption>
+            </figure>
+            <figure>
+              <img src={img('/images/banerjee-lab/rtcvd-system.jpg')} alt="RTCVD system" loading="lazy" />
+              <figcaption><strong>RTCVD</strong>Si/Ge-compatible UHV growth, 14 kW lamp</figcaption>
+            </figure>
+            <figure>
+              <img src={img('/images/banerjee-lab/ald-savannah.jpg')} alt="ALD Cambridge NanoTech Savannah TM 200 system" loading="lazy" />
+              <figcaption><strong>ALD &mdash; Cambridge NanoTech Savannah&trade; 200</strong>Atomic layer deposition</figcaption>
+            </figure>
+            <figure>
+              <img src={img('/images/banerjee-lab/ald-fiji.jpg')} alt="ALD Fiji system with remote plasma and ozone source" loading="lazy" />
+              <figcaption><strong>ALD &mdash; Fiji</strong>Remote plasma &amp; ozone-assisted atomic layer deposition</figcaption>
+            </figure>
+            <figure>
+              <img src={img('/images/banerjee-lab/cha-ebeam-evaporator.jpg')} alt="CHA e-beam evaporator" loading="lazy" />
+              <figcaption><strong>CHA #1 E-beam Evaporator</strong>Physical vapor deposition for metal electrodes</figcaption>
+            </figure>
           </div>
-          <div className="project-image-grid" style={{ marginTop: 16 }}>
-            <img
-              src={img('/images/banerjee-lab/rtcvd-system.jpg')}
-              alt="RTCVD (rapid thermal chemical vapor deposition) system at the Banerjee Lab"
-              loading="lazy"
-            />
-            <img
-              src={img('/images/banerjee-lab/cascade-probe-station.jpg')}
-              alt="Cascade Summit 11000 AP probe station at the Banerjee Lab"
-              loading="lazy"
-            />
+
+          <h4 className="project-subheading">Thermal &amp; Patterning</h4>
+          <div className="project-image-grid equipment-grid">
+            <figure>
+              <img src={img('/images/banerjee-lab/anneal-gate-oxide.jpg')} alt="MRL gate-oxide anneal furnace" loading="lazy" />
+              <figcaption><strong>Anneal (Gate Oxide) &mdash; MRL</strong>Thermal annealing furnace, MER 1.756</figcaption>
+            </figure>
+            <figure>
+              <img src={img('/images/banerjee-lab/xactic-etcher.jpg')} alt="Xactic XF2 reactive ion etcher" loading="lazy" />
+              <figcaption><strong>Xactic XF2 Etcher</strong>Reactive ion etching, MER 1.748</figcaption>
+            </figure>
           </div>
-          <p style={{ marginTop: 12, fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-            <strong>Molecular Beam Epitaxy</strong> &mdash; UHV MBE system with in-situ analysis chamber
-            capable of XPS, variable-temperature STM, AFM, UPS, and Auger XPS.{' '}
-            <strong>RPCVD</strong> &mdash; Si/Ge plasma-enhanced low-temperature epitaxial growth.{' '}
-            <strong>RTCVD</strong> &mdash; Si/Ge-compatible UHV growth, 14 kW lamp.{' '}
-            <strong>Cascade Summit 11000 AP</strong> &mdash; high-precision DC&ndash;RF probed
-            measurements, interfaced with an HP 4156 semiconductor parameter analyzer and an Agilent
-            E8361C PNA for RF measurements up to 67 GHz.
-          </p>
-          <p style={{ marginTop: 8, fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-            Photos of the facility and equipment, from the lab's own site &mdash; these are
-            representative tools available at the MRC, not necessarily the specific instrument used at
-            every step of this particular project.
+
+          <h4 className="project-subheading">Characterization</h4>
+          <div className="project-image-grid equipment-grid">
+            <figure>
+              <img src={img('/images/banerjee-lab/xrd-rigaku.jpg')} alt="XRD Rigaku SmartLab system" loading="lazy" />
+              <figcaption><strong>XRD &mdash; Rigaku SmartLab</strong>X-ray diffraction, MER 1.802</figcaption>
+            </figure>
+            <figure>
+              <img src={img('/images/banerjee-lab/afm-bruker-icon1.jpg')} alt="Atomic Force Microscope Bruker Icon" loading="lazy" />
+              <figcaption><strong>AFM &mdash; Bruker Icon</strong>Atomic force microscopy</figcaption>
+            </figure>
+            <figure>
+              <img src={img('/images/banerjee-lab/afm-bruker-icon2.jpg')} alt="Atomic Force Microscope Bruker Icon, second unit" loading="lazy" />
+              <figcaption><strong>AFM &mdash; Bruker Icon #2</strong>Atomic force microscopy, MER 1.728</figcaption>
+            </figure>
+            <figure>
+              <img src={img('/images/banerjee-lab/cascade-probe-station.jpg')} alt="Cascade Summit 11000 AP probe station" loading="lazy" />
+              <figcaption><strong>Cascade Summit 11000 AP</strong>DC&ndash;RF probed measurements (HP 4156, Agilent E8361C PNA to 67 GHz)</figcaption>
+            </figure>
+            <figure>
+              <img src={img('/images/banerjee-lab/cascade-attoguard-probestation.jpg')} alt="Summit 11000 AttoGuard Cascade probe station" loading="lazy" />
+              <figcaption><strong>Summit 11000 AttoGuard</strong>Shared MRC probe station, MER 2.816</figcaption>
+            </figure>
+          </div>
+
+          <p style={{ marginTop: 16, fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+            Photos of the facility and equipment, from BanerjeeLab's own site and the shared UT-MRC
+            equipment list &mdash; these are tools available at the MRC, not necessarily the specific
+            instrument used at every step of this particular project.
           </p>
         </div>
       </ScrollReveal>

@@ -19,12 +19,65 @@ const quickLinks = [
   { to: '/projects', label: 'Personal Projects' },
 ]
 
+const timelineEntries = [
+  {
+    date: 'Oct 2026 – Present',
+    org: 'Banerjee Lab (Nanoelectronics & Novel Devices Lab)',
+    role: 'Undergraduate Researcher',
+    tag: 'Research',
+    to: '/experience/banerjee-lab',
+  },
+  {
+    date: 'Aug 2026 – Present',
+    org: 'Ironlattice',
+    role: 'Validation/Design Intern',
+    tag: 'Internship',
+    to: '/experience/ironlattice',
+  },
+  {
+    date: 'Aug 2025 – Present',
+    org: 'Longhorn Baja Racing',
+    role: 'Racing Team Electronics Lead',
+    tag: 'Student Org',
+    to: '/team/baja-racing',
+  },
+  {
+    date: 'Oct – Dec 2025',
+    org: 'The University of Texas at Austin',
+    role: 'Quantum Computing Undergraduate Researcher',
+    tag: 'Research',
+    to: '/experience/quantum-computing',
+  },
+  {
+    date: 'Aug 2024 – Aug 2026',
+    org: 'Longhorn Neurotech',
+    role: 'Manufacturing/Design Lead',
+    tag: 'Student Org',
+    to: '/team/neurotech',
+  },
+  {
+    date: 'Aug 2024 – Aug 2025',
+    org: 'UT Austin Robotics & Automation Society',
+    role: 'Electrical Engineer',
+    tag: 'Student Org',
+    to: '/team/robotics-society',
+  },
+]
+
 export default function Home() {
   return (
     <div className="page-wrapper">
       <section className="hero-section hero-centered">
         <HeroCircuit />
         <div className="container hero-section-content">
+          <ScrollReveal delay={1} className="hero-avatar-photo-wrap">
+            <img
+              src={img('/images/profile/maanas-photo.jpg')}
+              alt="Maanas Rastogi"
+              className="hero-avatar-photo"
+            />
+          </ScrollReveal>
+
           <ScrollReveal delay={1} className="hero-credential-row">
             <div className="hero-avatar-stack">
               {orgs.slice(0, 4).map(o => (
@@ -86,6 +139,36 @@ export default function Home() {
               ))}
             </div>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Compact progression timeline */}
+      <section style={{ padding: '0 0 100px' }}>
+        <div className="container" style={{ maxWidth: 760 }}>
+          <ScrollReveal>
+            <div className="timeline-compact-label">Progression</div>
+          </ScrollReveal>
+          <div className="timeline-compact">
+            {timelineEntries.map((entry, i) => (
+              <ScrollReveal key={entry.org + entry.date} delay={(i % 3) + 1}>
+                <Link to={entry.to} className="timeline-compact-item">
+                  <div className="timeline-compact-marker">
+                    <span className="timeline-compact-dot" />
+                    <span className="timeline-compact-line" />
+                  </div>
+                  <div className="timeline-compact-content">
+                    <div className="timeline-compact-top">
+                      <span className="timeline-compact-date">{entry.date}</span>
+                      <span className="pill">{entry.tag}</span>
+                    </div>
+                    <span className="timeline-compact-org">{entry.org}</span>
+                    <span className="timeline-compact-role">{entry.role}</span>
+                  </div>
+                  <span className="timeline-compact-arrow">&rarr;</span>
+                </Link>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
     </div>
