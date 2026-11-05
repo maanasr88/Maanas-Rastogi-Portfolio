@@ -91,16 +91,22 @@ export default function HelmetHud() {
               and packaging everything into the helmet's smaller optical path.
             </p>
             <div className="project-image-grid">
-              <img
-                src={img('/images/helmet-hud/trial-unit-car.webp')}
-                alt="Bench trial unit running the Android Auto interface during a test drive"
-                loading="lazy"
-              />
-              <img
-                src={img('/images/helmet-hud/trial-unit-backside.webp')}
-                alt="Backside of the bench trial unit: Raspberry Pi driving a 7-inch DSI display"
-                loading="lazy"
-              />
+              <figure>
+                <img
+                  src={img('/images/helmet-hud/trial-unit-car.webp')}
+                  alt="Bench trial unit running the Android Auto interface during a test drive"
+                  loading="lazy"
+                />
+                <figcaption>Bench trial unit during a test drive.</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src={img('/images/helmet-hud/trial-unit-backside.webp')}
+                  alt="Backside of the bench trial unit: Raspberry Pi driving a 7-inch DSI display"
+                  loading="lazy"
+                />
+                <figcaption>Backside: Raspberry Pi driving the display.</figcaption>
+              </figure>
             </div>
           </div>
         </ScrollReveal>

@@ -25,13 +25,16 @@ export default function TelemetryLink() {
             real time without wiring a physical link to a moving race car. Three wireless options were
             compared: LoRa at 915 MHz, a custom RF link using FSK modulation, and cellular.
           </p>
-          <img
-            src={img('/images/baja-racing/telemetry/signal-flow.jpg')}
-            alt="Signal flow: sensor to ESP32 transmitter to LoRa TX, over the air to an antenna, to LoRa RX, ESP32 receiver, and a dashboard"
-            className="project-image-single"
-            loading="lazy"
-            style={{ background: '#fff' }}
-          />
+          <figure className="project-image-single-fig">
+            <img
+              src={img('/images/baja-racing/telemetry/signal-flow.jpg')}
+              alt="Signal flow: sensor to ESP32 transmitter to LoRa TX, over the air to an antenna, to LoRa RX, ESP32 receiver, and a dashboard"
+              className="project-image-single"
+              loading="lazy"
+              style={{ background: '#fff' }}
+            />
+            <figcaption>Sensor-to-dashboard signal flow.</figcaption>
+          </figure>
           <BajaSensorMap highlight={7} />
         </div>
       </ScrollReveal>

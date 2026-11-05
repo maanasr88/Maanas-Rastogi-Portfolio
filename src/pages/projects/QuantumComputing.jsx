@@ -144,26 +144,32 @@ export default function QuantumComputing() {
               superposition, a controlled-X entangles it with qubit 1, and both qubits are measured.
               Stim can render this directly as a timeline diagram:
             </p>
-            <img
-              src={img('/images/quantum-computing/bell-pair-circuit.svg')}
-              alt="Stim timeline diagram of a two-qubit Bell pair circuit: Hadamard gate, CX entangling gate, two measurements"
-              className="project-image-single"
-              loading="lazy"
-              style={{ background: '#fff', maxWidth: 420, maxHeight: 280, objectFit: 'contain' }}
-            />
+            <figure className="project-image-single-fig">
+              <img
+                src={img('/images/quantum-computing/bell-pair-circuit.svg')}
+                alt="Stim timeline diagram of a two-qubit Bell pair circuit: Hadamard gate, CX entangling gate, two measurements"
+                className="project-image-single"
+                loading="lazy"
+                style={{ background: '#fff', maxWidth: 420, maxHeight: 280, objectFit: 'contain' }}
+              />
+              <figcaption>A two-qubit Bell pair circuit.</figcaption>
+            </figure>
             <p>
               A surface code (and the simpler repetition code shown below) extends this same idea to
               many qubits: "data" qubits hold the logical information, and interleaved "measurement"
               qubits repeatedly check parity constraints (stabilizers) round after round. Stim renders
               the repeated structure as a timeline of CX gates and measurements across rounds:
             </p>
-            <img
-              src={img('/images/quantum-computing/repetition-code-timeline.svg')}
-              alt="Stim timeline diagram of a distance-9 repetition code circuit across 25 rounds"
-              className="project-image-single"
-              loading="lazy"
-              style={{ background: '#fff' }}
-            />
+            <figure className="project-image-single-fig">
+              <img
+                src={img('/images/quantum-computing/repetition-code-timeline.svg')}
+                alt="Stim timeline diagram of a distance-9 repetition code circuit across 25 rounds"
+                className="project-image-single"
+                loading="lazy"
+                style={{ background: '#fff' }}
+              />
+              <figcaption>A distance-9 repetition code, 25 rounds.</figcaption>
+            </figure>
             <p>
               Every measurement round produces a stream of bits. A decoder's job is to look at which
               parity checks ("detectors") fired and infer where the errors most likely occurred. Stim
@@ -171,13 +177,16 @@ export default function QuantumComputing() {
               into a graph: each node is a detector, each edge is a possible error, and decoding becomes
               finding the minimum-weight matching across that graph.
             </p>
-            <img
-              src={img('/images/quantum-computing/repetition-code-matchgraph.svg')}
-              alt="PyMatching decoding graph for a repetition code: a ladder of detector nodes with bulk edges (black) and boundary edges (red)"
-              className="project-image-single"
-              loading="lazy"
-              style={{ background: '#fff', maxWidth: 360 }}
-            />
+            <figure className="project-image-single-fig">
+              <img
+                src={img('/images/quantum-computing/repetition-code-matchgraph.svg')}
+                alt="PyMatching decoding graph for a repetition code: a ladder of detector nodes with bulk edges (black) and boundary edges (red)"
+                className="project-image-single"
+                loading="lazy"
+                style={{ background: '#fff', maxWidth: 360 }}
+              />
+              <figcaption>PyMatching's decoding graph.</figcaption>
+            </figure>
             <p>
               A surface code is the 2D generalization of that same repetition-code ladder, with both
               X-type and Z-type stabilizers tiled across a grid of qubits so it can correct both bit-flip
@@ -185,13 +194,16 @@ export default function QuantumComputing() {
               that lattice, with the detectors that fire drawn directly alongside the gates that produced
               them:
             </p>
-            <img
-              src={img('/images/quantum-computing/surface-code-detslice.svg')}
-              alt="Stim detector-slice diagram of a surface code round, showing data qubits, measurement qubits, and the detectors each stabilizer check produces"
-              className="project-image-single"
-              loading="lazy"
-              style={{ background: '#fff' }}
-            />
+            <figure className="project-image-single-fig">
+              <img
+                src={img('/images/quantum-computing/surface-code-detslice.svg')}
+                alt="Stim detector-slice diagram of a surface code round, showing data qubits, measurement qubits, and the detectors each stabilizer check produces"
+                className="project-image-single"
+                loading="lazy"
+                style={{ background: '#fff' }}
+              />
+              <figcaption>One round of a surface code lattice.</figcaption>
+            </figure>
             <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
               Diagrams above are generated directly by Stim's own diagramming tools, from the example
               circuits in its official{' '}
@@ -249,18 +261,24 @@ export default function QuantumComputing() {
               whole modular processor, not just the chiplets directly connected by that link.
             </p>
             <div className="project-image-grid">
-              <img
-                src={img('/images/quantum-computing/surface-code-error-rate-plot.png')}
-                alt="Example plot: surface code logical error rate per round vs. physical error rate, for code distances 3, 5, and 7"
-                loading="lazy"
-                style={{ background: '#fff' }}
-              />
-              <img
-                src={img('/images/quantum-computing/distance-projection-plot.png')}
-                alt="Example plot: projecting the code distance needed to survive a trillion rounds, log-scale logical error rate vs. code distance"
-                loading="lazy"
-                style={{ background: '#fff' }}
-              />
+              <figure>
+                <img
+                  src={img('/images/quantum-computing/surface-code-error-rate-plot.png')}
+                  alt="Example plot: surface code logical error rate per round vs. physical error rate, for code distances 3, 5, and 7"
+                  loading="lazy"
+                  style={{ background: '#fff' }}
+                />
+                <figcaption>Logical vs. physical error rate.</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src={img('/images/quantum-computing/distance-projection-plot.png')}
+                  alt="Example plot: projecting the code distance needed to survive a trillion rounds, log-scale logical error rate vs. code distance"
+                  loading="lazy"
+                  style={{ background: '#fff' }}
+                />
+                <figcaption>Code distance needed for a trillion rounds.</figcaption>
+              </figure>
             </div>
             <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
               These two plots are reference examples from Stim's own tutorials, showing the shape of

@@ -70,12 +70,15 @@ export default function Neurotech() {
               driver, so the high-current drivetrain rail never touches the sensitive logic supply
               directly.
             </p>
-            <img
-              src={img('/images/neurotech/system-architecture-diagram.png')}
-              alt="Wheelchair control system block diagram: joystick, EEG headset, and spatial sensors feed an ESP32 microcontroller powered by a tiered 24V/5V/3.3V supply, which drives a motor controller and brushed motors"
-              className="project-image-single"
-              style={{ background: '#fff' }}
-            />
+            <figure className="project-image-single-fig">
+              <img
+                src={img('/images/neurotech/system-architecture-diagram.png')}
+                alt="Wheelchair control system block diagram: joystick, EEG headset, and spatial sensors feed an ESP32 microcontroller powered by a tiered 24V/5V/3.3V supply, which drives a motor controller and brushed motors"
+                className="project-image-single"
+                style={{ background: '#fff' }}
+              />
+              <figcaption>Control system block diagram.</figcaption>
+            </figure>
             <p style={{ marginTop: 16 }}>
               Two constraints shaped every decision downstream of that diagram. First, the EEG and
               ultrasonic streams run at different frequencies and had to be fused without introducing
@@ -108,8 +111,14 @@ export default function Neurotech() {
               wiring from the vibration the geared motors put through the frame.
             </p>
             <div className="project-image-grid">
-              <img src={img('/images/neurotech/joystick-box-1.jpg')} alt="CAD render of the joystick box lower shell with mounting flanges" loading="lazy" style={{ background: '#fff' }} />
-              <img src={img('/images/neurotech/joystick-box-2.jpg')} alt="CAD render of the joystick box upper cover" loading="lazy" style={{ background: '#fff' }} />
+              <figure>
+                <img src={img('/images/neurotech/joystick-box-1.jpg')} alt="CAD render of the joystick box lower shell with mounting flanges" loading="lazy" style={{ background: '#fff' }} />
+                <figcaption>Joystick box, lower shell.</figcaption>
+              </figure>
+              <figure>
+                <img src={img('/images/neurotech/joystick-box-2.jpg')} alt="CAD render of the joystick box upper cover" loading="lazy" style={{ background: '#fff' }} />
+                <figcaption>Joystick box, upper cover.</figcaption>
+              </figure>
             </div>
 
             <h4 style={{ marginTop: 24, marginBottom: 8, fontSize: '1rem', color: 'var(--text-primary)' }}>Arm Extension &amp; Wheelchair Clasps</h4>
@@ -120,15 +129,27 @@ export default function Neurotech() {
               along the frame without any permanent structural modification to the chair.
             </p>
             <div className="project-image-grid">
-              <img src={img('/images/neurotech/arm-extension.jpg')} alt="CAD render of the L-shaped arm-extension mounting bracket" loading="lazy" style={{ background: '#fff' }} />
-              <img src={img('/images/neurotech/wheelchair-clasp.jpg')} alt="CAD render of the wheelchair frame clasp" loading="lazy" style={{ background: '#fff' }} />
+              <figure>
+                <img src={img('/images/neurotech/arm-extension.jpg')} alt="CAD render of the L-shaped arm-extension mounting bracket" loading="lazy" style={{ background: '#fff' }} />
+                <figcaption>Arm-extension mounting bracket.</figcaption>
+              </figure>
+              <figure>
+                <img src={img('/images/neurotech/wheelchair-clasp.jpg')} alt="CAD render of the wheelchair frame clasp" loading="lazy" style={{ background: '#fff' }} />
+                <figcaption>Wheelchair frame clasp.</figcaption>
+              </figure>
             </div>
 
             <h4 style={{ marginTop: 24, marginBottom: 8, fontSize: '1rem', color: 'var(--text-primary)' }}>ESP Case Design</h4>
             <p>A two-piece snap-fit enclosure for the ESP32 control board, keeping it protected while still accessible for wiring.</p>
             <div className="project-image-grid">
-              <img src={img('/images/neurotech/esp-case-1.jpg')} alt="CAD render of the ESP32 case's two shells, showing internal channel detail" loading="lazy" style={{ background: '#fff' }} />
-              <img src={img('/images/neurotech/esp-case-2.jpg')} alt="CAD render of the ESP32 case closed and open" loading="lazy" style={{ background: '#fff' }} />
+              <figure>
+                <img src={img('/images/neurotech/esp-case-1.jpg')} alt="CAD render of the ESP32 case's two shells, showing internal channel detail" loading="lazy" style={{ background: '#fff' }} />
+                <figcaption>ESP32 case, two shells.</figcaption>
+              </figure>
+              <figure>
+                <img src={img('/images/neurotech/esp-case-2.jpg')} alt="CAD render of the ESP32 case closed and open" loading="lazy" style={{ background: '#fff' }} />
+                <figcaption>ESP32 case, closed and open.</figcaption>
+              </figure>
             </div>
           </div>
         </ScrollReveal>
@@ -174,12 +195,15 @@ export default function Neurotech() {
               from the oscillation the geared motors put through the frame. A 3D-printed clasp system
               (shown in orange/pink) clamps the tray to the chair without drilling into it.
             </p>
-            <img
-              src={img('/images/neurotech/electronics-tray.jpg')}
-              alt="Laser-cut plywood electronics tray with a 3D-printed orange and pink clasp clamping it to the wheelchair frame"
-              className="project-image-single"
-              loading="lazy"
-            />
+            <figure className="project-image-single-fig">
+              <img
+                src={img('/images/neurotech/electronics-tray.jpg')}
+                alt="Laser-cut plywood electronics tray with a 3D-printed orange and pink clasp clamping it to the wheelchair frame"
+                className="project-image-single"
+                loading="lazy"
+              />
+              <figcaption>Plywood electronics tray with a clamp-on clasp.</figcaption>
+            </figure>
             <ul style={{ color: 'var(--text-secondary)', paddingLeft: 20, lineHeight: 1.9, fontSize: '0.95rem', marginTop: 12 }}>
               <li>Laser-cut prototype of the tray to hold the battery, ESP32, and motor drivers.</li>
               <li>3D-printed clasp system clamps the tray to the wheelchair frame without drilling.</li>
@@ -204,13 +228,16 @@ export default function Neurotech() {
               The drivetrain itself is built around a MY1016Z-W DC gear motor, selected against the
               chair's target speed and torque requirements:
             </p>
-            <img
-              src={img('/images/neurotech/motor-drawing-data.jpg')}
-              alt="MY1016Z-W motor drawing and datasheet table: 250W rated output, 24V DC, 75/120 RPM no-load speed, 0.98/0.64 N·m rated torque, 1:37.98 gear ratio"
-              className="project-image-single"
-              loading="lazy"
-              style={{ background: '#fff' }}
-            />
+            <figure className="project-image-single-fig">
+              <img
+                src={img('/images/neurotech/motor-drawing-data.jpg')}
+                alt="MY1016Z-W motor drawing and datasheet table: 250W rated output, 24V DC, 75/120 RPM no-load speed, 0.98/0.64 N·m rated torque, 1:37.98 gear ratio"
+                className="project-image-single"
+                loading="lazy"
+                style={{ background: '#fff' }}
+              />
+              <figcaption>MY1016Z-W motor drawing and datasheet.</figcaption>
+            </figure>
             <DataTable
               columns={['Specification', 'Value']}
               rows={[
@@ -234,20 +261,25 @@ export default function Neurotech() {
               friction-based connection for high-load wheelchair use.
             </p>
             <div className="project-image-grid">
-              <img src={img('/images/neurotech/motor-key-reference.jpg')} alt="Reference diagram of a direct-drive shaft adapter with key, labeling the motor shaft, steel key, adapter spacer, and wheel hub" loading="lazy" style={{ background: '#fff' }} />
-              <img src={img('/images/neurotech/motor-key-ours-photo.jpg')} alt="Render of the team's own steel key" loading="lazy" style={{ background: '#fff' }} />
+              <figure>
+                <img src={img('/images/neurotech/motor-key-reference.jpg')} alt="Reference diagram of a direct-drive shaft adapter with key, labeling the motor shaft, steel key, adapter spacer, and wheel hub" loading="lazy" style={{ background: '#fff' }} />
+                <figcaption>Reference shaft-key diagram.</figcaption>
+              </figure>
+              <figure>
+                <img src={img('/images/neurotech/motor-key-ours-photo.jpg')} alt="Render of the team's own steel key" loading="lazy" style={{ background: '#fff' }} />
+                <figcaption>The team's own steel key.</figcaption>
+              </figure>
             </div>
-            <p style={{ marginTop: 12, fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-              Left: a reference diagram of the shaft-adapter/key concept. Right: the team's own key,
-              dimensioned at 6mm × 6mm × 60mm to match the motor's shaft keyway.
-            </p>
-            <img
-              src={img('/images/neurotech/motor-key-ours-dims.jpg')}
-              alt="Dimensioned drawing of the team's steel key: 6mm width, 6mm height, 60mm length"
-              className="project-image-single"
-              loading="lazy"
-              style={{ background: '#fff', marginTop: 12 }}
-            />
+            <figure className="project-image-single-fig">
+              <img
+                src={img('/images/neurotech/motor-key-ours-dims.jpg')}
+                alt="Dimensioned drawing of the team's steel key: 6mm width, 6mm height, 60mm length"
+                className="project-image-single"
+                loading="lazy"
+                style={{ background: '#fff', marginTop: 12 }}
+              />
+              <figcaption>Key dimensions: 6mm × 6mm × 60mm.</figcaption>
+            </figure>
 
             <h4 style={{ marginTop: 24, marginBottom: 8, fontSize: '1rem', color: 'var(--text-primary)' }}>Motor Mount Redesign</h4>
             <p>
@@ -255,13 +287,16 @@ export default function Neurotech() {
               iteration mounted the motor in the middle of a single flat plate, held on with C-clamps on
               the frame's vertical bar.
             </p>
-            <img
-              src={img('/images/neurotech/motor-mount-cad.jpg')}
-              alt="CAD render of the original motor mount: a single flat plate with a central bore for the motor, attached via C-clamps"
-              className="project-image-single"
-              loading="lazy"
-              style={{ background: '#fff' }}
-            />
+            <figure className="project-image-single-fig">
+              <img
+                src={img('/images/neurotech/motor-mount-cad.jpg')}
+                alt="CAD render of the original motor mount: a single flat plate with a central bore for the motor, attached via C-clamps"
+                className="project-image-single"
+                loading="lazy"
+                style={{ background: '#fff' }}
+              />
+              <figcaption>Original motor mount (single-plate).</figcaption>
+            </figure>
             <p style={{ marginTop: 16 }}>
               FEA on that first design showed it was at risk of fracturing under the motor's weight,
               since the single mounting plane concentrated all the load at one attachment point. The
@@ -269,13 +304,16 @@ export default function Neurotech() {
               bar underneath &mdash; distributing the motor's weight across both the vertical and lower
               members of the chassis.
             </p>
-            <img
-              src={img('/images/neurotech/motor-mount-revised-cad.jpg')}
-              alt="CAD render of the revised motor mount: an L-shaped bracket attaching both to the vertical frame member and underneath it"
-              className="project-image-single"
-              loading="lazy"
-              style={{ background: '#fff' }}
-            />
+            <figure className="project-image-single-fig">
+              <img
+                src={img('/images/neurotech/motor-mount-revised-cad.jpg')}
+                alt="CAD render of the revised motor mount: an L-shaped bracket attaching both to the vertical frame member and underneath it"
+                className="project-image-single"
+                loading="lazy"
+                style={{ background: '#fff' }}
+              />
+              <figcaption>Revised two-point L-bracket mount.</figcaption>
+            </figure>
 
             <h4 style={{ marginTop: 24, marginBottom: 8, fontSize: '1rem', color: 'var(--text-primary)' }}>Stress Validation</h4>
             <p>
@@ -288,8 +326,14 @@ export default function Neurotech() {
               maneuvers.
             </p>
             <div className="project-image-grid">
-              <img src={img('/images/neurotech/fea-von-mises.jpg')} alt="SolidWorks von Mises stress plot on the motor mount bracket, showing peak stress of 2.122e4 N/m^2 against a yield strength of 1.724e8 N/m^2" loading="lazy" style={{ background: '#fff' }} />
-              <img src={img('/images/neurotech/fea-displacement.jpg')} alt="SolidWorks resultant displacement plot on the motor mount bracket, showing deflection on the order of 1e-6 mm" loading="lazy" style={{ background: '#fff' }} />
+              <figure>
+                <img src={img('/images/neurotech/fea-von-mises.jpg')} alt="SolidWorks von Mises stress plot on the motor mount bracket, showing peak stress of 2.122e4 N/m^2 against a yield strength of 1.724e8 N/m^2" loading="lazy" style={{ background: '#fff' }} />
+                <figcaption>Von Mises stress plot (FEA).</figcaption>
+              </figure>
+              <figure>
+                <img src={img('/images/neurotech/fea-displacement.jpg')} alt="SolidWorks resultant displacement plot on the motor mount bracket, showing deflection on the order of 1e-6 mm" loading="lazy" style={{ background: '#fff' }} />
+                <figcaption>Displacement plot (FEA).</figcaption>
+              </figure>
             </div>
           </div>
         </ScrollReveal>

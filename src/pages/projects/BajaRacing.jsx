@@ -42,8 +42,8 @@ export default function BajaRacing() {
         status="in-progress"
         title="Racing Team Electronics Lead"
         icon={<IconRacing />}
-        heroImage={img('/images/baja-racing/car-render.webp')}
-        heroStyle={{ backgroundPosition: 'center 65%' }}
+        heroImage={img('/images/baja-racing/car-course-action.jpg')}
+        heroStyle={{ backgroundPosition: 'center 50%' }}
         software={['Altium Designer', 'Circuit Theory', 'PCB Design', 'Sensor Integration']}
         roles={['Racing Team Electronics Lead']}
       >
@@ -139,6 +139,14 @@ export default function BajaRacing() {
               telemetry validation, making sure the electronics are actually trustworthy before the car
               goes on course.
             </p>
+            <figure className="project-image-single-fig">
+              <img
+                src={img('/images/baja-racing/team-photo.jpg')}
+                alt="Longhorn Baja Racing team posing with the car after a competition run"
+                className="project-image-single"
+              />
+              <figcaption>The Longhorn Baja Racing team after a competition run.</figcaption>
+            </figure>
           </div>
         </ScrollReveal>
       </DetailPage>

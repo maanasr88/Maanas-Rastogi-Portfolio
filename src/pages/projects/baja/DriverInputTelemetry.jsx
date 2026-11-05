@@ -73,24 +73,33 @@ export default function DriverInputTelemetry() {
               SPI packet for an MCP2515 CAN bus module, which outputs the differential CAN_H/CAN_L
               signals the rest of the vehicle's CAN network uses.
             </p>
-            <img
-              src={img('/images/baja-racing/driver-inputs/system-wiring.jpg')}
-              alt="Overview of connections: 12V battery, pedal potentiometer, ESP32, and MCP2515 CAN bus module"
-              className="project-image-single"
-              loading="lazy"
-            />
+            <figure className="project-image-single-fig">
+              <img
+                src={img('/images/baja-racing/driver-inputs/system-wiring.jpg')}
+                alt="Overview of connections: 12V battery, pedal potentiometer, ESP32, and MCP2515 CAN bus module"
+                className="project-image-single"
+                loading="lazy"
+              />
+              <figcaption>System wiring overview.</figcaption>
+            </figure>
             <div className="project-image-grid" style={{ marginTop: 16 }}>
-              <img
-                src={img('/images/baja-racing/driver-inputs/pedal-pcb.jpg')}
-                alt="Completed pedal-box PCB layout"
-                loading="lazy"
-                style={{ background: '#fff' }}
-              />
-              <img
-                src={img('/images/baja-racing/driver-inputs/pedal-brackets.jpg')}
-                alt="3D-printed yellow pedal-box brackets stamped LBR"
-                loading="lazy"
-              />
+              <figure>
+                <img
+                  src={img('/images/baja-racing/driver-inputs/pedal-pcb.jpg')}
+                  alt="Completed pedal-box PCB layout"
+                  loading="lazy"
+                  style={{ background: '#fff' }}
+                />
+                <figcaption>Completed pedal-box PCB.</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src={img('/images/baja-racing/driver-inputs/pedal-brackets.jpg')}
+                  alt="3D-printed yellow pedal-box brackets stamped LBR"
+                  loading="lazy"
+                />
+                <figcaption>3D-printed pedal-box brackets.</figcaption>
+              </figure>
             </div>
           </div>
         </ScrollReveal>

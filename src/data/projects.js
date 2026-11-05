@@ -26,8 +26,8 @@ export const experienceProjects = [
 
 export const teamProjects = [
   {
-    image: img('/images/baja-racing/car-render.webp'),
-    imageStyle: { objectPosition: 'center 65%' },
+    image: img('/images/baja-racing/car-course-action.jpg'),
+    imageStyle: { objectPosition: 'center 55%' },
     status: 'in-progress',
     title: 'Longhorn Baja Racing — Electronics Lead',
     description: 'Vehicle electrical integration for the Baja SAE race car: power distribution, dashboard hardware, and a virtual driving coach interfacing 7+ onboard sensors.',

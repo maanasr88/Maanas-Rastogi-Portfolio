@@ -85,13 +85,16 @@ export default function Ironlattice() {
               that turns that pitch into something fabricable: proving, cell by cell and then
               array by array, that the physics actually holds up against the 40 nm roadmap below.
             </p>
-            <img
-              src={img('/images/ironlattice/wafer-dark-blue.webp')}
-              alt="Ironlattice Gator Memory wafer"
-              className="project-image-single"
-              style={{ background: '#fff', maxHeight: 360 }}
-              loading="lazy"
-            />
+            <figure className="project-image-single-fig">
+              <img
+                src={img('/images/ironlattice/wafer-dark-blue.webp')}
+                alt="Ironlattice Gator Memory wafer"
+                className="project-image-single"
+                style={{ background: '#fff', maxHeight: 360 }}
+                loading="lazy"
+              />
+              <figcaption>A Gator Memory wafer.</figcaption>
+            </figure>
           </div>
         </ScrollReveal>
 
@@ -111,12 +114,15 @@ export default function Ironlattice() {
               speed, and how reliably the device can be driven into intermediate polarization states
               rather than just a binary "on/off."
             </p>
-            <img
-              src={img('/images/ironlattice/gate-stack-cover.svg')}
-              alt="Illustrative diagram of a 1-FeFET superlattice gate-stack array"
-              className="project-image-single"
-              loading="lazy"
-            />
+            <figure className="project-image-single-fig">
+              <img
+                src={img('/images/ironlattice/gate-stack-cover.svg')}
+                alt="Illustrative diagram of a 1-FeFET superlattice gate-stack array"
+                className="project-image-single"
+                loading="lazy"
+              />
+              <figcaption>1-FeFET superlattice gate-stack array.</figcaption>
+            </figure>
           </div>
         </ScrollReveal>
 
