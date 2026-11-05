@@ -37,7 +37,7 @@ export default function TeamProjects() {
         <div className="container">
           <ScrollReveal>
             <div className="section-header">
-              <h2><span className="section-title-accent">Team Projects</span></h2>
+              <h2><span className="section-title-accent">Team <em className="accent-serif">Projects</em></span></h2>
               <div className="section-header-bar" />
             </div>
             <p style={{ color: 'var(--text-secondary)', marginBottom: 40, maxWidth: 600, fontSize: '0.95rem' }}>
