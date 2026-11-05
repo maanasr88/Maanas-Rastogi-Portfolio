@@ -131,14 +131,20 @@ export default function RoboticsSociety() {
               protection so a fault on one subsystem can't pull down the others.
             </p>
             <div className="project-image-grid">
-              <img
-                src={img('/images/robotics-society/chassis-board-photo.jpg')}
-                alt="Assembled chassis board, 80x80mm, with XT60/XT30 connectors feeding the ESCs, shooter, and gimbal"
-              />
-              <img
-                src={img('/images/robotics-society/chassis-board-pcb-layout.webp')}
-                alt="KiCAD PCB layout of the 80x80mm chassis board, showing +24V rails to chassis, shooter, and gimbal, and the supercapacitor input"
-              />
+              <figure>
+                <img
+                  src={img('/images/robotics-society/chassis-board-photo.jpg')}
+                  alt="Assembled chassis board, 80x80mm, with XT60/XT30 connectors feeding the ESCs, shooter, and gimbal"
+                />
+                <figcaption>Assembled chassis board.</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src={img('/images/robotics-society/chassis-board-pcb-layout.webp')}
+                  alt="KiCAD PCB layout of the 80x80mm chassis board, showing +24V rails to chassis, shooter, and gimbal, and the supercapacitor input"
+                />
+                <figcaption>Chassis board PCB layout (KiCAD).</figcaption>
+              </figure>
             </div>
             <p style={{ marginTop: 16 }}>
               The <strong>turret board</strong> is fully passive by design: it was built as a training
@@ -148,25 +154,34 @@ export default function RoboticsSociety() {
               of those components individually.
             </p>
             <div className="project-image-grid">
-              <img
-                src={img('/images/robotics-society/turret-board-photo.jpg')}
-                alt="Assembled turret board with CAN and UART headers routing to the flywheels, feeder, and waterwheel"
-              />
-              <img
-                src={img('/images/robotics-society/turret-board-pcb-layout.webp')}
-                alt="KiCAD PCB layout of the turret board, routing CAN and power to the flywheels, gimbal, feeder, and waterwheel"
-              />
+              <figure>
+                <img
+                  src={img('/images/robotics-society/turret-board-photo.jpg')}
+                  alt="Assembled turret board with CAN and UART headers routing to the flywheels, feeder, and waterwheel"
+                />
+                <figcaption>Assembled turret board.</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src={img('/images/robotics-society/turret-board-pcb-layout.webp')}
+                  alt="KiCAD PCB layout of the turret board, routing CAN and power to the flywheels, gimbal, feeder, and waterwheel"
+                />
+                <figcaption>Turret board PCB layout (KiCAD).</figcaption>
+              </figure>
             </div>
             <p style={{ marginTop: 16 }}>
               Tying it together is the full power-and-signal map below: every rail, UART/CAN/SWD link,
               and the slip-ring boundary between the chassis and the rotating turret.
             </p>
-            <img
-              src={img('/images/robotics-society/power-signal-diagram.svg')}
-              alt="Full system wiring diagram showing power and signal routing between the Orin Nano, turret PCB, slip ring, chassis, ESCs, PMM, battery, and supercapacitor"
-              className="project-image-single"
-              style={{ background: '#fff', maxHeight: 600 }}
-            />
+            <figure className="project-image-single-fig">
+              <img
+                src={img('/images/robotics-society/power-signal-diagram.svg')}
+                alt="Full system wiring diagram showing power and signal routing between the Orin Nano, turret PCB, slip ring, chassis, ESCs, PMM, battery, and supercapacitor"
+                className="project-image-single"
+                style={{ background: '#fff', maxHeight: 600 }}
+              />
+              <figcaption>Full power &amp; signal wiring map.</figcaption>
+            </figure>
           </div>
         </ScrollReveal>
 

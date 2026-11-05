@@ -36,17 +36,23 @@ export default function ImuGps() {
               vehicle actually responds to driver input, not just where it is.
             </p>
             <div className="project-image-grid">
-              <img
-                src={img('/images/baja-racing/imu-gps/wiring-diagram.jpg')}
-                alt="ESP32 wired to a BN0055 9-axis IMU and a NEO-6M GPS module, with a push button to trigger data collection"
-                loading="lazy"
-                style={{ background: '#fff' }}
-              />
-              <img
-                src={img('/images/baja-racing/imu-gps/pcb-render.jpg')}
-                alt="PCB render integrating an ESP32-class microcontroller with a Quectel GPS module"
-                loading="lazy"
-              />
+              <figure>
+                <img
+                  src={img('/images/baja-racing/imu-gps/wiring-diagram.jpg')}
+                  alt="ESP32 wired to a BN0055 9-axis IMU and a NEO-6M GPS module, with a push button to trigger data collection"
+                  loading="lazy"
+                  style={{ background: '#fff' }}
+                />
+                <figcaption>IMU/GPS wiring diagram.</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src={img('/images/baja-racing/imu-gps/pcb-render.jpg')}
+                  alt="PCB render integrating an ESP32-class microcontroller with a Quectel GPS module"
+                  loading="lazy"
+                />
+                <figcaption>PCB render with GPS module.</figcaption>
+              </figure>
             </div>
             <BajaSensorMap highlight={6} />
           </div>

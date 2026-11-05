@@ -118,7 +118,10 @@ export default function Home() {
                       <span className="quick-item-arrow">&rarr;</span>
                     </div>
                     <div className="quick-item-desc-wrap">
-                      <p className="quick-item-desc">{item.description}</p>
+                      <div className="quick-item-desc-inner">
+                        <img src={item.image} alt="" className="quick-item-photo" />
+                        <p className="quick-item-desc">{item.description}</p>
+                      </div>
                     </div>
                   </Link>
                 ))}

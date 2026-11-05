@@ -71,13 +71,16 @@ export default function RpmSensor() {
             digital edge and an onboard indicator LED, before the signal reaches the data-acquisition
             microcontroller.
           </p>
-          <img
-            src={img('/images/baja-racing/rpm-sensor/hall-effect-circuit.jpg')}
-            alt="Hall-effect sensor circuit: Honeywell SS443R feeding an LM339 comparator with bias resistor network"
-            className="project-image-single"
-            loading="lazy"
-            style={{ background: '#fff' }}
-          />
+          <figure className="project-image-single-fig">
+            <img
+              src={img('/images/baja-racing/rpm-sensor/hall-effect-circuit.jpg')}
+              alt="Hall-effect sensor circuit: Honeywell SS443R feeding an LM339 comparator with bias resistor network"
+              className="project-image-single"
+              loading="lazy"
+              style={{ background: '#fff' }}
+            />
+            <figcaption>Hall-effect sensor prototype circuit.</figcaption>
+          </figure>
         </div>
       </ScrollReveal>
 

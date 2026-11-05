@@ -76,25 +76,31 @@ export default function EngineTemperatureSensing() {
               to reduce the effect of lead resistance over long cable runs, and an LM2596 buck converter
               steps the 12V rail down to a clean supply for the ESP32 and breakouts.
             </p>
-            <img
-              src={img('/images/baja-racing/engine-temp/esp32-rtd-wiring.jpg')}
-              alt="ESP32 wired to three MAX31865 RTD breakout boards and an LM2596 buck converter from a 12V source"
-              className="project-image-single"
-              loading="lazy"
-              style={{ background: '#fff' }}
-            />
+            <figure className="project-image-single-fig">
+              <img
+                src={img('/images/baja-racing/engine-temp/esp32-rtd-wiring.jpg')}
+                alt="ESP32 wired to three MAX31865 RTD breakout boards and an LM2596 buck converter from a 12V source"
+                className="project-image-single"
+                loading="lazy"
+                style={{ background: '#fff' }}
+              />
+              <figcaption>ESP32 wired to three RTD breakouts.</figcaption>
+            </figure>
             <p style={{ marginTop: 16 }}>
               Decoupling capacitors were added outside the microcontroller's input, the MAX breakout
               inputs, and the buck converter's output, as recommended by each part's datasheet, to
               reduce the electrical noise that would otherwise interfere with the RTD readings.
             </p>
-            <img
-              src={img('/images/baja-racing/engine-temp/esp32-rtd-decoupling.jpg')}
-              alt="Refined wiring diagram with decoupling capacitors added at the microcontroller, RTD breakouts, and buck converter"
-              className="project-image-single"
-              loading="lazy"
-              style={{ background: '#fff' }}
-            />
+            <figure className="project-image-single-fig">
+              <img
+                src={img('/images/baja-racing/engine-temp/esp32-rtd-decoupling.jpg')}
+                alt="Refined wiring diagram with decoupling capacitors added at the microcontroller, RTD breakouts, and buck converter"
+                className="project-image-single"
+                loading="lazy"
+                style={{ background: '#fff' }}
+              />
+              <figcaption>Refined wiring with decoupling caps.</figcaption>
+            </figure>
           </div>
         </ScrollReveal>
 

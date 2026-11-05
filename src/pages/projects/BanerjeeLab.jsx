@@ -62,13 +62,16 @@ export default function BanerjeeLab() {
             Coordinated Infrastructure (NNCI). Photos below are real equipment from the lab's own site
             and the shared UT-MRC equipment list, organized by where each tool fits in the process flow.
           </p>
-          <img
-            src={img('/images/banerjee-lab/mrc-building.jpg')}
-            alt="The Microelectronics Research Center building on the J.J. Pickle Research Campus"
-            className="project-image-single"
-            loading="lazy"
-            style={{ maxHeight: 320, objectFit: 'cover' }}
-          />
+          <figure className="project-image-single-fig">
+            <img
+              src={img('/images/banerjee-lab/mrc-building.jpg')}
+              alt="The Microelectronics Research Center building on the J.J. Pickle Research Campus"
+              className="project-image-single"
+              loading="lazy"
+              style={{ maxHeight: 320, objectFit: 'cover' }}
+            />
+            <figcaption>The Microelectronics Research Center, home of BanerjeeLab.</figcaption>
+          </figure>
 
           <h4 className="project-subheading">Deposition</h4>
           <div className="project-image-grid equipment-grid">

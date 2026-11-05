@@ -83,13 +83,16 @@ export default function FuelLevelIndicator() {
               the tank, and the Hall sensor converts that rotation into a digital pulse train an ESP32
               can count directly, with no contact with the fuel itself.
             </p>
-            <img
-              src={img('/images/baja-racing/fuel-level/turbine-flow-meter.jpg')}
-              alt="Inline turbine flow meter with integrated Hall-effect sensor, brass fitting"
-              className="project-image-single"
-              loading="lazy"
-              style={{ background: '#fff', maxHeight: 320, objectFit: 'contain' }}
-            />
+            <figure className="project-image-single-fig">
+              <img
+                src={img('/images/baja-racing/fuel-level/turbine-flow-meter.jpg')}
+                alt="Inline turbine flow meter with integrated Hall-effect sensor, brass fitting"
+                className="project-image-single"
+                loading="lazy"
+                style={{ background: '#fff', maxHeight: 320, objectFit: 'contain' }}
+              />
+              <figcaption>The selected turbine flow meter.</figcaption>
+            </figure>
           </div>
         </ScrollReveal>
 
@@ -102,13 +105,16 @@ export default function FuelLevelIndicator() {
               regulator stage runs off the vehicle's 12V rail stepped down through an LD1117V33
               linear regulator.
             </p>
-            <img
-              src={img('/images/baja-racing/fuel-level/schematic.jpg')}
-              alt="KiCad schematic: Hall-effect flow sensor conditioning circuit feeding an ESP32-WROOM-32"
-              className="project-image-single"
-              loading="lazy"
-              style={{ background: '#fff' }}
-            />
+            <figure className="project-image-single-fig">
+              <img
+                src={img('/images/baja-racing/fuel-level/schematic.jpg')}
+                alt="KiCad schematic: Hall-effect flow sensor conditioning circuit feeding an ESP32-WROOM-32"
+                className="project-image-single"
+                loading="lazy"
+                style={{ background: '#fff' }}
+              />
+              <figcaption>Sensor conditioning circuit (KiCad).</figcaption>
+            </figure>
           </div>
         </ScrollReveal>
 
@@ -123,23 +129,32 @@ export default function FuelLevelIndicator() {
               "engine," so the tube's water level could be compared directly against the tank's actual
               level.
             </p>
-            <img
-              src={img('/images/baja-racing/fuel-level/prototype-rig.jpg')}
-              alt="Bench prototype: two water cooler jugs connected by fuel line and a brass splitter to a sight tube"
-              className="project-image-single"
-              loading="lazy"
-            />
+            <figure className="project-image-single-fig">
+              <img
+                src={img('/images/baja-racing/fuel-level/prototype-rig.jpg')}
+                alt="Bench prototype: two water cooler jugs connected by fuel line and a brass splitter to a sight tube"
+                className="project-image-single"
+                loading="lazy"
+              />
+              <figcaption>Bench prototype rig.</figcaption>
+            </figure>
             <div className="project-image-grid" style={{ marginTop: 16 }}>
-              <img
-                src={img('/images/baja-racing/fuel-level/level-match.jpg')}
-                alt="Sight tube level matching the tank level at low flow rate"
-                loading="lazy"
-              />
-              <img
-                src={img('/images/baja-racing/fuel-level/level-below.jpg')}
-                alt="Sight tube level reading below the tank level at higher flow rate"
-                loading="lazy"
-              />
+              <figure>
+                <img
+                  src={img('/images/baja-racing/fuel-level/level-match.jpg')}
+                  alt="Sight tube level matching the tank level at low flow rate"
+                  loading="lazy"
+                />
+                <figcaption>Sight tube matches tank level (low flow).</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src={img('/images/baja-racing/fuel-level/level-below.jpg')}
+                  alt="Sight tube level reading below the tank level at higher flow rate"
+                  loading="lazy"
+                />
+                <figcaption>Sight tube lags tank level (higher flow).</figcaption>
+              </figure>
             </div>
             <p style={{ marginTop: 12 }}>
               Jostling and movement had little effect on the sight-tube reading, but the reading did

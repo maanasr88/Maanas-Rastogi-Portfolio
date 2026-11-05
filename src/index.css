@@ -803,6 +803,34 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
 }
 
+/* ===== IMAGE CAPTIONS (site-wide) ===== */
+.project-image-single-fig {
+  margin: 0;
+}
+
+.project-image-single-fig .project-image-single {
+  margin-top: 16px;
+}
+
+.project-image-caption,
+.project-image-single-fig figcaption,
+.project-image-grid figcaption {
+  margin-top: 6px;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.project-image-grid figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-image-grid figure img {
+  margin-top: 0;
+}
+
 /* ===== CAD EMBED PLACEHOLDER ===== */
 .cad-embed {
   margin-top: 16px;
@@ -1873,7 +1901,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ===== QUICK LIST (homepage) — hover a title for a one-line description ===== */
 .quick-list-group {
-  margin-bottom: 36px;
+  margin-bottom: 64px;
 }
 
 .quick-list-group:last-child {
@@ -1892,6 +1920,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .quick-item {
   display: block;
+  position: relative;
   padding: 16px 4px;
   border-bottom: 1px solid var(--card-border);
 }
@@ -1934,9 +1963,24 @@ h1, h2, h3, h4, h5, h6 {
   transition: grid-template-rows 0.3s ease;
 }
 
-.quick-item-desc {
+.quick-item-desc-inner {
   overflow: hidden;
   min-height: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.quick-item-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+  flex-shrink: 0;
+}
+
+.quick-item-desc {
   font-size: 0.85rem;
   color: var(--text-secondary);
   line-height: 1.6;
@@ -1961,6 +2005,47 @@ h1, h2, h3, h4, h5, h6 {
   }
   .quick-item-arrow {
     display: none;
+  }
+}
+
+/* Roomy desktop: description pops out to the right as a floating card
+   instead of expanding inline, with a small circular preview photo. */
+@media (min-width: 1240px) {
+  .quick-item-desc-wrap {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 28px);
+    width: 260px;
+    transform: translateY(-50%) translateX(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    z-index: 5;
+  }
+
+  .quick-item-desc-inner {
+    overflow: visible;
+  }
+
+  .quick-item-photo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .quick-item-desc {
+    padding-top: 0 !important;
+  }
+
+  .quick-item:hover .quick-item-desc-wrap {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+    pointer-events: auto;
   }
 }
 
