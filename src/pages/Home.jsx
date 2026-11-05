@@ -5,6 +5,7 @@ import HeroCircuit from '../components/HeroCircuit'
 import img from '../img'
 
 const orgs = [
+  { name: 'Banerjee Lab', role: 'Undergraduate Researcher', initials: 'BL' },
   { name: 'Ironlattice', role: 'Validation/Design Intern', initials: 'IL' },
   { name: 'UT Austin', role: 'Quantum Computing Researcher', initials: 'UT' },
   { name: 'Longhorn Baja Racing', role: 'Electronics Lead', initials: 'LBR' },
@@ -13,6 +14,13 @@ const orgs = [
 ]
 
 const timelineEntries = [
+  {
+    date: 'Oct 2026 – Present',
+    org: 'Banerjee Lab (Nanoelectronics & Novel Devices Lab)',
+    role: 'Undergraduate Researcher',
+    tag: 'Research',
+    to: '/experience/banerjee-lab',
+  },
   {
     date: 'Aug 2026 – Present',
     org: 'Ironlattice',
@@ -82,7 +90,7 @@ export default function Home() {
               <div className="hero-bio-label">Portfolio</div>
               <h1 className="hero-bio-heading">
                 From Silicon<br />
-                to <span style={{ color: 'var(--accent)' }}>Race Cars</span>,<br />
+                to <span className="accent-serif">Race Cars</span>,<br />
                 I Build It.
               </h1>
               <p className="hero-bio-text">

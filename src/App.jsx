@@ -11,6 +11,7 @@ import PersonalProjects from './pages/PersonalProjects'
 import Skills from './pages/Skills'
 import Ironlattice from './pages/projects/Ironlattice'
 import QuantumComputing from './pages/projects/QuantumComputing'
+import BanerjeeLab from './pages/projects/BanerjeeLab'
 import BajaRacing from './pages/projects/BajaRacing'
 import FuelLevelIndicator from './pages/projects/baja/FuelLevelIndicator'
 import RpmSensor from './pages/projects/baja/RpmSensor'
@@ -44,6 +45,7 @@ function AnimatedRoutes() {
         <Route path="/experience"                  element={<PT><Experience /></PT>} />
         <Route path="/experience/ironlattice"       element={<PT><Ironlattice /></PT>} />
         <Route path="/experience/quantum-computing" element={<PT><QuantumComputing /></PT>} />
+        <Route path="/experience/banerjee-lab"      element={<PT><BanerjeeLab /></PT>} />
         <Route path="/team"                         element={<PT><TeamProjects /></PT>} />
         <Route path="/team/baja-racing"             element={<PT><BajaRacing /></PT>} />
         <Route path="/team/baja-racing/fuel-level-indicator"      element={<PT><FuelLevelIndicator /></PT>} />

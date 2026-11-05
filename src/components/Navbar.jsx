@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { FiDownload } from 'react-icons/fi'
+import img from '../img'
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -16,7 +18,10 @@ export default function Navbar() {
     <>
       <nav className="navbar">
         <div className="navbar-inner">
-          <NavLink to="/" className="navbar-brand">MAANAS RASTOGI</NavLink>
+          <NavLink to="/" className="navbar-brand">
+            <span className="navbar-brand-mark">MR</span>
+            MAANAS RASTOGI
+          </NavLink>
           <ul className="navbar-links">
             {links.map(l => (
               <li key={l.to}>
@@ -26,6 +31,14 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
+          <a
+            href={img('/resume.pdf')}
+            download="Resume_Maanas_Rastogi.pdf"
+            className="btn btn-primary navbar-cta"
+          >
+            <FiDownload size={13} />
+            Resume
+          </a>
           <button
             className="navbar-hamburger"
             onClick={() => setMobileOpen(o => !o)}
@@ -49,6 +62,15 @@ export default function Navbar() {
             {l.label}
           </NavLink>
         ))}
+        <a
+          href={img('/resume.pdf')}
+          download="Resume_Maanas_Rastogi.pdf"
+          className="navbar-mobile-resume"
+          onClick={() => setMobileOpen(false)}
+        >
+          <FiDownload size={14} />
+          Download Resume
+        </a>
       </div>
     </>
   )

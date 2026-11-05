@@ -1,9 +1,16 @@
 import ProjectCard from '../components/ProjectCard'
 import ScrollReveal from '../components/ScrollReveal'
-import { IconChip, IconQuantum } from '../components/Icons'
+import { IconChip, IconQuantum, IconFlask } from '../components/Icons'
 import img from '../img'
 
 const projects = [
+  {
+    icon: <IconFlask />,
+    image: img('/images/banerjee-lab/thin-film-stack-cover.svg'),
+    title: 'Thin Film Growth, Dopant Phase Stabilization & Device Characterization',
+    description: 'Banerjee Lab (Nanoelectronics & Novel Devices Lab): Yttrium-doped HfO₂ thin films, Ge substrate integration, and FeFET/MFIS device characterization.',
+    to: '/experience/banerjee-lab',
+  },
   {
     icon: <IconChip />,
     image: img('/images/ironlattice/gate-stack-cover.svg'),
