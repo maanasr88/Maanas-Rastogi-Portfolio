@@ -5,6 +5,7 @@ import HeroCircuit from '../components/HeroCircuit'
 import img from '../img'
 
 const orgs = [
+  { name: 'Banerjee Lab', role: 'Undergraduate Researcher', initials: 'BL' },
   { name: 'Ironlattice', role: 'Validation/Design Intern', initials: 'IL' },
   { name: 'UT Austin', role: 'Quantum Computing Researcher', initials: 'UT' },
   { name: 'Longhorn Baja Racing', role: 'Electronics Lead', initials: 'LBR' },
@@ -13,6 +14,13 @@ const orgs = [
 ]
 
 const timelineEntries = [
+  {
+    date: 'Oct 2026 – Present',
+    org: 'Banerjee Lab (Nanoelectronics & Novel Devices Lab)',
+    role: 'Undergraduate Researcher',
+    tag: 'Research',
+    to: '/experience/banerjee-lab',
+  },
   {
     date: 'Aug 2026 – Present',
     org: 'Ironlattice',
