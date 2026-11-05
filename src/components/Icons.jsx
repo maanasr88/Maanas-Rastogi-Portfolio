@@ -155,6 +155,17 @@ export function IconSuspension(props) {
   )
 }
 
+export function IconFlask(props) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M9 2h6M10 2v6.2L4.6 18a2 2 0 0 0 1.7 3h11.4a2 2 0 0 0 1.7-3L14 8.2V2" />
+      <path d="M7.5 14.5h9" />
+      <circle cx="10.5" cy="17.5" r="0.6" fill="currentColor" stroke="none" />
+      <circle cx="13.5" cy="18.5" r="0.6" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}
+
 export function IconTeam(props) {
   return (
     <svg {...base} {...props}>
