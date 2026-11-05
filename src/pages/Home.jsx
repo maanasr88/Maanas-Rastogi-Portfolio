@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import { FiDownload } from 'react-icons/fi'
 import ScrollReveal from '../components/ScrollReveal'
 import HeroCircuit from '../components/HeroCircuit'
-import ProjectCard from '../components/ProjectCard'
 import { experienceProjects, teamProjects, personalProjects } from '../data/projects'
 import img from '../img'
 
@@ -21,55 +20,10 @@ const quickLinks = [
   { to: '/projects', label: 'Personal Projects' },
 ]
 
-const timelineEntries = [
-  {
-    date: 'Oct 2026 – Present',
-    org: 'Banerjee Lab (Nanoelectronics & Novel Devices Lab)',
-    role: 'Undergraduate Researcher',
-    tag: 'Research',
-    to: '/experience/banerjee-lab',
-  },
-  {
-    date: 'Aug 2026 – Present',
-    org: 'Ironlattice',
-    role: 'Validation/Design Intern',
-    tag: 'Internship',
-    to: '/experience/ironlattice',
-  },
-  {
-    date: 'Aug 2025 – Present',
-    org: 'Longhorn Baja Racing',
-    role: 'Racing Team Electronics Lead',
-    tag: 'Student Org',
-    to: '/team/baja-racing',
-  },
-  {
-    date: 'Oct – Dec 2025',
-    org: 'The University of Texas at Austin',
-    role: 'Quantum Computing Undergraduate Researcher',
-    tag: 'Research',
-    to: '/experience/quantum-computing',
-  },
-  {
-    date: 'Aug 2024 – Aug 2026',
-    org: 'Longhorn Neurotech',
-    role: 'Manufacturing/Design Lead',
-    tag: 'Student Org',
-    to: '/team/neurotech',
-  },
-  {
-    date: 'Aug 2024 – Aug 2025',
-    org: 'UT Austin Robotics & Automation Society',
-    role: 'Electrical Engineer',
-    tag: 'Student Org',
-    to: '/team/robotics-society',
-  },
-]
-
-const glanceSections = [
-  { id: 'glance-experience', prefix: 'Industry & Research', suffix: 'Experience', projects: experienceProjects, tag: 'Experience', to: '/experience' },
-  { id: 'glance-team',       prefix: 'Team',                suffix: 'Projects',   projects: teamProjects, tag: 'Team', to: '/team' },
-  { id: 'glance-personal',   prefix: 'Personal',             suffix: 'Projects',   projects: personalProjects, tag: 'Personal', to: '/projects' },
+const quickListGroups = [
+  { label: 'Industry & Research', items: experienceProjects },
+  { label: 'Team Projects', items: teamProjects },
+  { label: 'Personal Projects', items: personalProjects },
 ]
 
 export default function Home() {
@@ -150,62 +104,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Compact progression timeline */}
-      <section style={{ padding: '0 0 80px' }}>
-        <div className="container" style={{ maxWidth: 760 }}>
-          <ScrollReveal>
-            <div className="timeline-compact-label">Progression</div>
-          </ScrollReveal>
-          <div className="timeline-compact">
-            {timelineEntries.map((entry, i) => (
-              <ScrollReveal key={entry.org + entry.date} delay={(i % 3) + 1}>
-                <Link to={entry.to} className="timeline-compact-item">
-                  <div className="timeline-compact-marker">
-                    <span className="timeline-compact-dot" />
-                    <span className="timeline-compact-line" />
-                  </div>
-                  <div className="timeline-compact-content">
-                    <div className="timeline-compact-top">
-                      <span className="timeline-compact-date">{entry.date}</span>
-                      <span className="pill">{entry.tag}</span>
+      {/* Quick list: hover a title for a one-line description, click to go there */}
+      <section style={{ padding: '0 0 100px' }}>
+        <div className="container" style={{ maxWidth: 640 }}>
+          {quickListGroups.map(group => (
+            <ScrollReveal key={group.label}>
+              <div className="quick-list-group">
+                <div className="quick-list-label">{group.label}</div>
+                {group.items.map(item => (
+                  <Link key={item.title} to={item.to} className="quick-item">
+                    <div className="quick-item-row">
+                      <span className="quick-item-title">{item.title}</span>
+                      <span className="quick-item-arrow">&rarr;</span>
                     </div>
-                    <span className="timeline-compact-org">{entry.org}</span>
-                    <span className="timeline-compact-role">{entry.role}</span>
-                  </div>
-                  <span className="timeline-compact-arrow">&rarr;</span>
-                </Link>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* At-a-glance project sections: images + quick descriptions, no click-through required */}
-      {glanceSections.map(section => (
-        <section key={section.id} id={section.id} style={{ padding: '24px 0 64px' }}>
-          <div className="container">
-            <ScrollReveal>
-              <div className="section-header">
-                <h2>
-                  <span className="section-title-accent">
-                    {section.prefix} <em className="accent-serif">{section.suffix}</em>
-                  </span>
-                </h2>
-                <div className="section-header-bar" />
-                <Link to={section.to} className="hero-quick-link">
-                  View all <span>&rarr;</span>
-                </Link>
+                    <div className="quick-item-desc-wrap">
+                      <p className="quick-item-desc">{item.description}</p>
+                    </div>
+                  </Link>
+                ))}
               </div>
             </ScrollReveal>
-
-            <div className="project-grid">
-              {section.projects.map((p, i) => (
-                <ProjectCard key={p.title} {...p} tag={section.tag} delay={(i % 3) + 1} />
-              ))}
-            </div>
-          </div>
-        </section>
-      ))}
+          ))}
+        </div>
+      </section>
     </div>
   )
 }
