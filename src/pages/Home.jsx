@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import { FiDownload } from 'react-icons/fi'
 import ScrollReveal from '../components/ScrollReveal'
 import HeroCircuit from '../components/HeroCircuit'
+import ProjectCard from '../components/ProjectCard'
+import { experienceProjects, teamProjects, personalProjects } from '../data/projects'
 import img from '../img'
 
 const orgs = [
@@ -62,6 +64,12 @@ const timelineEntries = [
     tag: 'Student Org',
     to: '/team/robotics-society',
   },
+]
+
+const glanceSections = [
+  { id: 'glance-experience', prefix: 'Industry & Research', suffix: 'Experience', projects: experienceProjects, tag: 'Experience', to: '/experience' },
+  { id: 'glance-team',       prefix: 'Team',                suffix: 'Projects',   projects: teamProjects, tag: 'Team', to: '/team' },
+  { id: 'glance-personal',   prefix: 'Personal',             suffix: 'Projects',   projects: personalProjects, tag: 'Personal', to: '/projects' },
 ]
 
 export default function Home() {
@@ -143,7 +151,7 @@ export default function Home() {
       </section>
 
       {/* Compact progression timeline */}
-      <section style={{ padding: '0 0 100px' }}>
+      <section style={{ padding: '0 0 80px' }}>
         <div className="container" style={{ maxWidth: 760 }}>
           <ScrollReveal>
             <div className="timeline-compact-label">Progression</div>
@@ -171,6 +179,33 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* At-a-glance project sections: images + quick descriptions, no click-through required */}
+      {glanceSections.map(section => (
+        <section key={section.id} id={section.id} style={{ padding: '24px 0 64px' }}>
+          <div className="container">
+            <ScrollReveal>
+              <div className="section-header">
+                <h2>
+                  <span className="section-title-accent">
+                    {section.prefix} <em className="accent-serif">{section.suffix}</em>
+                  </span>
+                </h2>
+                <div className="section-header-bar" />
+                <Link to={section.to} className="hero-quick-link">
+                  View all <span>&rarr;</span>
+                </Link>
+              </div>
+            </ScrollReveal>
+
+            <div className="project-grid">
+              {section.projects.map((p, i) => (
+                <ProjectCard key={p.title} {...p} tag={section.tag} delay={(i % 3) + 1} />
+              ))}
+            </div>
+          </div>
+        </section>
+      ))}
     </div>
   )
 }

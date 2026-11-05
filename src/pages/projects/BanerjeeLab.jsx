@@ -29,8 +29,8 @@ export default function BanerjeeLab() {
       tag="Banerjee Lab (Nanoelectronics & Novel Devices Lab) · UT Austin · Oct 2026 – Present"
       status="in-progress"
       title="Thin Film Growth, Dopant Phase Stabilization, and Device Characterization"
-      heroImage={img('/images/banerjee-lab/mrc-building.jpg')}
-      heroStyle={{ backgroundPosition: 'center 65%' }}
+      heroImage={img('/images/banerjee-lab/wafer-characterization-cover.jpg')}
+      heroStyle={{ backgroundPosition: 'center 38%' }}
       software={['Atomic Layer Deposition', 'X-ray Diffraction', 'Probe-Station Electrical Characterization', 'Cleanroom Processing']}
       roles={['Undergraduate Researcher']}
     >
@@ -62,6 +62,13 @@ export default function BanerjeeLab() {
             Coordinated Infrastructure (NNCI). Photos below are real equipment from the lab's own site
             and the shared UT-MRC equipment list, organized by where each tool fits in the process flow.
           </p>
+          <img
+            src={img('/images/banerjee-lab/mrc-building.jpg')}
+            alt="The Microelectronics Research Center building on the J.J. Pickle Research Campus"
+            className="project-image-single"
+            loading="lazy"
+            style={{ maxHeight: 320, objectFit: 'cover' }}
+          />
 
           <h4 className="project-subheading">Deposition</h4>
           <div className="project-image-grid equipment-grid">

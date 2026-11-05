@@ -1,34 +1,6 @@
 import ProjectCard from '../components/ProjectCard'
 import ScrollReveal from '../components/ScrollReveal'
-import { IconChip, IconQuantum, IconFlask } from '../components/Icons'
-import img from '../img'
-
-const projects = [
-  {
-    icon: <IconFlask />,
-    image: img('/images/banerjee-lab/mrc-building.jpg'),
-    imageStyle: { objectPosition: 'center 65%' },
-    status: 'in-progress',
-    title: 'Thin Film Growth, Dopant Phase Stabilization & Device Characterization',
-    description: 'Banerjee Lab (Nanoelectronics & Novel Devices Lab): Yttrium-doped HfO₂ thin films, Ge substrate integration, and FeFET/MFIS device characterization.',
-    to: '/experience/banerjee-lab',
-  },
-  {
-    icon: <IconChip />,
-    image: img('/images/ironlattice/hank-cover.svg'),
-    status: 'in-progress',
-    title: 'Gator Memory™ FeFET Device Validation',
-    description: 'Ironlattice: simulation pipelines modeling 1-FeFET superlattice device physics and array-level SPICE behavior for a 40 nm node roadmap.',
-    to: '/experience/ironlattice',
-  },
-  {
-    icon: <IconQuantum />,
-    image: img('/images/quantum-computing/chiplet-render-cover.jpg'),
-    title: 'Surface-Code Simulation for Modular Quantum Processors',
-    description: 'UT Austin: 100,000+ Monte Carlo simulations quantifying logical error scaling across chiplet-based quantum processors.',
-    to: '/experience/quantum-computing',
-  },
-]
+import { experienceProjects } from '../data/projects'
 
 export default function Experience() {
   return (
@@ -46,7 +18,7 @@ export default function Experience() {
           </ScrollReveal>
 
           <div className="project-grid">
-            {projects.map((p, i) => (
+            {experienceProjects.map((p, i) => (
               <ProjectCard key={p.title} {...p} tag="Experience" delay={(i % 3) + 1} />
             ))}
           </div>

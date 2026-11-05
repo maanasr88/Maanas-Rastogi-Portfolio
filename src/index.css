@@ -350,8 +350,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-avatar-photo {
-  width: 92px;
-  height: 92px;
+  width: 136px;
+  height: 136px;
   border-radius: 50%;
   object-fit: cover;
   object-position: top center;
