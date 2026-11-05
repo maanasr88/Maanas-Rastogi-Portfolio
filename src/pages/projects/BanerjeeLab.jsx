@@ -6,6 +6,7 @@ import img from '../../img'
 
 const toc = [
   { id: 'overview',   label: 'Overview' },
+  { id: 'facility',   label: 'The MRC Facility' },
   { id: 'objectives', label: 'Research Objectives' },
   { id: 'approach',   label: 'Technical Approach' },
   { id: 'materials',  label: 'Substrates & Materials' },
@@ -28,8 +29,8 @@ export default function BanerjeeLab() {
       tag="Banerjee Lab (Nanoelectronics & Novel Devices Lab) · UT Austin · Oct 2026 – Present"
       status="in-progress"
       title="Thin Film Growth, Dopant Phase Stabilization, and Device Characterization"
-      heroImage={img('/images/banerjee-lab/thin-film-stack-cover.svg')}
-      heroStyle={{ backgroundSize: 'cover' }}
+      heroImage={img('/images/banerjee-lab/mrc-building.jpg')}
+      heroStyle={{ backgroundPosition: 'center 65%' }}
       software={['Atomic Layer Deposition', 'X-ray Diffraction', 'Probe-Station Electrical Characterization', 'Cleanroom Processing']}
       roles={['Undergraduate Researcher']}
     >
@@ -44,21 +45,62 @@ export default function BanerjeeLab() {
             researchers John Komoll and Luke Sloan on ferroelectric and high-k dielectric thin films,
             with weekly cleanroom and characterization time booked through the MRC facility.
           </p>
-          <img
-            src={img('/images/banerjee-lab/cleanroom-bay.svg')}
-            alt="Illustrative cleanroom bay: wet chemical bench, wafer cassette, and cleanroom gowning under yellow photolithography-safe lighting"
-            className="project-image-single"
-            loading="lazy"
-          />
-          <p style={{ marginTop: 8, fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-            Illustrative diagram of a UT-MRC-style cleanroom bay &mdash; not a photo of the actual
-            facility.
-          </p>
         </div>
       </ScrollReveal>
 
       <ScrollReveal>
         <StatRow stats={specs} />
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div id="facility" className="project-section">
+          <h3>The MRC Facility</h3>
+          <p>
+            BanerjeeLab is housed at the Microelectronics Research Center in the J. J. Pickle Research
+            Campus in North Austin &mdash; home to a class-100/1000 nanofabrication cleanroom and
+            extensive support facilities, funded by the NSF through the National Nanotechnology
+            Coordinated Infrastructure (NNCI). A few of the deposition and characterization tools
+            available in the lab:
+          </p>
+          <div className="project-image-grid">
+            <img
+              src={img('/images/banerjee-lab/molecular-beam-epitaxy.jpg')}
+              alt="Molecular Beam Epitaxy system at the Banerjee Lab, UT Austin MRC"
+              loading="lazy"
+            />
+            <img
+              src={img('/images/banerjee-lab/rpcvd-system.jpg')}
+              alt="RPCVD (plasma-enhanced low-temperature epitaxial growth) system at the Banerjee Lab"
+              loading="lazy"
+            />
+          </div>
+          <div className="project-image-grid" style={{ marginTop: 16 }}>
+            <img
+              src={img('/images/banerjee-lab/rtcvd-system.jpg')}
+              alt="RTCVD (rapid thermal chemical vapor deposition) system at the Banerjee Lab"
+              loading="lazy"
+            />
+            <img
+              src={img('/images/banerjee-lab/cascade-probe-station.jpg')}
+              alt="Cascade Summit 11000 AP probe station at the Banerjee Lab"
+              loading="lazy"
+            />
+          </div>
+          <p style={{ marginTop: 12, fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+            <strong>Molecular Beam Epitaxy</strong> &mdash; UHV MBE system with in-situ analysis chamber
+            capable of XPS, variable-temperature STM, AFM, UPS, and Auger XPS.{' '}
+            <strong>RPCVD</strong> &mdash; Si/Ge plasma-enhanced low-temperature epitaxial growth.{' '}
+            <strong>RTCVD</strong> &mdash; Si/Ge-compatible UHV growth, 14 kW lamp.{' '}
+            <strong>Cascade Summit 11000 AP</strong> &mdash; high-precision DC&ndash;RF probed
+            measurements, interfaced with an HP 4156 semiconductor parameter analyzer and an Agilent
+            E8361C PNA for RF measurements up to 67 GHz.
+          </p>
+          <p style={{ marginTop: 8, fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+            Photos of the facility and equipment, from the lab's own site &mdash; these are
+            representative tools available at the MRC, not necessarily the specific instrument used at
+            every step of this particular project.
+          </p>
+        </div>
       </ScrollReveal>
 
       <ScrollReveal>
@@ -94,24 +136,6 @@ export default function BanerjeeLab() {
               { cells: ['Characterization', 'Ellipsometry for film thickness; X-ray diffraction and atomic force microscopy for structural/phase analysis; electrical probe stations with parameter analyzers for P-V hysteresis, C-V curves, and leakage current.'] },
             ]}
           />
-          <img
-            src={img('/images/banerjee-lab/ald-pvd-chamber.svg')}
-            alt="Illustrative schematic of an ALD/PVD deposition chamber: precursor gas inlet, showerhead, heated wafer chuck, vacuum pump, and a PVD sputter-target inset"
-            className="project-image-single"
-            loading="lazy"
-            style={{ marginTop: 16 }}
-          />
-          <img
-            src={img('/images/banerjee-lab/xrd-afm-characterization.svg')}
-            alt="Illustrative diagram of X-ray diffraction (source/sample/detector goniometer) and atomic force microscopy (cantilever and tip scanning a film's surface topography)"
-            className="project-image-single"
-            loading="lazy"
-            style={{ marginTop: 16, background: '#0a0a0c' }}
-          />
-          <p style={{ marginTop: 8, fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-            Illustrative schematics of the deposition and characterization equipment this process
-            relies on &mdash; not photos of the lab's actual tools.
-          </p>
         </div>
       </ScrollReveal>
 

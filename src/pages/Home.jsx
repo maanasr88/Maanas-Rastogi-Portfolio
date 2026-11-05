@@ -13,51 +13,6 @@ const orgs = [
   { name: 'Robotics & Automation Society', role: 'Electrical Engineer', initials: 'RAS' },
 ]
 
-const timelineEntries = [
-  {
-    date: 'Oct 2026 – Present',
-    org: 'Banerjee Lab (Nanoelectronics & Novel Devices Lab)',
-    role: 'Undergraduate Researcher',
-    tag: 'Research',
-    to: '/experience/banerjee-lab',
-  },
-  {
-    date: 'Aug 2026 – Present',
-    org: 'Ironlattice',
-    role: 'Validation/Design Intern',
-    tag: 'Internship',
-    to: '/experience/ironlattice',
-  },
-  {
-    date: 'Aug 2025 – Present',
-    org: 'Longhorn Baja Racing',
-    role: 'Racing Team Electronics Lead',
-    tag: 'Student Org',
-    to: '/team/baja-racing',
-  },
-  {
-    date: 'Oct – Dec 2025',
-    org: 'The University of Texas at Austin',
-    role: 'Quantum Computing Undergraduate Researcher',
-    tag: 'Research',
-    to: '/experience/quantum-computing',
-  },
-  {
-    date: 'Aug 2024 – Aug 2026',
-    org: 'Longhorn Neurotech',
-    role: 'Manufacturing/Design Lead',
-    tag: 'Student Org',
-    to: '/team/neurotech',
-  },
-  {
-    date: 'Aug 2024 – Aug 2025',
-    org: 'UT Austin Robotics & Automation Society',
-    role: 'Electrical Engineer',
-    tag: 'Student Org',
-    to: '/team/robotics-society',
-  },
-]
-
 export default function Home() {
   return (
     <div className="page-wrapper">
@@ -152,9 +107,10 @@ export default function Home() {
       </section>
 
       {/* Org strip */}
-      <section style={{ padding: '64px 0 64px' }}>
+      <section style={{ padding: '48px 0 80px' }}>
         <div className="container">
           <ScrollReveal>
+            <div className="company-strip-label">Where I&rsquo;ve Worked</div>
             <div className="company-strip">
               {orgs.map((o) => (
                 <div key={o.name} className="company-badge">
@@ -167,57 +123,6 @@ export default function Home() {
               ))}
             </div>
           </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Experience Timeline */}
-      <section style={{ padding: '0 0 100px' }}>
-        <div className="container">
-          <ScrollReveal>
-            <div className="section-header" style={{ marginBottom: 48 }}>
-              <h2><span className="section-title-accent">Experience</span></h2>
-              <div className="section-header-bar" />
-            </div>
-          </ScrollReveal>
-
-          <div className="zz-timeline">
-            <div className="zz-spine" />
-            {timelineEntries.map((entry, i) => {
-              const isLeft = i % 2 === 0
-              const inner = (
-                <div className={`zz-card card${entry.to ? ' zz-card-link' : ''}`}>
-                  <div className="zz-card-top">
-                    <span className="pill">{entry.tag}</span>
-                    {entry.to && <span className="zz-arrow">→</span>}
-                  </div>
-                  <div className="zz-date">{entry.date}</div>
-                  <div className="zz-org">{entry.org}</div>
-                  <div className="zz-role">{entry.role}</div>
-                </div>
-              )
-              return (
-                <ScrollReveal key={entry.org + entry.date} delay={(i % 3) + 1} className={`zz-entry ${isLeft ? 'zz-left' : 'zz-right'}`}>
-                  {isLeft ? (
-                    <>
-                      <div className="zz-side">
-                        {entry.to ? <Link to={entry.to} className="card-link">{inner}</Link> : inner}
-                      </div>
-                      <div className="zz-dot-col"><div className="zz-dot" /></div>
-                      <div className="zz-side" />
-                    </>
-                  ) : (
-                    <>
-                      <div className="zz-side" />
-                      <div className="zz-dot-col"><div className="zz-dot" /></div>
-                      <div className="zz-side">
-                        {entry.to ? <Link to={entry.to} className="card-link">{inner}</Link> : inner}
-                      </div>
-                    </>
-                  )}
-                </ScrollReveal>
-              )
-            })}
-          </div>
         </div>
       </section>
     </div>

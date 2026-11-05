@@ -1906,6 +1906,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ===== COMPANY STRIP ===== */
+.company-strip-label {
+  text-align: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
 .company-strip {
   display: flex;
   flex-wrap: wrap;

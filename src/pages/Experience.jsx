@@ -6,7 +6,8 @@ import img from '../img'
 const projects = [
   {
     icon: <IconFlask />,
-    image: img('/images/banerjee-lab/thin-film-stack-cover.svg'),
+    image: img('/images/banerjee-lab/mrc-building.jpg'),
+    imageStyle: { objectPosition: 'center 65%' },
     status: 'in-progress',
     title: 'Thin Film Growth, Dopant Phase Stabilization & Device Characterization',
     description: 'Banerjee Lab (Nanoelectronics & Novel Devices Lab): Yttrium-doped HfO₂ thin films, Ge substrate integration, and FeFET/MFIS device characterization.',
@@ -36,7 +37,7 @@ export default function Experience() {
         <div className="container">
           <ScrollReveal>
             <div className="section-header">
-              <h2><span className="section-title-accent">Industry &amp; Research Experience</span></h2>
+              <h2><span className="section-title-accent">Industry &amp; Research <em className="accent-serif">Experience</em></span></h2>
               <div className="section-header-bar" />
             </div>
             <p style={{ color: 'var(--text-secondary)', marginBottom: 40, maxWidth: 600, fontSize: '0.95rem' }}>
