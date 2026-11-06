@@ -38,6 +38,17 @@ const skillCategories = [
     skills: ['COMSOL', 'QuantumATK', 'Synopsys TCAD', 'SPICE Modeling', 'Monte Carlo Simulation', 'Device Physics'],
   },
   {
+    label: 'Cleanroom & Fabrication',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5l8-3z" />
+        <path d="M9 12l2 2 4-4" />
+      </svg>
+    ),
+    skills: ['Cleanroom Protocol (Class 100/1000)', 'Wafer Handling'],
+    note: "Just starting out at the MRC, but picking it up fast.",
+  },
+  {
     label: 'Quantum Computing',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
@@ -338,7 +349,7 @@ function RadarChartSlideshow() {
 
 // ─── Skill Card ────────────────────────────────────────────────────────────────
 
-function SkillCard({ label, icon, skills }) {
+function SkillCard({ label, icon, skills, note }) {
   const handlePillClick = (e) => {
     const el = e.currentTarget
     el.classList.remove('pill-pulse')
@@ -353,6 +364,7 @@ function SkillCard({ label, icon, skills }) {
         <span className="skills-cat-icon-v2">{icon}</span>
         <span className="skills-cat-label-v2">{label}</span>
       </div>
+      {note && <p className="skills-cat-note">{note}</p>}
       <div className="pill-group skills-pill-group">
         {skills.map(s => (
           <span key={s} className="skill-pill" onClick={handlePillClick}>{s}</span>
@@ -408,6 +420,16 @@ export default function Skills() {
               <h2 className="skills-heading"><span className="section-title-accent"><em className="accent-serif">Skills</em></span></h2>
               <div className="skills-underline-bar" />
               <p ref={subtitleRef} className="skills-subtitle-tw" aria-label={SUBTITLE}>&nbsp;</p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div className="skills-crossover-banner">
+              <span className="skills-crossover-label">Cross-Disciplinary</span>
+              <p>
+                I move fluidly between <strong>device physics</strong> and <strong>RTL / digital design</strong> —
+                understanding how a transistor actually fails informs how I architect the logic built on top of it.
+              </p>
             </div>
           </ScrollReveal>
 

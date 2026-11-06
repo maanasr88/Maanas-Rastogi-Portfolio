@@ -350,8 +350,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-avatar-photo {
-  width: 136px;
-  height: 136px;
+  width: 190px;
+  height: 190px;
   border-radius: 50%;
   object-fit: cover;
   object-position: top center;
@@ -540,7 +540,8 @@ h1, h2, h3, h4, h5, h6 {
 .project-card-img {
   width: 100%;
   aspect-ratio: 4 / 3;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
   background: var(--card-bg);
   transition: transform 0.5s var(--transition);
 }
@@ -1675,6 +1676,51 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
 }
 
+.skills-cat-note {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--text-muted);
+  margin: -8px 0 14px;
+}
+
+/* ===== CROSS-DISCIPLINARY CALLOUT ===== */
+.skills-crossover-banner {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  padding: 18px 22px;
+  margin-bottom: 32px;
+  background: rgba(232, 67, 44, 0.06);
+  border: 1px solid rgba(232, 67, 44, 0.25);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+}
+
+.skills-crossover-label {
+  flex-shrink: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(232, 67, 44, 0.35);
+}
+
+.skills-crossover-banner p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.skills-crossover-banner strong {
+  color: var(--text-primary);
+}
+
 /* ── Skill Pills ── */
 .skills-pill-group {
   margin-top: 0;
@@ -1925,6 +1971,10 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 1px solid var(--card-border);
 }
 
+.quick-list-group .quick-item:last-child {
+  border-bottom: none;
+}
+
 .quick-item-row {
   display: flex;
   align-items: center;
@@ -2010,13 +2060,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Roomy desktop: description pops out to the right as a floating card
    instead of expanding inline, with a small circular preview photo. */
-@media (min-width: 1240px) {
+@media (min-width: 1500px) {
   .quick-item-desc-wrap {
     display: block;
     position: absolute;
     top: 50%;
-    left: calc(100% + 28px);
-    width: 260px;
+    left: calc(100% + 32px);
+    width: 380px;
     transform: translateY(-50%) translateX(-8px);
     opacity: 0;
     pointer-events: none;
@@ -2024,21 +2074,24 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     border-radius: var(--radius);
-    padding: 14px 16px;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    padding: 24px 26px;
+    box-shadow: 0 20px 56px rgba(0, 0, 0, 0.5);
     z-index: 5;
   }
 
   .quick-item-desc-inner {
     overflow: visible;
+    gap: 18px;
   }
 
   .quick-item-photo {
-    width: 48px;
-    height: 48px;
+    width: 76px;
+    height: 76px;
   }
 
   .quick-item-desc {
+    font-size: 0.95rem;
+    line-height: 1.65;
     padding-top: 0 !important;
   }
 
@@ -2845,6 +2898,29 @@ h1, h2, h3, h4, h5, h6 {
   height: 7px;
   border-radius: 50%;
   background: #94a3b8;
+  flex-shrink: 0;
+}
+
+/* ===== NDA BADGE ===== */
+.nda-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(96, 165, 250, 0.12);
+  border: 1px solid rgba(96, 165, 250, 0.35);
+  font-size: 0.65rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #60a5fa;
+}
+
+.nda-lock-icon {
+  width: 11px;
+  height: 11px;
   flex-shrink: 0;
 }
 

@@ -18,7 +18,11 @@ export default function Navbar() {
     <>
       <nav className="navbar">
         <div className="navbar-inner">
-          <NavLink to="/" className="navbar-brand">
+          <NavLink
+            to="/"
+            className="navbar-brand"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
             <span className="navbar-brand-mark">MR</span>
             MAANAS RASTOGI
           </NavLink>
