@@ -3,7 +3,16 @@ import { FiDownload } from 'react-icons/fi'
 import ScrollReveal from '../components/ScrollReveal'
 import HeroCircuit from '../components/HeroCircuit'
 import { experienceProjects, teamProjects, personalProjects } from '../data/projects'
+import { useTypewriterSegments } from '../hooks/useTypewriter'
 import img from '../img'
+
+const HEADLINE_SEGMENTS = [
+  { text: 'From Silicon to ' },
+  { text: 'Race Cars', className: 'accent-serif' },
+  { text: ',' },
+  { break: true },
+  { text: 'I Build It.' },
+]
 
 const orgs = [
   { name: 'Banerjee Lab', initials: 'BL' },
@@ -27,6 +36,8 @@ const quickListGroups = [
 ]
 
 export default function Home() {
+  const { ref: headlineRef, done: headlineDone } = useTypewriterSegments(HEADLINE_SEGMENTS, 45)
+
   return (
     <div className="page-wrapper">
       <section className="hero-section hero-centered">
@@ -50,10 +61,7 @@ export default function Home() {
           </ScrollReveal>
 
           <ScrollReveal delay={2}>
-            <h1 className="hero-headline">
-              From Silicon to <span className="accent-serif">Race Cars</span>,<br />
-              I Build It.
-            </h1>
+            <h1 className={`hero-headline${headlineDone ? '' : ' typing'}`} ref={headlineRef} />
           </ScrollReveal>
 
           <ScrollReveal delay={3}>
