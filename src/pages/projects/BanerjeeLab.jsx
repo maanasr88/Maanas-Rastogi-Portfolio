@@ -64,7 +64,7 @@ export default function BanerjeeLab() {
           </p>
           <figure className="project-image-single-fig">
             <img
-              src={img('/images/banerjee-lab/mrc-building.jpg')}
+              src={img('/images/banerjee-lab/mrc-building-campus.jpg')}
               alt="The Microelectronics Research Center building on the J.J. Pickle Research Campus"
               className="project-image-single"
               loading="lazy"
