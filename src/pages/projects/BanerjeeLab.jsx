@@ -74,66 +74,78 @@ export default function BanerjeeLab() {
           </figure>
 
           <h4 className="project-subheading">Deposition</h4>
+          <p className="project-subheading-note">
+            Every device starts as a stack of ultra-thin films built up one layer at a time. These
+            tools are the different ways we grow or deposit those layers onto a wafer.
+          </p>
           <div className="project-image-grid equipment-grid">
             <figure>
               <img src={img('/images/banerjee-lab/molecular-beam-epitaxy.jpg')} alt="Molecular Beam Epitaxy system" loading="lazy" />
-              <figcaption><strong>Molecular Beam Epitaxy</strong>UHV MBE with in-situ XPS, variable-temp STM/AFM, UPS, Auger XPS</figcaption>
+              <figcaption><strong>Molecular Beam Epitaxy</strong>Grows ultra-pure crystal films one atomic layer at a time in a vacuum chamber &mdash; the gold standard for near-flawless, precisely controlled thin films.</figcaption>
             </figure>
             <figure>
               <img src={img('/images/banerjee-lab/rpcvd-system.jpg')} alt="RPCVD system" loading="lazy" />
-              <figcaption><strong>RPCVD</strong>Si/Ge plasma-enhanced low-temperature epitaxial growth</figcaption>
+              <figcaption><strong>RPCVD</strong>Deposits silicon/germanium films from a reactive gas plasma at low temperature, growing crystalline layers without damaging what's already on the wafer.</figcaption>
             </figure>
             <figure>
               <img src={img('/images/banerjee-lab/rtcvd-system.jpg')} alt="RTCVD system" loading="lazy" />
-              <figcaption><strong>RTCVD</strong>Si/Ge-compatible UHV growth, 14 kW lamp</figcaption>
+              <figcaption><strong>RTCVD</strong>Flash-heats the wafer with a 14 kW lamp during growth, giving tight control over the thickness and purity of silicon/germanium films.</figcaption>
             </figure>
             <figure>
               <img src={img('/images/banerjee-lab/ald-savannah.jpg')} alt="ALD Cambridge NanoTech Savannah TM 200 system" loading="lazy" />
-              <figcaption><strong>ALD &mdash; Cambridge NanoTech Savannah&trade; 200</strong>Atomic layer deposition</figcaption>
+              <figcaption><strong>ALD &mdash; Cambridge NanoTech Savannah&trade; 200</strong>Builds films one atomic layer at a time by alternating gas pulses &mdash; our main tool for growing the Yttrium-doped HfO&#8322; dielectric with atomic-scale thickness control.</figcaption>
             </figure>
             <figure>
               <img src={img('/images/banerjee-lab/ald-fiji.jpg')} alt="ALD Fiji system with remote plasma and ozone source" loading="lazy" />
-              <figcaption><strong>ALD &mdash; Fiji</strong>Remote plasma &amp; ozone-assisted atomic layer deposition</figcaption>
+              <figcaption><strong>ALD &mdash; Fiji</strong>A second atomic-layer-deposition system with plasma and ozone sources, used when a film needs an extra chemical push to fully react at each layer.</figcaption>
             </figure>
             <figure>
               <img src={img('/images/banerjee-lab/cha-ebeam-evaporator.jpg')} alt="CHA e-beam evaporator" loading="lazy" />
-              <figcaption><strong>CHA #1 E-beam Evaporator</strong>Physical vapor deposition for metal electrodes</figcaption>
+              <figcaption><strong>CHA #1 E-beam Evaporator</strong>Melts metal with an electron beam in vacuum and condenses it onto the wafer &mdash; how we deposit the metal electrodes above and below each device.</figcaption>
             </figure>
           </div>
 
           <h4 className="project-subheading">Thermal &amp; Patterning</h4>
+          <p className="project-subheading-note">
+            After a film is deposited, it needs heat to crystallize into a useful phase and precise
+            etching to become an actual test structure instead of a blanket coating.
+          </p>
           <div className="project-image-grid equipment-grid">
             <figure>
               <img src={img('/images/banerjee-lab/anneal-gate-oxide.jpg')} alt="MRL gate-oxide anneal furnace" loading="lazy" />
-              <figcaption><strong>Anneal (Gate Oxide) &mdash; MRL</strong>Thermal annealing furnace, MER 1.756</figcaption>
+              <figcaption><strong>Anneal (Gate Oxide) &mdash; MRL</strong>Bakes the wafer at high temperature in a controlled gas atmosphere, which is what coaxes the deposited film into its ferroelectric crystal phase.</figcaption>
             </figure>
             <figure>
               <img src={img('/images/banerjee-lab/xactic-etcher.jpg')} alt="Xactic XF2 reactive ion etcher" loading="lazy" />
-              <figcaption><strong>Xactic XF2 Etcher</strong>Reactive ion etching, MER 1.748</figcaption>
+              <figcaption><strong>Xactic XF2 Etcher</strong>Uses a reactive plasma to remove material with high precision, carving blanket films down into individual test-device patterns.</figcaption>
             </figure>
           </div>
 
           <h4 className="project-subheading">Characterization</h4>
+          <p className="project-subheading-note">
+            Once a device exists, we still have to prove what it actually is: what crystal phase
+            formed, how smooth the surface is, and how it behaves electrically.
+          </p>
           <div className="project-image-grid equipment-grid">
             <figure>
               <img src={img('/images/banerjee-lab/xrd-rigaku.jpg')} alt="XRD Rigaku SmartLab system" loading="lazy" />
-              <figcaption><strong>XRD &mdash; Rigaku SmartLab</strong>X-ray diffraction, MER 1.802</figcaption>
+              <figcaption><strong>XRD &mdash; Rigaku SmartLab</strong>Fires X-rays at the film and reads the diffraction pattern to identify which crystal phase actually formed &mdash; our main check that the ferroelectric phase took.</figcaption>
             </figure>
             <figure>
               <img src={img('/images/banerjee-lab/afm-bruker-icon1.jpg')} alt="Atomic Force Microscope Bruker Icon" loading="lazy" />
-              <figcaption><strong>AFM &mdash; Bruker Icon</strong>Atomic force microscopy</figcaption>
+              <figcaption><strong>AFM &mdash; Bruker Icon</strong>Drags a nanometer-scale tip across the surface to map it in 3D, showing how smooth or rough a film is down to atomic-scale bumps.</figcaption>
             </figure>
             <figure>
               <img src={img('/images/banerjee-lab/afm-bruker-icon2.jpg')} alt="Atomic Force Microscope Bruker Icon, second unit" loading="lazy" />
-              <figcaption><strong>AFM &mdash; Bruker Icon #2</strong>Atomic force microscopy, MER 1.728</figcaption>
+              <figcaption><strong>AFM &mdash; Bruker Icon #2</strong>A second unit for the same nanometer-scale surface mapping, used when the first is booked by another project.</figcaption>
             </figure>
             <figure>
               <img src={img('/images/banerjee-lab/cascade-probe-station.jpg')} alt="Cascade Summit 11000 AP probe station" loading="lazy" />
-              <figcaption><strong>Cascade Summit 11000 AP</strong>DC&ndash;RF probed measurements (HP 4156, Agilent E8361C PNA to 67 GHz)</figcaption>
+              <figcaption><strong>Cascade Summit 11000 AP</strong>Lands fine metal probes directly on a device's electrodes to run electrical tests, from everyday DC measurements up to 67 GHz RF.</figcaption>
             </figure>
             <figure>
               <img src={img('/images/banerjee-lab/cascade-attoguard-probestation.jpg')} alt="Summit 11000 AttoGuard Cascade probe station" loading="lazy" />
-              <figcaption><strong>Summit 11000 AttoGuard</strong>Shared MRC probe station, MER 2.816</figcaption>
+              <figcaption><strong>Summit 11000 AttoGuard</strong>A shielded, ultra-low-noise probe station for measuring very small currents and voltages without outside electrical interference.</figcaption>
             </figure>
           </div>
 

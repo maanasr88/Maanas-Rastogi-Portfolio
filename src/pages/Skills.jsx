@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import ScrollReveal from '../components/ScrollReveal'
+import { useTypewriter } from '../hooks/useTypewriter'
 
 // ─── Skill Category Data ────────────────────────────────────────────────────────
 
@@ -372,35 +373,6 @@ function SkillCard({ label, icon, skills, note }) {
       </div>
     </div>
   )
-}
-
-// ─── Typewriter Hook ───────────────────────────────────────────────────────────
-
-function useTypewriter(text, speed = 18) {
-  const ref       = useRef(null)
-  const triggered = useRef(false)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    el.textContent = ''
-
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting && !triggered.current) {
-        triggered.current = true
-        let i = 0
-        const interval = setInterval(() => {
-          if (i < text.length) { el.textContent += text[i]; i++ }
-          else clearInterval(interval)
-        }, speed)
-      }
-    }, { threshold: 0.5 })
-
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [text, speed])
-
-  return ref
 }
 
 // ─── Page ──────────────────────────────────────────────────────────────────────
