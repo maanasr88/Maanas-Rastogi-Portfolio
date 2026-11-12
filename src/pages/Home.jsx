@@ -75,7 +75,7 @@ export default function Home() {
 
           <ScrollReveal delay={4} className="hero-actions-centered">
             <a
-              href={img('/resume.pdf')}
+              href={img('/Resume_Maanas_Rastogi.pdf')}
               download="Resume_Maanas_Rastogi.pdf"
               className="btn btn-primary"
             >
