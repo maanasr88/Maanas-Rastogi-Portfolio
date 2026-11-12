@@ -36,7 +36,7 @@ export default function Navbar() {
             ))}
           </ul>
           <a
-            href={img('/resume.pdf')}
+            href={img('/Resume_Maanas_Rastogi.pdf')}
             download="Resume_Maanas_Rastogi.pdf"
             className="btn btn-primary navbar-cta"
           >
@@ -67,7 +67,7 @@ export default function Navbar() {
           </NavLink>
         ))}
         <a
-          href={img('/resume.pdf')}
+          href={img('/Resume_Maanas_Rastogi.pdf')}
           download="Resume_Maanas_Rastogi.pdf"
           className="navbar-mobile-resume"
           onClick={() => setMobileOpen(false)}

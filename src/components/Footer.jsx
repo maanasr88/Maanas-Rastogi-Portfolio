@@ -25,7 +25,7 @@ export default function Footer() {
             </a>
           </div>
           <a
-            href={img('/resume.pdf')}
+            href={img('/Resume_Maanas_Rastogi.pdf')}
             download="Resume_Maanas_Rastogi.pdf"
             className="btn btn-outline"
             style={{ fontSize: '0.72rem', padding: '8px 14px' }}
