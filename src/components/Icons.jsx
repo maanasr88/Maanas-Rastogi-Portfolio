@@ -123,6 +123,16 @@ export function IconSatellite(props) {
   )
 }
 
+export function IconNfc(props) {
+  return (
+    <svg {...base} {...props}>
+      <rect x="3" y="5" width="13" height="14" rx="2" />
+      <circle cx="9.5" cy="12" r="2.2" />
+      <path d="M17.5 8.5a5 5 0 0 1 0 7M20.5 6a9 9 0 0 1 0 12" />
+    </svg>
+  )
+}
+
 export function IconRadio(props) {
   return (
     <svg {...base} {...props}>

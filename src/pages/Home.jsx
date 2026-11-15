@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { FiDownload } from 'react-icons/fi'
 import ScrollReveal from '../components/ScrollReveal'
 import HeroCircuit from '../components/HeroCircuit'
+import HomeCarousel from '../components/HomeCarousel'
 import { experienceProjects, teamProjects, personalProjects } from '../data/projects'
 import { useTypewriterSegments } from '../hooks/useTypewriter'
 import img from '../img'
@@ -108,6 +109,15 @@ export default function Home() {
                 </div>
               ))}
             </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* A tour of the work, pulled from across the site */}
+      <section style={{ padding: '0 0 60px' }}>
+        <div className="container">
+          <ScrollReveal>
+            <HomeCarousel />
           </ScrollReveal>
         </div>
       </section>

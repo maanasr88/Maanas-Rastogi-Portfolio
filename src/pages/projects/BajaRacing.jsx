@@ -23,6 +23,7 @@ const subsystems = [
   { to: '/team/baja-racing/driver-input-telemetry',      title: 'Driver Input Telemetry',         desc: 'Pedal-box potentiometer and CAN bus module logging throttle and brake activity in real time.', image: img('/images/baja-racing/driver-inputs/system-wiring.jpg') },
   { to: '/team/baja-racing/suspension-position-sensor',  title: 'Suspension Position Sensor',     desc: 'Linear potentiometer travel sensing for a semi-active suspension, accurate to ±10mm.', image: img('/images/baja-racing/suspension/suspension-assembly-diagram.svg') },
   { to: '/team/baja-racing/telemetry-link',              title: 'Wireless Telemetry Link',        desc: '915 MHz LoRa radio link carrying sensor data from the car to a pit-side dashboard.', image: img('/images/baja-racing/telemetry/signal-flow.jpg') },
+  { to: '/team/baja-racing/nfc-tracker',                 title: 'NFC Tracker — Shop Tap Station', desc: 'ESP32-S3 + PN532 NFC reader with a touch display and D-pad, for tapping a tool, part, or team card to pull up its record.', image: img('/images/baja-racing/nfc-tracker/board-layout-render.jpg'), imageStyle: { objectPosition: 'center 15%' } },
 ]
 
 const specs = [
@@ -102,7 +103,7 @@ export default function BajaRacing() {
               {subsystems.map(s => (
                 <Link key={s.to} to={s.to} className="baja-sub-card">
                   <div className="baja-sub-card-img-wrap">
-                    <img src={s.image} alt="" loading="lazy" className="baja-sub-card-img" />
+                    <img src={s.image} alt="" loading="lazy" className="baja-sub-card-img" style={s.imageStyle} />
                   </div>
                   <div className="baja-sub-card-body">
                     <div className="baja-sub-card-title-row">
