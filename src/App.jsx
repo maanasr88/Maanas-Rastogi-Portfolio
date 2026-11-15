@@ -20,6 +20,7 @@ import ImuGps from './pages/projects/baja/ImuGps'
 import DriverInputTelemetry from './pages/projects/baja/DriverInputTelemetry'
 import SuspensionPositionSensor from './pages/projects/baja/SuspensionPositionSensor'
 import TelemetryLink from './pages/projects/baja/TelemetryLink'
+import NfcTracker from './pages/projects/baja/NfcTracker'
 import Neurotech from './pages/projects/Neurotech'
 import RoboticsSociety from './pages/projects/RoboticsSociety'
 import VlsiRiscV from './pages/projects/VlsiRiscV'
@@ -55,6 +56,7 @@ function AnimatedRoutes() {
         <Route path="/team/baja-racing/driver-input-telemetry"     element={<PT><DriverInputTelemetry /></PT>} />
         <Route path="/team/baja-racing/suspension-position-sensor" element={<PT><SuspensionPositionSensor /></PT>} />
         <Route path="/team/baja-racing/telemetry-link"             element={<PT><TelemetryLink /></PT>} />
+        <Route path="/team/baja-racing/nfc-tracker"                element={<PT><NfcTracker /></PT>} />
         <Route path="/team/neurotech"               element={<PT><Neurotech /></PT>} />
         <Route path="/team/robotics-society"        element={<PT><RoboticsSociety /></PT>} />
         <Route path="/projects"                     element={<PT><PersonalProjects /></PT>} />
