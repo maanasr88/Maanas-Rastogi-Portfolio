@@ -69,11 +69,74 @@
   position: relative;
   z-index: 2;
   flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+  gap: var(--space-8);
+  align-items: center;
+  padding-block: calc(var(--nav-height) + var(--space-7)) var(--space-7);
+}
+
+.hero-copy {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
-  padding-block: calc(var(--nav-height) + var(--space-7)) var(--space-7);
+  min-width: 0;
+}
+
+/* Portrait: a real person, right at the top */
+.hero-portrait {
+  position: relative;
+  justify-self: end;
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--rule-strong);
+  background: var(--panel);
+  box-shadow: 0 40px 80px -40px rgba(232, 67, 44, 0.45);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-portrait { animation: enter 1s var(--ease) 0.2s both; }
+}
+
+.hero-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 58% 22%;
+  transition: transform 0.8s var(--ease);
+}
+
+.hero-portrait:hover img { transform: scale(1.03); }
+
+.hero-portrait-tag {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--rule-strong);
+  background: rgba(7, 8, 10, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--ink-muted);
+}
+
+.hero-portrait-tag span:last-child { color: var(--accent-ink); }
+
+/* Smaller screens: the photo comes first, so a real face is the first thing people see */
+@media (max-width: 960px) {
+  .hero-inner { grid-template-columns: 1fr; gap: var(--space-6); }
+  .hero-portrait { order: -1; justify-self: stretch; max-width: none; aspect-ratio: 16 / 10; }
+  .hero-portrait img { object-position: 58% 24%; }
 }
 
 .hero-kicker {
@@ -94,7 +157,6 @@
   transition: border-color var(--transition), color var(--transition);
 }
 
-.hero-kicker:hover { border-color: var(--ink-subtle); color: var(--ink); }
 
 .hero-kicker-dot {
   width: 7px;
@@ -106,7 +168,7 @@
 
 .hero-title {
   margin-top: 28px;
-  font-size: var(--text-3xl);
+  font-size: clamp(3rem, 7.4vw, 7rem);
   line-height: 0.9;
   letter-spacing: var(--tracking-display);
   text-wrap: initial;

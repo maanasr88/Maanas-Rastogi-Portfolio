@@ -20,6 +20,7 @@ import DriverInputTelemetry from './pages/projects/baja/DriverInputTelemetry'
 import SuspensionPositionSensor from './pages/projects/baja/SuspensionPositionSensor'
 import TelemetryLink from './pages/projects/baja/TelemetryLink'
 import NfcTracker from './pages/projects/baja/NfcTracker'
+import SteeringWheelDashboard from './pages/projects/baja/SteeringWheelDashboard'
 import Neurotech from './pages/projects/Neurotech'
 import RoboticsSociety from './pages/projects/RoboticsSociety'
 import VlsiRiscV from './pages/projects/VlsiRiscV'
@@ -62,6 +63,7 @@ const ROUTES = [
   { path: '/team/baja-racing/driver-input-telemetry',    element: <DriverInputTelemetry />,     title: 'Driver Input Telemetry · Baja Sensor Suite' },
   { path: '/team/baja-racing/suspension-position-sensor', element: <SuspensionPositionSensor />, title: 'Suspension Position Sensor · Baja Sensor Suite' },
   { path: '/team/baja-racing/telemetry-link',            element: <TelemetryLink />,            title: 'Wireless Telemetry Link · Baja Sensor Suite' },
+  { path: '/team/baja-racing/steering-wheel-dashboard', element: <SteeringWheelDashboard />, title: 'Steering Wheel Dashboard · Baja Sensor Suite' },
   { path: '/team/baja-racing/nfc-tracker',               element: <NfcTracker />,               title: 'NFC Tracker · Baja Sensor Suite' },
   { path: '/team/neurotech',                            element: <Neurotech />,                title: 'Longhorn Neurotech · Electric Wheelchair' },
   { path: '/team/robotics-society',                     element: <RoboticsSociety />,          title: 'UT Robotics & Automation Society · Power Electronics' },
