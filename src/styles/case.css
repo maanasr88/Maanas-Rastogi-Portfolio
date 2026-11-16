@@ -755,3 +755,31 @@ a.sensor-map-item:hover { background: var(--panel-2); }
   .photo-gallery { columns: 2; column-gap: 8px; }
   .photo-gallery-item { margin-bottom: 8px; }
 }
+
+/* Reading list: research directions with paper links */
+.reading-list {
+  display: grid;
+  gap: 0;
+  margin-top: var(--space-5);
+  border-top: 1px solid var(--rule-strong);
+}
+
+.reading-item {
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.reading-topic {
+  font-size: var(--text-lg);
+  letter-spacing: var(--tracking-tight);
+}
+
+.reading-item p { margin-top: var(--space-2); }
+
+.reading-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+}

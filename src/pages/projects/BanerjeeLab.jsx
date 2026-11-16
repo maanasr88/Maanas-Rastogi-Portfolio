@@ -10,6 +10,7 @@ const toc = [
   { id: 'objectives', label: 'Research Objectives' },
   { id: 'approach',   label: 'Technical Approach' },
   { id: 'materials',  label: 'Substrates & Materials' },
+  { id: 'directions', label: 'Directions I’m Studying' },
   { id: 'next',       label: 'What’s Next' },
 ]
 
@@ -18,6 +19,56 @@ const specs = [
   { value: 'Weekly',          label: 'MRC Usage' },
   { value: '3',               label: 'Researchers on Project' },
   { value: 'Electronics',     label: 'UT-MRC Category' },
+]
+
+
+// Group research directions I'm reading into and starting to help with. Links are published work only.
+const directions = [
+  {
+    topic: 'Carbon-doped germanium (Ge:C) on silicon',
+    body: 'A smoother, thinner route to relaxed Ge on Si substrates, grown by UHVCVD. Films can be checked electrically through MOS capacitors, where I-V and C-V data give carrier mobility and leakage without a full transistor or Hall-bar flow. I’m also looking at ethylene (C₂H₄) as the carbon precursor for Ge:C and SiGeC.',
+    links: [
+      { label: 'MOSCAPs on grown Ge films', href: 'https://pubs.aip.org/aip/apl/article/88/15/152101/908000' },
+      { label: 'Ultra-smooth epitaxial Ge on Si(001)', href: 'https://pubs.aip.org/aip/apl/article/102/19/192111/26719/Ultra-smooth-epitaxial-Ge-grown-on-Si-001' },
+      { label: 'Carbon from ethylene', href: 'https://www.sciencedirect.com/science/article/pii/S1369800104001118' },
+    ],
+  },
+  {
+    topic: 'SiGe superlattices for memory',
+    body: 'SiGe is well studied but easy to grow in our UHVCVD chamber. SiGe/Si superlattice stacks have been proposed for DRAM, and carbon doping could be a lever for tuning strain in them.',
+    links: [{ label: 'SiGe/Si superlattice for DRAM', href: 'https://iopscience.iop.org/article/10.1088/1674-4926/44/12/124101' }],
+  },
+  {
+    topic: 'Germanium spin qubits',
+    body: 'SiGe/Ge/SiGe heterostructures for quieter, more scalable spin qubits. The open question is what the ideal device stack looks like and whether it can be grown here.',
+    links: [
+      { label: 'QuTech: engineering quieter Ge qubits', href: 'https://qutech.nl/2025/07/09/quantum-engineering-of-germanium-for-scaling-quieter-qubits/' },
+      { label: 'Ge spin qubit stack theory', href: 'https://www.nature.com/articles/s41534-024-00897-8' },
+    ],
+  },
+  {
+    topic: 'HZO ferroelectrics and FeFETs',
+    body: 'Hafnium zirconium oxide, including rapid cooling to favor the ferroelectric orthorhombic phase, polarization mapping by AFM, and what a FeFET device stack built on these films would need.',
+    links: [
+      { label: 'Rapid cooling and the orthorhombic phase', href: 'https://www.sciencedirect.com/science/article/pii/S2666523925000364' },
+      { label: 'HZO FeFET devices', href: 'https://advanced.onlinelibrary.wiley.com/doi/10.1002/aelm.202500402' },
+    ],
+  },
+  {
+    topic: 'RRAM with 2D switching layers',
+    body: 'Metal-insulator-metal memristors with MoS₂ transferred onto bottom gates, and whether MBE-grown chalcogenides or HZO could serve as the switching layer.',
+    links: [{ label: 'Recent RRAM devices from the group', href: 'https://pubs.aip.org/aip/jap/article/139/17/174502/3388597' }],
+  },
+  {
+    topic: 'Spintronics and 2D magnetism',
+    body: 'Magnetic tunnel junctions, spin FETs and spin valves built on MBE-grown magnetic thin films, characterized with the group’s SQUID.',
+    links: [{ label: 'Spintronic devices on 2D magnets', href: 'https://pubs.acs.org/ancac3/article/19/10/9452/3754437/Spintronic-Devices-upon-2D-Magnetic-Materials-and' }],
+  },
+  {
+    topic: 'Superconducting FeSe and NbSe₂',
+    body: 'MBE-grown films where the goal is to tune the superconducting transition temperature, measured in the PPMS. Integrating films onto PPMS pucks is a good first place to help.',
+    links: [{ label: 'Tuning Tc in grown films', href: 'https://pubs.aip.org/aip/jap/article/139/18/183902/3389283' }],
+  },
 ]
 
 export default function BanerjeeLab() {
@@ -206,6 +257,31 @@ export default function BanerjeeLab() {
             <li><strong>Materials &amp; precursors:</strong> Deposition precursors and targets containing hafnium oxide, zirconium oxide, yttrium oxide, and related rare-earth dopants, alongside electrode materials including titanium nitride, tantalum nitride, tungsten, and aluminum.</li>
             <li><strong>Chemicals:</strong> Standard hydrofluoric acid, buffered oxide etch, hydrogen peroxide, and mild deoxygenated rinses for surface cleaning and native-oxide removal on germanium.</li>
           </ul>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div id="directions" className="project-section">
+          <h3>Directions I&rsquo;m Studying</h3>
+          <p>
+            Alongside the Y:HfO<sub>2</sub> work, I&rsquo;m reading into the group&rsquo;s other growth and
+            device directions to find where I can start contributing.
+          </p>
+          <ol className="reading-list" role="list">
+            {directions.map(d => (
+              <li key={d.topic} className="reading-item">
+                <h4 className="reading-topic">{d.topic}</h4>
+                <p>{d.body}</p>
+                <ul className="reading-links" role="list">
+                  {d.links.map(l => (
+                    <li key={l.href}>
+                      <a href={l.href} target="_blank" rel="noopener noreferrer" className="prose-link">{l.label} <span aria-hidden="true">↗</span></a>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ol>
         </div>
       </ScrollReveal>
 

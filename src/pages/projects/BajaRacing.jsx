@@ -14,7 +14,6 @@ const toc = [
   { id: 'suite',       label: 'Sensor Suite Research' },
   { id: 'control',     label: 'Control Algorithms' },
   { id: 'leadership',  label: 'Leadership' },
-  { id: 'gallery',     label: 'At Competition' },
 ]
 
 
@@ -26,28 +25,12 @@ const specs = [
 ]
 
 
-// Competition photos, shown as a masonry gallery
-const gallery = [
-  { src: 'driver-staging.jpg',  alt: 'Car 185 in the staging area with a driver in the seat, next to another team’s car' },
-  { src: 'pit-lineup.jpg',      alt: 'Car 185 lined up in the pits between other Baja cars under a blue sky' },
-  { src: 'rear-sunset.jpg',     alt: 'Rear view of car 185 at sunset under power lines' },
-  { src: 'side-panel.jpg',      alt: 'Close-up of the orange side panel artwork and Fox shocks on car 185' },
-  { src: 'cage-sunset.jpg',     alt: 'A team member sitting on the roll cage of car 185 at sunset' },
-  { src: 'team-photo.jpg',      alt: 'The Longhorn Baja Racing team celebrating around car 185, one member holding a helmet up' },
-  { src: 'pit-crew.jpg',        alt: 'Team members working on car 185 in the paddock' },
-  { src: 'car-trees.jpg',       alt: 'Low-angle shot of car 185 on grass in front of tall trees' },
-  { src: 'loading-truck.jpg',   alt: 'Team members loading car 185 into a pickup truck at dusk' },
-  { src: 'teammates.jpg',       alt: 'Two team members laughing in the paddock at golden hour' },
-  { src: 'pit-crew-low.jpg',    alt: 'Low-angle shot of the crew around car 185, one member tossing a screwdriver' },
-  { src: 'wiring.jpg',          alt: 'Hands twisting a red and white wire pair while wiring the car' },
-]
-
 export default function BajaRacing() {
   return (
     <DetailPage
         toc={toc}
-        backTo="/work"
-        backLabel="All work"
+        backTo="/baja"
+        backLabel="All Baja work"
         tag="Longhorn Baja Racing · Aug 2025 – Present"
         status="in-progress"
         title="Racing Team Electronics Lead"
@@ -160,19 +143,6 @@ export default function BajaRacing() {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal>
-          <div id="gallery" className="project-section">
-            <h3>At Competition</h3>
-            <p>The car, the pits and the team at competition.</p>
-            <div className="photo-gallery">
-              {gallery.map(g => (
-                <div key={g.src} className="photo-gallery-item">
-                  <img src={img(`/images/baja-racing/competition/${g.src}`)} alt={g.alt} loading="lazy" decoding="async" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </ScrollReveal>
       </DetailPage>
   )
 }

@@ -17,8 +17,8 @@ export default function FuelLevelIndicator() {
   return (
     <DetailPage
         toc={toc}
-        backTo="/team/baja-racing"
-        backLabel="Longhorn Baja Racing"
+        backTo="/baja"
+        backLabel="All Baja work"
         tag="Baja GM-Electronics Research · Sensor Suite"
         title="Fuel Level Indicator"
         icon={<IconFuel />}

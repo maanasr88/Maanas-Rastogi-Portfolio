@@ -6,6 +6,7 @@ import Footer from './components/Footer'
 import PageTransition from './components/PageTransition'
 import Home from './pages/Home'
 import Work from './pages/Work'
+import Baja from './pages/Baja'
 import About from './pages/About'
 import Skills from './pages/Skills'
 import Ironlattice from './pages/projects/Ironlattice'
@@ -49,6 +50,7 @@ const SITE_TITLE = 'Maanas Rastogi — Electrical & Computer Engineering Portfol
 const ROUTES = [
   { path: '/',                                          element: <Home />,                     title: null },
   { path: '/work',                                      element: <Work />,                     title: 'Work' },
+  { path: '/baja', element: <Baja />, title: 'Longhorn Baja Racing' },
   { path: '/about',                                     element: <About />,                    title: 'About' },
   { path: '/experience',                                element: <Navigate to="/work" replace />, title: 'Work' },
   { path: '/experience/ironlattice',                    element: <Ironlattice />,              title: 'Gator Memory FeFET Validation · Ironlattice' },
