@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import img from '../img'
 
 const LEGEND = [
@@ -21,17 +22,27 @@ export default function BajaSensorMap({ highlight }) {
           loading="lazy"
         />
       </div>
-      <ul className="sensor-map-legend">
-        {LEGEND.map(item => (
-          <li key={item.n} className={highlight === item.n ? 'active' : ''}>
-            <span className="sensor-map-num">{item.n}</span>
-            <span className="sensor-map-text">
-              <strong>{item.label}</strong>
-              <span className="sensor-map-desc">{item.desc}</span>
-            </span>
-          </li>
-        ))}
-      </ul>
+      <ol className="sensor-map-legend" role="list">
+        {LEGEND.map(item => {
+          const current = highlight === item.n
+          const body = (
+            <>
+              <span className="sensor-map-num">{item.n}</span>
+              <span className="sensor-map-text">
+                <strong>{item.label}</strong>
+                <span className="sensor-map-desc">{item.desc}</span>
+              </span>
+            </>
+          )
+          return (
+            <li key={item.n} className={current ? 'active' : undefined}>
+              {current
+                ? <span className="sensor-map-item" aria-current="page">{body}</span>
+                : <Link to={item.to} className="sensor-map-item">{body}</Link>}
+            </li>
+          )
+        })}
+      </ol>
       <p className="sensor-map-note">
         Approximate sensor zones for illustration — exact mounting points are finalized during vehicle integration.
       </p>

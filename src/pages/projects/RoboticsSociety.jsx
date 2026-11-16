@@ -42,8 +42,8 @@ export default function RoboticsSociety() {
   return (
     <DetailPage
         toc={toc}
-        backTo="/team"
-        backLabel="Team Projects"
+        backTo="/work"
+        backLabel="All work"
         tag="UT Austin Robotics & Automation Society · Stampede (RoboMaster) · Aug 2024 – Aug 2025"
         title="Power Electronics for Stampede's Competition Robots"
         heroImage={img('/images/robotics-society/robots-faceoff.jpg')}

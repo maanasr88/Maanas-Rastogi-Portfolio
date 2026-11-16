@@ -1,0 +1,92 @@
+/* ===== DESIGN TOKENS: light datasheet ===== */
+/* Warm paper, near-black ink, hairline rules, one signal-orange accent.
+   Hierarchy comes from type, rules and white panels, never from shadows or glow.
+   The accent is for small marks only: the active state, focus, registration ticks
+   and highlighted data. Primary actions are solid ink. */
+:root {
+  color-scheme: light;
+
+  /* Paper and panels */
+  --paper: #f5f3ef;
+  --panel: #fbfaf8;
+  --panel-2: #efece6;
+  --panel-3: #e7e3db;
+  --rule: #dcd8cf;
+  --rule-strong: #bdb7ab;
+
+  /* Ink: every step passes WCAG AA (4.5:1) on --paper and --panel */
+  --ink: #141414;
+  --ink-muted: #45433f;
+  --ink-subtle: #67645e;
+  --on-ink: #f5f3ef;
+
+  /* Accent */
+  --accent: #e8432c;      /* fills and marks */
+  --accent-ink: #b8301b;  /* accent as text: 5.3:1 on paper */
+  --accent-wash: rgba(232, 67, 44, 0.08);
+  --signal: #1d7a45;      /* in progress / live */
+  --signal-wash: rgba(29, 122, 69, 0.1);
+
+  /* Screens: dark frames for renders and diagrams made on black */
+  --screen: #111214;
+  --screen-rule: #2a2c30;
+  --screen-ink: #e9eaec;
+  --screen-muted: #9a9ea6;
+
+  /* Type */
+  --font-sans: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+  --text-xs: 0.75rem;    /* 12 */
+  --text-sm: 0.875rem;   /* 14 */
+  --text-md: 1rem;       /* 16 */
+  --text-lg: 1.25rem;    /* 20 */
+  --text-xl: 1.75rem;    /* 28 */
+  --text-2xl: 2.5rem;    /* 40 */
+  --text-3xl: clamp(2.75rem, 7vw, 5.5rem);
+  --tracking-display: -0.035em;
+  --tracking-tight: -0.02em;
+  --tracking-label: 0.06em;
+
+  /* Spacing: 8px scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* Shape and motion */
+  --radius: 6px;
+  --radius-sm: 4px;
+  --radius-pill: 999px;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  --transition: 0.2s var(--ease);
+
+  /* Layout */
+  --wrap: 1200px;
+  --gutter: 24px;
+  --nav-height: 64px;
+
+  /* Aliases kept for the long-form project pages' inline styles */
+  --text-primary: var(--ink);
+  --text-secondary: var(--ink-muted);
+  --text-muted: var(--ink-subtle);
+  --accent-light: var(--accent-ink);
+  --accent-dim: var(--accent-wash);
+  --card-bg: var(--panel);
+  --card-border: var(--rule);
+  --card-hover-bg: var(--panel-2);
+  --bg: var(--paper);
+  --font-display: var(--font-sans);
+  --font-body: var(--font-sans);
+}
+
+@media (max-width: 640px) {
+  :root {
+    --gutter: 16px;
+  }
+}
