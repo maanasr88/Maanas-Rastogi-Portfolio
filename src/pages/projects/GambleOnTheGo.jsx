@@ -13,8 +13,8 @@ const specs = [
 export default function GambleOnTheGo() {
   return (
     <DetailPage
-      backTo="/projects"
-      backLabel="Personal Projects"
+      backTo="/work"
+      backLabel="All work"
       tag="Personal Project · Embedded Systems"
       title="Gamble on the Go — Portable Blackjack Game"
       heroImage={img('/images/gamble-on-the-go/handheld-cover.svg')}

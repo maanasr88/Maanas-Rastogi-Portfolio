@@ -24,8 +24,8 @@ export default function BanerjeeLab() {
   return (
     <DetailPage
       toc={toc}
-      backTo="/experience"
-      backLabel="Industry & Research Experience"
+      backTo="/work"
+      backLabel="All work"
       tag="Banerjee Lab (Nanoelectronics & Novel Devices Lab) · UT Austin · Oct 2026 – Present"
       status="in-progress"
       title="Thin Film Growth, Dopant Phase Stabilization, and Device Characterization"

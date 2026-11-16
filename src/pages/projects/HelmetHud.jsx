@@ -22,8 +22,8 @@ export default function HelmetHud() {
   return (
     <DetailPage
         toc={toc}
-        backTo="/projects"
-        backLabel="Personal Projects"
+        backTo="/work"
+        backLabel="All work"
         tag="Personal Project · Embedded Systems / Optics"
         status="hiatus"
         title="Motorcycle Helmet Heads-Up Display"

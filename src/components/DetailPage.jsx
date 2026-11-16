@@ -1,83 +1,93 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { PillGroup } from './PillBadge'
 import StickyTOC from './StickyTOC'
 import StatusBadge from './StatusBadge'
+import { findProjectByPath, nextProject } from '../data/projects'
 
+// Case-study template. Every project page renders through this, so the layout is:
+// breadcrumb → title and summary → spec sheet → hero image → numbered sections with
+// an on-this-page index → next project.
 export default function DetailPage({ backTo, backLabel, tag, title, icon, heroImage, heroStyle, software, roles, toc, status, children }) {
+  const { pathname } = useLocation()
+  const project = findProjectByPath(pathname)
+  const next = nextProject(pathname)
+  const hasToc = toc && toc.length > 0
+  // Old pages passed CSS background settings for a darkened banner; keep only the framing
+  const objectPosition = heroStyle?.backgroundPosition
+
   return (
-    <div className="project-detail">
-      {heroImage ? (
-        <div className="cinematic-header">
-          <div className="cinematic-header-bg" style={{ backgroundImage: `url('${heroImage}')`, ...heroStyle }} />
-          <div className="cinematic-header-vignette" />
-          <div className="cinematic-header-overlay" />
-          <div className="container cinematic-header-content">
-            <Link to={backTo} className="project-detail-back">← {backLabel}</Link>
-            <div className="cinematic-header-meta">
-              {tag && <span className="cinematic-header-tag">{tag}</span>}
-              <StatusBadge status={status} />
-            </div>
-            <h1 className="cinematic-header-title">{title}</h1>
-          </div>
+    <article className="page case">
+      <header className="wrap case-head" data-enter>
+        <Link to={backTo} className="case-back">
+          <span aria-hidden="true">←</span> {backLabel}
+        </Link>
+        <div className="case-title-row">
+          {!heroImage && icon && <div className="case-icon" aria-hidden="true">{icon}</div>}
+          <h1 className="case-title">{title}</h1>
         </div>
-      ) : (
-        <div className="container" style={{ paddingTop: 'calc(var(--nav-height) + 40px)', paddingBottom: 0 }}>
-          <Link to={backTo} className="project-detail-back">← {backLabel}</Link>
+        {project?.summary && <p className="case-summary">{project.summary}</p>}
+      </header>
 
-          {icon && (
-            <div className="detail-icon-banner">
-              {icon}
-              <div>
-                {(tag || status) && (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', marginBottom: 4 }}>
-                    {tag && <div className="project-detail-tag" style={{ marginBottom: 0 }}>{tag}</div>}
-                    <StatusBadge status={status} />
-                  </div>
-                )}
-                <h1 className="project-detail-title" style={{ marginBottom: 0 }}>{title}</h1>
-              </div>
+      <div className="wrap">
+        <dl className="spec-sheet">
+          {tag && (
+            <div className="spec-cell spec-wide">
+              <dt>Context</dt>
+              <dd>{tag}</dd>
             </div>
           )}
-
-          {!icon && (
-            <div className="project-detail-header">
-              {(tag || status) && (
-                <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', marginBottom: 8 }}>
-                  {tag && <div className="project-detail-tag" style={{ marginBottom: 0 }}>{tag}</div>}
-                  <StatusBadge status={status} />
-                </div>
-              )}
-              <h1 className="project-detail-title">{title}</h1>
+          {roles && roles.length > 0 && (
+            <div className="spec-cell">
+              <dt>Role</dt>
+              <dd>{roles.join(' · ')}</dd>
             </div>
           )}
+          {status && (
+            <div className="spec-cell">
+              <dt>Status</dt>
+              <dd><StatusBadge status={status} /></dd>
+            </div>
+          )}
+          {software && software.length > 0 && (
+            <div className="spec-cell spec-full">
+              <dt>Tools &amp; methods</dt>
+              <dd><PillGroup items={software} /></dd>
+            </div>
+          )}
+        </dl>
+      </div>
+
+      {heroImage && (
+        <div className="wrap">
+          <div className="case-hero">
+            <img src={heroImage} alt="" style={objectPosition ? { objectPosition } : undefined} decoding="async" fetchpriority="high" />
+          </div>
         </div>
       )}
 
-      <div className="container project-detail-body">
-        <div className="detail-layout">
-          <div className="detail-main">
-            {children}
-          </div>
-          <aside className="detail-sidebar">
-            {toc && toc.length > 0 && <StickyTOC sections={toc} />}
-            {software && software.length > 0 && (
-              <div className="sidebar-card">
-                <h4>Software &amp; Skills</h4>
-                <PillGroup items={software} />
-              </div>
-            )}
-            {roles && roles.length > 0 && (
-              <div className="sidebar-card">
-                <h4>Roles</h4>
-                <PillGroup items={roles} />
-              </div>
-            )}
-            <Link to={backTo} className="btn btn-outline" style={{ textAlign: 'center', justifyContent: 'center' }}>
-              ← Back to {backLabel}
-            </Link>
+      <div className={`wrap case-body${hasToc ? ' has-toc' : ''}`}>
+        {hasToc && (
+          <aside className="case-toc">
+            <StickyTOC sections={toc} />
           </aside>
-        </div>
+        )}
+        <div className="case-main">{children}</div>
       </div>
-    </div>
+
+      <div className="wrap">
+      <footer className="case-foot">
+        <Link to={backTo} className="case-foot-back">
+          <span className="mono">Back</span>
+          <span className="case-foot-title"><span aria-hidden="true">← </span>{backLabel}</span>
+        </Link>
+        {next && (
+          <Link to={next.to} className="case-foot-next">
+            <span className="mono">Next project</span>
+            <span className="case-foot-title">{next.title}<span aria-hidden="true"> →</span></span>
+          </Link>
+        )}
+      </footer>
+      </div>
+    </article>
   )
 }

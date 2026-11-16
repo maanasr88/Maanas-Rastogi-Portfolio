@@ -104,8 +104,8 @@ export default function QuantumComputing() {
   return (
     <DetailPage
         toc={toc}
-        backTo="/experience"
-        backLabel="Industry & Research Experience"
+        backTo="/work"
+        backLabel="All work"
         tag="UT Austin · Undergraduate Research, Oct – Dec 2025"
         title="Surface-Code Simulation for Modular Quantum Processors"
         heroImage={img('/images/quantum-computing/chiplet-render-cover.jpg')}
