@@ -22,7 +22,7 @@ export default function DriverInputTelemetry() {
         title="Driver Input Telemetry (Pedal Box)"
         icon={<IconPedal />}
         software={['LTspice', 'ESP32', 'CAN Bus (MCP2515)']}
-        roles={['Sensor Suite Co-Lead']}
+        roles={['Electronics Lead']}
       >
         <ScrollReveal>
           <div id="overview" className="project-section">

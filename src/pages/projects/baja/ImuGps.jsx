@@ -22,7 +22,7 @@ export default function ImuGps() {
         title="IMU / GPS Vehicle Tracking"
         icon={<IconSatellite />}
         software={['Kalman Filtering', 'ESP32', 'I²C / UART']}
-        roles={['Sensor Suite Co-Lead']}
+        roles={['Electronics Lead']}
       >
         <ScrollReveal>
           <div id="overview" className="project-section">

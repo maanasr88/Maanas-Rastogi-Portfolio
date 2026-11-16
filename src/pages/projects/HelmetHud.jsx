@@ -9,6 +9,7 @@ const toc = [
   { id: 'power',    label: 'Power System' },
   { id: 'trial',    label: 'Bench Trial Unit' },
   { id: 'takeaways', label: 'What I Learned' },
+  { id: 'rides',    label: 'Why I’m Building It' },
 ]
 
 const specs = [
@@ -121,6 +122,27 @@ export default function HelmetHud() {
               full ride, so every component choice had to be weighed against all three constraints at
               once.
             </p>
+          </div>
+        </ScrollReveal>
+        <ScrollReveal>
+          <div id="rides" className="project-section">
+            <h3>Why I&rsquo;m Building It</h3>
+            <p>
+              I ride, so this one is personal: the HUD is meant for my own helmet, putting navigation
+              and ride data where I can see them without glancing down at a phone.
+            </p>
+            <div className="photo-gallery">
+              {[
+                { src: 'rear-night.jpg', alt: 'Maanas on his white sport bike with red wheels at night, looking back over his shoulder' },
+                { src: 'side-profile.jpg', alt: 'Side profile of Maanas sitting on the sport bike at night in full riding gear' },
+                { src: 'garage.jpg', alt: 'Maanas in a helmet standing behind the sport bike in a garage' },
+                { src: 'gloves-up.jpg', alt: 'Maanas adjusting his gloves in a helmet with an intercom unit' },
+              ].map(p => (
+                <div key={p.src} className="photo-gallery-item">
+                  <img src={img(`/images/helmet-hud/rides/${p.src}`)} alt={p.alt} loading="lazy" decoding="async" />
+                </div>
+              ))}
+            </div>
           </div>
         </ScrollReveal>
       </DetailPage>

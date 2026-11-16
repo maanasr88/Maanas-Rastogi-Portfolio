@@ -18,6 +18,8 @@ const PHOTOS = [
   { src: '/images/neurotech/electronics-tray.jpg', w: 1536, h: 2048, label: 'Neurotech · Electronics tray', alt: 'Wheelchair electronics tray' },
   { src: '/images/banerjee-lab/wafer-characterization-cover.jpg', w: 1600, h: 1066, label: 'Banerjee Lab · Wafers', alt: 'Wafer samples for characterization' },
   { src: '/images/baja-racing/competition/rear-sunset.jpg', w: 2000, h: 1333, label: 'Baja SAE · Golden hour', alt: 'Rear of car 185 at sunset' },
+  { src: '/images/helmet-hud/rides/rear-night.jpg', w: 1308, h: 2000, label: 'Off the clock · Night ride', alt: 'Maanas on his sport bike at night' },
+  { src: '/images/helmet-hud/rides/side-profile.jpg', w: 531, h: 600, label: 'Off the clock · Two wheels', alt: 'Maanas sitting on his sport bike in riding gear' },
 ]
 
 function shuffle(list) {
