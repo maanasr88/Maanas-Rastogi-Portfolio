@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560">
+<title>Endurance: ON and OFF read currents stay separated by more than five orders of magnitude out to 10^10 cycles at 125 C</title>
+<rect width="1200" height="560" rx="14" fill="#0d0e11"/>
+<text x="40" y="52" fill="#f4f4f5" font-size="26" font-weight="600" font-family="Inter Tight, system-ui, sans-serif">ON / OFF current vs. cycles, at 125 °C</text>
+<line x1="130.0" y1="100" x2="130.0" y2="460" stroke="#1e2025"/>
+<text x="130.0" y="494" text-anchor="middle" fill="#7c7f89" font-size="18" font-family="JetBrains Mono, ui-monospace, monospace">10⁰</text>
+<line x1="332.0" y1="100" x2="332.0" y2="460" stroke="#1e2025"/>
+<text x="332.0" y="494" text-anchor="middle" fill="#7c7f89" font-size="18" font-family="JetBrains Mono, ui-monospace, monospace">10²</text>
+<line x1="534.0" y1="100" x2="534.0" y2="460" stroke="#1e2025"/>
+<text x="534.0" y="494" text-anchor="middle" fill="#7c7f89" font-size="18" font-family="JetBrains Mono, ui-monospace, monospace">10⁴</text>
+<line x1="736.0" y1="100" x2="736.0" y2="460" stroke="#1e2025"/>
+<text x="736.0" y="494" text-anchor="middle" fill="#7c7f89" font-size="18" font-family="JetBrains Mono, ui-monospace, monospace">10⁶</text>
+<line x1="938.0" y1="100" x2="938.0" y2="460" stroke="#1e2025"/>
+<text x="938.0" y="494" text-anchor="middle" fill="#7c7f89" font-size="18" font-family="JetBrains Mono, ui-monospace, monospace">10⁸</text>
+<line x1="1140.0" y1="100" x2="1140.0" y2="460" stroke="#1e2025"/>
+<text x="1140.0" y="494" text-anchor="middle" fill="#7c7f89" font-size="18" font-family="JetBrains Mono, ui-monospace, monospace">10¹⁰</text>
+<line x1="130" y1="460.0" x2="1140" y2="460.0" stroke="#1e2025"/>
+<line x1="130" y1="370.0" x2="1140" y2="370.0" stroke="#1e2025"/>
+<line x1="130" y1="280.0" x2="1140" y2="280.0" stroke="#1e2025"/>
+<line x1="130" y1="190.0" x2="1140" y2="190.0" stroke="#1e2025"/>
+<line x1="130" y1="100.0" x2="1140" y2="100.0" stroke="#1e2025"/>
+<line x1="130" y1="100" x2="130" y2="460" stroke="#2c2f36" stroke-width="2"/><line x1="130" y1="460" x2="1140" y2="460" stroke="#2c2f36" stroke-width="2"/>
+<text x="106" y="280.0" text-anchor="middle" fill="#7c7f89" font-size="18" font-family="JetBrains Mono, ui-monospace, monospace" transform="rotate(-90 106 280.0)">current (a.u., log)</text>
+<polyline points="130.0,167.5 155.2,163.9 180.5,168.4 205.8,170.8 231.0,165.7 256.2,164.6 281.5,170.0 306.8,169.7 332.0,164.4 357.2,166.1 382.5,171.0 407.8,168.0 433.0,163.9 458.2,167.9 483.5,171.0 508.8,166.2 534.0,164.3 559.2,169.6 584.5,170.1 609.8,164.7 635.0,165.6 660.2,170.8 685.5,168.6 710.8,164.0 736.0,167.4 761.2,171.1 786.5,166.7 811.8,164.1 837.0,169.1 862.2,170.5 887.5,165.1 912.8,165.2 938.0,170.5 963.2,169.1 988.5,164.1 1013.8,166.8 1039.0,171.1 1064.2,167.3 1089.5,164.0 1114.8,168.7 1140.0,170.7" fill="none" stroke="#ff7a52" stroke-width="4" stroke-linejoin="round" />
+<text x="160.3" y="151.5" fill="#ff7a52" font-size="17" font-family="JetBrains Mono, ui-monospace, monospace">ON</text>
+<polyline points="130.0,415.0 155.2,411.4 180.5,415.9 205.8,418.3 231.0,413.2 256.2,412.1 281.5,417.5 306.8,417.2 332.0,411.9 357.2,413.6 382.5,418.5 407.8,415.5 433.0,411.4 458.2,415.4 483.5,418.5 508.8,413.7 534.0,411.8 559.2,417.1 584.5,417.6 609.8,412.2 635.0,413.1 660.2,418.3 685.5,416.1 710.8,411.5 736.0,414.9 761.2,418.6 786.5,414.2 811.8,411.6 837.0,416.6 862.2,418.0 887.5,412.6 912.8,412.7 938.0,418.0 963.2,416.6 988.5,411.6 1013.8,414.3 1039.0,418.6 1064.2,414.8 1089.5,411.5 1114.8,416.2 1140.0,418.2" fill="none" stroke="#6aa3ff" stroke-width="4" stroke-linejoin="round" />
+<text x="160.3" y="399.0" fill="#6aa3ff" font-size="17" font-family="JetBrains Mono, ui-monospace, monospace">OFF</text>
+<line x1="1069.3000000000002" y1="176.5" x2="1069.3000000000002" y2="406.0" stroke="#ffb347" stroke-width="2"/><text x="1049.1" y="291.25" text-anchor="end" fill="#ffb347" font-size="18" font-family="JetBrains Mono, ui-monospace, monospace">ON/OFF &gt; 10⁵</text><text x="1140" y="520" text-anchor="end" fill="#7c7f89" font-size="16" font-family="JetBrains Mono, ui-monospace, monospace">number of cycles</text>
+</svg>

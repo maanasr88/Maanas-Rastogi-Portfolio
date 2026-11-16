@@ -3,6 +3,7 @@ import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
 import DataTable from '../../components/DataTable'
 import img from '../../img'
+import HankScroller from '../../components/HankScroller'
 
 // Company figures below come from IronLattice's public Gator Memory spec sheet (Nov 2026).
 // My own internship work stays at the level the NDA allows.
@@ -35,11 +36,12 @@ export default function Ironlattice() {
         tag="Ironlattice · Internship, Aug 2026 – Present"
         status="nda"
         title="Gator Memory™ FeFET Device Validation & Simulation"
-        heroImage={img('/images/ironlattice/dell-event/team-wide.jpg')}
-        heroStyle={{ backgroundPosition: 'center 35%' }}
+        heroImage={img('/images/ironlattice/wafer-cutout.webp')}
+        heroFit="contain"
         software={['COMSOL', 'QuantumATK', 'Synopsys TCAD', 'SPICE']}
         roles={['Validation/Design Intern']}
       >
+        <HankScroller />
         <ScrollReveal>
           <div id="overview" className="project-section">
             <h3>Overview</h3>
@@ -89,6 +91,19 @@ export default function Ironlattice() {
               Gator uses about 42% of the memory-plus-cooling power, because nothing has to be
               refreshed and nothing leaks.
             </p>
+            <figure className="project-image-single-fig">
+              <img
+                src={img('/images/ironlattice/chart-power.svg')}
+                alt="Bar chart: memory plus cooling power indexed against DDR5, conventional 100 percent versus Gator Memory 42 percent"
+                className="project-image-single chart-plate"
+                loading="lazy"
+              />
+              <figcaption>Modeled at the module against DDR5 and its cooling.</figcaption>
+            </figure>
+            <figure className="hank-figure">
+              <img src={img('/images/ironlattice/hank-sprite.svg')} alt="Hank, the Ironlattice alligator mascot" loading="lazy" />
+              <figcaption>Meet Hank, the Gator behind Gator Memory.</figcaption>
+            </figure>
           </div>
         </ScrollReveal>
 
@@ -110,15 +125,6 @@ export default function Ironlattice() {
               disturb, the usual particle-strike upset mechanism doesn&rsquo;t apply either, which
               matters for defense and space use.
             </p>
-            <figure className="project-image-single-fig">
-              <img
-                src={img('/images/ironlattice/gate-stack-cover.svg')}
-                alt="Illustrative diagram of a 1-FeFET superlattice gate-stack array"
-                className="project-image-single"
-                loading="lazy"
-              />
-              <figcaption>1-FeFET superlattice gate-stack array (illustrative).</figcaption>
-            </figure>
           </div>
         </ScrollReveal>
 
@@ -142,6 +148,36 @@ export default function Ironlattice() {
               ]}
               note="Source: IronLattice Gator Memory spec sheet, November 2026. Retention measured after 10⁶ cycles; 10¹⁰-cycle endurance cycled at 125 °C."
             />
+            <figure className="project-image-single-fig">
+              <img
+                src={img('/images/ironlattice/chart-endurance-compare.svg')}
+                alt="Range chart of endurance before fatigue: NAND flash 10^3 to 10^5 cycles, ferroelectric memory today 10^6 to 10^8, Gator Memory 10^10 with a path to 10^13"
+                className="project-image-single chart-plate"
+                loading="lazy"
+              />
+              <figcaption>Endurance against today’s nonvolatile memories.</figcaption>
+            </figure>
+            <div className="project-image-grid chart-grid">
+            <figure className="chart-fig">
+              <img
+                src={img('/images/ironlattice/chart-endurance-current.svg')}
+                alt="Line chart: ON and OFF currents stay more than five orders of magnitude apart from 1 to 10^10 cycles at 125 °C"
+                className="project-image-single chart-plate"
+                loading="lazy"
+              />
+              <figcaption>ON/OFF current out to 10¹⁰ cycles.</figcaption>
+            </figure>
+            <figure className="chart-fig">
+              <img
+                src={img('/images/ironlattice/chart-retention.svg')}
+                alt="Line chart: ON and OFF currents hold flat through 10^4 second bakes at 85 °C and 125 °C after 10^6 cycles"
+                className="project-image-single chart-plate"
+                loading="lazy"
+              />
+              <figcaption>Retention through 85 °C and 125 °C bakes.</figcaption>
+            </figure>
+            </div>
+            <p className="chart-note mono">Charts redrawn from the IronLattice spec sheet, November 2026. Current axes are in arbitrary units, as published.</p>
             <p>
               The 30+ analog states are what make compute-in-memory interesting: the more cleanly
               separable levels a cell can hold, the more precision an in-memory multiply-accumulate can

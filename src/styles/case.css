@@ -783,3 +783,81 @@ a.sensor-map-item:hover { background: var(--panel-2); }
   margin-top: var(--space-3);
   font-size: var(--text-sm);
 }
+
+/* Hero for cutout images: centered on a soft glow instead of cropped */
+.case-hero.is-contain {
+  background:
+    radial-gradient(ellipse 45% 70% at 50% 55%, rgba(40, 90, 170, 0.35), transparent 70%),
+    radial-gradient(ellipse 80% 90% at 50% 100%, rgba(232, 67, 44, 0.12), transparent 70%),
+    var(--screen);
+}
+
+.case-hero.is-contain img {
+  object-fit: contain;
+  padding: var(--space-5);
+}
+
+/* Charts redrawn as dark SVGs: no light plate behind them */
+.project-image-single.chart-plate {
+  background: transparent;
+  border: 0;
+  max-height: none;
+  height: auto;
+}
+
+.chart-grid { grid-template-columns: 1fr; gap: var(--space-4); }
+.chart-grid .chart-fig { margin: 0; }
+.chart-grid img.chart-plate { height: auto; }
+
+.chart-note {
+  margin-top: var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--ink-subtle);
+}
+
+/* Hank, standing in the About section */
+.hank-figure {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: radial-gradient(ellipse at 20% 50%, rgba(46, 158, 142, 0.18), transparent 60%), var(--panel);
+}
+
+.hank-figure img { width: 180px; height: auto; flex-shrink: 0; }
+.hank-figure figcaption { font-size: var(--text-md); color: var(--ink-muted); }
+
+@media (max-width: 640px) {
+  .hank-figure { flex-direction: column; align-items: flex-start; }
+}
+
+/* Hank walking along the bottom of the screen as you scroll */
+.hank-scroller {
+  position: fixed;
+  left: 0;
+  bottom: 10px;
+  z-index: 40;
+  width: 96px;
+  pointer-events: none;
+  transform: translateX(16px);
+  transition: transform 0.12s linear;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.5));
+}
+
+.hank-scroller img { width: 100%; height: auto; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hank-scroller.is-walking img { animation: hank-step 0.24s ease-in-out infinite alternate; }
+}
+
+@keyframes hank-step {
+  from { transform: translateY(0) rotate(-1.5deg); }
+  to { transform: translateY(-3px) rotate(1.5deg); }
+}
+
+@media (max-width: 640px) {
+  .hank-scroller { width: 72px; bottom: 6px; }
+}

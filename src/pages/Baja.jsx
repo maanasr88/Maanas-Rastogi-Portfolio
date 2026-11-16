@@ -20,6 +20,22 @@ const gallery = [
   { src: 'wiring.jpg', alt: 'Hands twisting a red and white wire pair while wiring the car' },
 ]
 
+// First season, car #185 (25'–26'). Source: team results
+const RESULTS = [
+  { v: '65th / 83', k: 'Overall finish' },
+  { v: 'Passed', k: 'Technical inspection' },
+  { v: 'Passed', k: 'Dynamic brake check' },
+  { v: '3 laps', k: 'Endurance completed' },
+]
+
+// Electronics plans for the 26'–27' car
+const NEXT = [
+  { t: 'Sensors on the car, for every team', d: 'Integrate the sensor suite into the vehicle so suspension, drivetrain and chassis get real data from testing instead of guesses.' },
+  { t: 'Data collection', d: 'Strain gauges on key parts alongside the sensors on this page, logged during test sessions to check loads and failures.' },
+  { t: 'Fewer bugs, smoother days', d: 'Streamline the wiring and firmware issues from the first car so electronics stop being the thing that slows testing down.' },
+  { t: 'Live-streamed practice', d: 'Stream practice sessions so every member can watch even when they can’t be there, and keep the video as a record.' },
+]
+
 const FACTS = [
   { k: 'Role', v: 'Electronics Lead' },
   { k: 'Since', v: 'Aug 2025' },
@@ -85,6 +101,31 @@ export default function Baja() {
         </div>
       </section>
 
+      <section className="section" aria-labelledby="baja-results-title">
+        <div className="wrap">
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">First season · Car 185</p>
+              <h2 id="baja-results-title" className="section-title">A first car <span className="serif">that</span> finished</h2>
+              <p className="section-lede">
+                The 25&rsquo;&ndash;26&rsquo; car is the team&rsquo;s first competition vehicle, designed from
+                scratch for Baja SAE in Ohio. The goal for a first-year team was to pass technical
+                inspection, and it did. In the endurance race the driveshaft came out of the rear
+                differential more than once, and the car still completed three full laps.
+              </p>
+            </div>
+          </div>
+          <dl className="readout baja-results">
+            {RESULTS.map(r => (
+              <div key={r.k} className="readout-cell">
+                <dt>{r.k}</dt>
+                <dd>{r.v}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
       <section className="section" aria-labelledby="baja-subs-title">
         <div className="wrap">
           <div className="section-head">
@@ -111,6 +152,31 @@ export default function Baja() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="section" aria-labelledby="baja-next-title">
+        <div className="wrap">
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">Next season · 26&rsquo;&ndash;27&rsquo; car</p>
+              <h2 id="baja-next-title" className="section-title">Electronics <span className="serif">for</span> the whole team</h2>
+              <p className="section-lede">
+                The next car keeps the same chassis and focuses on testing, tighter packaging and
+                durability, ahead of two competitions in 2027 (Williamsport and Michigan). On the
+                electronics side, the goal is to make the car&rsquo;s data and the team&rsquo;s days better.
+              </p>
+            </div>
+          </div>
+          <ol className="next-list" role="list">
+            {NEXT.map((n, i) => (
+              <li key={n.t} className="next-item">
+                <span className="next-num mono">0{i + 1}</span>
+                <h3 className="next-title">{n.t}</h3>
+                <p>{n.d}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 

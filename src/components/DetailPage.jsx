@@ -7,7 +7,7 @@ import { findProjectByPath, nextProject } from '../data/projects'
 // Case-study template. Every project page renders through this, so the layout is:
 // breadcrumb → title and summary → spec sheet → hero image → numbered sections with
 // an on-this-page index → next project.
-export default function DetailPage({ backTo, backLabel, tag, title, icon, heroImage, heroStyle, software, roles, toc, status, children }) {
+export default function DetailPage({ backTo, backLabel, tag, title, icon, heroImage, heroStyle, heroFit, software, roles, toc, status, children }) {
   const { pathname } = useLocation()
   const project = findProjectByPath(pathname)
   const next = nextProject(pathname)
@@ -59,7 +59,7 @@ export default function DetailPage({ backTo, backLabel, tag, title, icon, heroIm
 
       {heroImage && (
         <div className="wrap">
-          <div className="case-hero">
+          <div className={`case-hero${heroFit === 'contain' ? ' is-contain' : ''}`}>
             <img src={heroImage} alt="" style={objectPosition ? { objectPosition } : undefined} decoding="async" fetchpriority="high" />
           </div>
         </div>
