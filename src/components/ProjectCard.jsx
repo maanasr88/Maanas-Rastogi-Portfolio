@@ -1,45 +1,50 @@
 import { Link } from 'react-router-dom'
-import ScrollReveal from './ScrollReveal'
 import StatusBadge from './StatusBadge'
+import { projects } from '../data/projects'
 
-export default function ProjectCard({ icon, image, imageStyle, tag, status, title, description, to, delay = 0 }) {
-  const inner = (
-    <div className="card project-card" style={{ cursor: to ? 'pointer' : 'default' }}>
-      <div className="project-card-img-wrap">
-        {image ? (
-          <>
-            <img src={image} alt={title} className="project-card-img" loading="lazy" style={imageStyle} />
-            <div className="project-card-overlay">
-              <div className="project-card-overlay-title">{title}</div>
-              {description && <p className="project-card-overlay-desc">{description}</p>}
-              {to && <span className="project-card-overlay-cta">View Project →</span>}
-            </div>
-          </>
-        ) : (
-          <div className="icon-tile">{icon}</div>
-        )}
-      </div>
-      <div className="project-card-body">
-        {(tag || status) && (
-          <div className="project-card-tag-row">
-            {tag && <span className="project-card-tag">{tag}</span>}
-            <StatusBadge status={status} />
-          </div>
-        )}
-        <h3 className="project-card-title">{title}</h3>
-        {description && <p className="project-card-desc">{description}</p>}
-        {to && (
-          <div className="project-card-footer">
-            <span className="project-card-link">View Project →</span>
-          </div>
-        )}
-      </div>
-    </div>
-  )
+// One tile family for every project listing: the photo fills the tile, the text sits
+// on a dark fade at the bottom, and a part designator (U1, U2...) marks the corner.
+// size: 'lg' adds the summary, 'md' shows metrics, 'sm' is title only.
+export default function ProjectCard({ project, size = 'md', headingLevel = 3, className = '' }) {
+  const { to, code, title, org, role, status, image, imagePosition, screen, summary, metrics = [] } = project
+  const Heading = `h${headingLevel}`
+  const designator = `U${projects.indexOf(project) + 1}`
+
+  const trackGlow = e => {
+    const r = e.currentTarget.getBoundingClientRect()
+    e.currentTarget.style.setProperty('--mx', `${e.clientX - r.left}px`)
+    e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`)
+  }
 
   return (
-    <ScrollReveal delay={delay}>
-      {to ? <Link to={to} style={{ display: 'block', height: '100%', textDecoration: 'none', color: 'inherit' }}>{inner}</Link> : inner}
-    </ScrollReveal>
+    <Link to={to} className={`tile tile-${size}${screen ? ' is-screen' : ''} ${className}`.trim()} onPointerMove={trackGlow}>
+      <div className="tile-media">
+        <img
+          src={image}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          style={imagePosition ? { objectPosition: imagePosition } : undefined}
+        />
+      </div>
+      <span className="tile-des mono">{designator} · {code}</span>
+      {status && <span className="tile-status"><StatusBadge status={status} /></span>}
+
+      <div className="tile-body">
+        <p className="tile-org mono">{org} · {role}</p>
+        <Heading className="tile-title">{title}</Heading>
+        {size === 'lg' && <p className="tile-summary">{summary}</p>}
+        {size !== 'sm' && metrics.length > 0 && (
+          <dl className="tile-metrics">
+            {metrics.slice(0, 3).map(m => (
+              <div key={m.label}>
+                <dt>{m.label}</dt>
+                <dd>{m.value}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
+      </div>
+    </Link>
   )
 }

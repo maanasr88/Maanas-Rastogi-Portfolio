@@ -468,8 +468,8 @@ export default function VlsiRiscV() {
   return (
     <DetailPage
         toc={toc}
-        backTo="/projects"
-        backLabel="Personal Projects"
+        backTo="/work"
+        backLabel="All work"
         tag="Personal Project · VLSI / Digital Design"
         status="in-progress"
         title="32-bit Custom RISC-V Processor — RTL to Physical Layout"
@@ -518,7 +518,7 @@ export default function VlsiRiscV() {
               once and connects them with the wires that make up the processor's data and control paths.
             </p>
 
-            <h4 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '0.95rem', color: 'var(--text-primary)', marginTop: 24, marginBottom: 4 }}>
+            <h4 style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-primary)', marginTop: 24, marginBottom: 4 }}>
               Fetch Stage — Program Counter, PC Adder, PC Mux
             </h4>
             <p style={{ marginBottom: 8 }}>
@@ -528,7 +528,7 @@ export default function VlsiRiscV() {
             </p>
             <CodeBlock language="Verilog">{PROGRAM_COUNTER}</CodeBlock>
 
-            <h4 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '0.95rem', color: 'var(--text-primary)', marginTop: 24, marginBottom: 4 }}>
+            <h4 style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-primary)', marginTop: 24, marginBottom: 4 }}>
               Instruction Memory
             </h4>
             <p style={{ marginBottom: 8 }}>
@@ -538,7 +538,7 @@ export default function VlsiRiscV() {
             </p>
             <CodeBlock language="Verilog">{INSTRUCTION_MEMORY}</CodeBlock>
 
-            <h4 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '0.95rem', color: 'var(--text-primary)', marginTop: 24, marginBottom: 4 }}>
+            <h4 style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-primary)', marginTop: 24, marginBottom: 4 }}>
               Register File
             </h4>
             <p style={{ marginBottom: 8 }}>
@@ -548,7 +548,7 @@ export default function VlsiRiscV() {
             </p>
             <CodeBlock language="Verilog">{REGISTER_FILE}</CodeBlock>
 
-            <h4 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '0.95rem', color: 'var(--text-primary)', marginTop: 24, marginBottom: 4 }}>
+            <h4 style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-primary)', marginTop: 24, marginBottom: 4 }}>
               Main Control Unit
             </h4>
             <p style={{ marginBottom: 8 }}>
@@ -558,7 +558,7 @@ export default function VlsiRiscV() {
             </p>
             <CodeBlock language="Verilog">{MAIN_CONTROL_UNIT}</CodeBlock>
 
-            <h4 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '0.95rem', color: 'var(--text-primary)', marginTop: 24, marginBottom: 4 }}>
+            <h4 style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-primary)', marginTop: 24, marginBottom: 4 }}>
               Immediate Generator
             </h4>
             <p style={{ marginBottom: 8 }}>
@@ -569,7 +569,7 @@ export default function VlsiRiscV() {
             </p>
             <CodeBlock language="Verilog">{IMMEDIATE_GENERATOR}</CodeBlock>
 
-            <h4 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '0.95rem', color: 'var(--text-primary)', marginTop: 24, marginBottom: 4 }}>
+            <h4 style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-primary)', marginTop: 24, marginBottom: 4 }}>
               ALU &amp; ALU Control
             </h4>
             <p style={{ marginBottom: 8 }}>
@@ -579,7 +579,7 @@ export default function VlsiRiscV() {
             </p>
             <CodeBlock language="Verilog">{ALU_AND_CONTROL}</CodeBlock>
 
-            <h4 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '0.95rem', color: 'var(--text-primary)', marginTop: 24, marginBottom: 4 }}>
+            <h4 style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-primary)', marginTop: 24, marginBottom: 4 }}>
               Memory Stage — ALU Mux, Data Memory, Write-Back Mux, Branch Adder
             </h4>
             <p style={{ marginBottom: 8 }}>
@@ -590,7 +590,7 @@ export default function VlsiRiscV() {
             </p>
             <CodeBlock language="Verilog">{MEMORY_AND_MUXES}</CodeBlock>
 
-            <h4 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '0.95rem', color: 'var(--text-primary)', marginTop: 24, marginBottom: 4 }}>
+            <h4 style={{ fontFamily: 'var(--font-sans)', fontSize: '0.95rem', color: 'var(--text-primary)', marginTop: 24, marginBottom: 4 }}>
               RISCV_Top — Structural Wiring
             </h4>
             <p style={{ marginBottom: 8 }}>

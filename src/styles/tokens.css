@@ -1,0 +1,100 @@
+/* ===== DESIGN TOKENS: dark bento ===== */
+/* Borrowed, then made ours:
+   Linear   near-black surface ladder, hairline borders, tight display type
+   Raycast  diagonal light beams in the hero
+   SpaceX   uppercase tracked labels and a numeric readout strip
+   Apple    photo-first project tiles, the work fills the frame
+   Vercel   bento grid and a faint engineering grid
+   Stripe   warm glow that follows the cursor
+   Ours     red-orange to amber, Instrument Serif italic, part designators (U1, U2...) */
+:root {
+  color-scheme: dark;
+
+  /* Surfaces, darkest to lightest */
+  --paper: #07080a;
+  --panel: #0d0e11;
+  --panel-2: #131418;
+  --panel-3: #1a1b20;
+  --rule: #1e2025;
+  --rule-strong: #2c2f36;
+
+  /* Text: every step passes WCAG AA (4.5:1) on --paper and --panel */
+  --ink: #f4f4f5;
+  --ink-muted: #a1a3ab;
+  --ink-subtle: #7c7f89;
+  --on-ink: #0a0a0c;
+
+  /* Accent */
+  --accent: #e8432c;      /* fills and marks */
+  --accent-ink: #ff7a52;  /* accent as text */
+  --amber: #ffb347;
+  --accent-grad: linear-gradient(90deg, #ff7a52, #ffb347);
+  --accent-wash: rgba(232, 67, 44, 0.12);
+  --signal: #3ddc84;      /* in progress / live */
+  --signal-wash: rgba(61, 220, 132, 0.1);
+
+  /* Screens: frames for renders and diagrams */
+  --screen: #0b0c0f;
+  --screen-rule: #24262c;
+  --screen-ink: #e9eaec;
+  --screen-muted: #9a9ea6;
+
+  /* Type */
+  --font-sans: 'Inter Tight', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+  --text-xs: 0.75rem;    /* 12 */
+  --text-sm: 0.875rem;   /* 14 */
+  --text-md: 1rem;       /* 16 */
+  --text-lg: 1.25rem;    /* 20 */
+  --text-xl: 1.75rem;    /* 28 */
+  --text-2xl: 2.5rem;    /* 40 */
+  --text-3xl: clamp(3.2rem, 9vw, 8.4rem);
+  --tracking-display: -0.045em;
+  --tracking-tight: -0.025em;
+  --tracking-label: 0.14em;
+
+  /* Spacing: 8px scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 120px;
+  --space-10: 160px;
+
+  /* Shape and motion */
+  --radius: 14px;
+  --radius-sm: 8px;
+  --radius-pill: 999px;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --transition: 0.25s var(--ease);
+
+  /* Layout */
+  --wrap: 1240px;
+  --gutter: 28px;
+  --nav-height: 60px;
+
+  /* Aliases kept for the long-form project pages' inline styles */
+  --text-primary: var(--ink);
+  --text-secondary: var(--ink-muted);
+  --text-muted: var(--ink-subtle);
+  --accent-light: var(--accent-ink);
+  --accent-dim: var(--accent-wash);
+  --card-bg: var(--panel);
+  --card-border: var(--rule);
+  --card-hover-bg: var(--panel-2);
+  --bg: var(--paper);
+  --font-display: var(--font-sans);
+  --font-body: var(--font-sans);
+}
+
+@media (max-width: 640px) {
+  :root {
+    --gutter: 18px;
+    --space-9: 80px;
+  }
+}

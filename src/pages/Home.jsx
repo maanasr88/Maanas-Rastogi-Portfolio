@@ -1,153 +1,146 @@
 import { Link } from 'react-router-dom'
 import { FiDownload } from 'react-icons/fi'
-import ScrollReveal from '../components/ScrollReveal'
-import HeroCircuit from '../components/HeroCircuit'
-import HomeCarousel from '../components/HomeCarousel'
-import { experienceProjects, teamProjects, personalProjects } from '../data/projects'
-import { useTypewriterSegments } from '../hooks/useTypewriter'
+import ProjectCard from '../components/ProjectCard'
+import ExperienceList from '../components/ExperienceList'
+import { projects } from '../data/projects'
 import img from '../img'
 
-const HEADLINE_SEGMENTS = [
-  { text: 'From Silicon to ' },
-  { text: 'Race Cars', className: 'accent-serif' },
-  { text: ',' },
-  { break: true },
-  { text: 'I Build It.' },
+// Hero readout strip: each figure comes from a case study
+const READOUT = [
+  { k: 'Projects documented', v: String(projects.length) },
+  { k: 'Robot power output', v: '12→90', unit: ' W' },
+  { k: 'ASIC flow', v: 'RTL→GDS' },
+  { k: 'Engineers led', v: '15', unit: '+' },
 ]
 
-const orgs = [
-  { name: 'Banerjee Lab', initials: 'BL' },
-  { name: 'Ironlattice', initials: 'IL' },
-  { name: 'UT Austin', initials: 'UT' },
-  { name: 'Longhorn Baja Racing', initials: 'LBR' },
-  { name: 'Longhorn Neurotech', initials: 'LNT' },
-  { name: 'Robotics & Automation Society', initials: 'RAS' },
+// Homepage bento: which projects appear, and how big
+const BENTO = [
+  { id: 'baja', span: 'big', size: 'lg' },
+  { id: 'risc-v', span: 'tall', size: 'md' },
+  { id: 'robotics-society', span: 'half', size: 'md' },
+  { id: 'quantum', span: 'half', size: 'md' },
+  { id: 'ironlattice', span: 'third', size: 'sm' },
+  { id: 'banerjee-lab', span: 'third', size: 'sm' },
+  { id: 'neurotech', span: 'third', size: 'sm' },
 ]
 
-const quickLinks = [
-  { to: '/experience', label: 'Industry & Research' },
-  { to: '/team', label: 'Team Projects' },
-  { to: '/projects', label: 'Personal Projects' },
-]
+function Hero() {
+  return (
+    <section className="hero">
+      <div className="hero-grid-bg" aria-hidden="true" />
+      <div className="hero-beams" aria-hidden="true"><span /><span /><span /></div>
 
-const quickListGroups = [
-  { label: 'Industry & Research', items: experienceProjects },
-  { label: 'Team Projects', items: teamProjects },
-  { label: 'Personal Projects', items: personalProjects },
-]
+      <div className="wrap hero-inner" data-enter>
+        <Link to="/experience/ironlattice" className="hero-kicker">
+          <span className="hero-kicker-dot" aria-hidden="true" />
+          Interning at Ironlattice · Fall 2026
+        </Link>
+        <h1 className="hero-title">
+          Maanas Rastogi
+          <span className="hero-title-line serif grad">from silicon to race cars.</span>
+        </h1>
+        <p className="hero-sub">
+          Electrical &amp; computer engineering at UT Austin. I design <strong>chips, circuit
+          boards and the embedded systems</strong> that put them to work, from a RISC-V core to
+          a Baja car&rsquo;s sensor network.
+        </p>
+        <div className="hero-actions">
+          <Link to="/work" className="btn btn-primary">See the work <span aria-hidden="true">→</span></Link>
+          <a href={img('/Resume_Maanas_Rastogi.pdf')} download="Resume_Maanas_Rastogi.pdf" className="btn btn-outline">
+            <FiDownload size={15} aria-hidden="true" /> Download resume
+          </a>
+        </div>
+      </div>
+
+      <dl className="readout">
+        {READOUT.map(r => (
+          <div key={r.k} className="readout-cell">
+            <dt>{r.k}</dt>
+            <dd>{r.v}{r.unit && <span>{r.unit}</span>}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+  )
+}
+
+function SelectedWork() {
+  return (
+    <section className="section" aria-labelledby="work-title">
+      <div className="wrap">
+        <div className="section-head">
+          <div>
+            <p className="eyebrow">Selected work</p>
+            <h2 id="work-title" className="section-title">Hardware with <span className="serif">numbers</span> behind it.</h2>
+          </div>
+          <Link to="/work" className="btn btn-outline btn-sm">All {projects.length} projects <span aria-hidden="true">→</span></Link>
+        </div>
+        <div className="bento">
+          {BENTO.map(({ id, span, size }) => {
+            const p = projects.find(x => x.id === id)
+            return p ? <ProjectCard key={id} project={p} size={size} className={`bento-${span}`} /> : null
+          })}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function Experience() {
+  return (
+    <section className="section" aria-labelledby="exp-title">
+      <div className="wrap">
+        <div className="section-head">
+          <div>
+            <p className="eyebrow">Experience</p>
+            <h2 id="exp-title" className="section-title">Industry, research <span className="serif">and</span> teams.</h2>
+          </div>
+        </div>
+        <ExperienceList />
+      </div>
+    </section>
+  )
+}
+
+function AboutTeaser() {
+  return (
+    <section className="section" aria-labelledby="about-title">
+      <div className="wrap about-teaser">
+        <div className="about-teaser-photo-wrap">
+          <img
+            src={img('/images/profile/maanas-photo.jpg')}
+            alt="Maanas Rastogi"
+            className="about-teaser-photo"
+            loading="lazy"
+            width="800"
+            height="1200"
+          />
+        </div>
+        <div>
+          <p className="eyebrow">About</p>
+          <h2 id="about-title" className="section-title">Device physics informs <span className="serif">the logic</span> on top of it.</h2>
+          <p className="section-lede">
+            I&rsquo;m an Electrical and Computer Engineering student at UT Austin focused on integrated
+            circuits and systems. I move between device physics and RTL design: understanding how
+            a transistor actually fails informs how I architect the logic built on top of it.
+          </p>
+          <div className="about-teaser-actions">
+            <Link to="/about" className="btn btn-outline">More about me</Link>
+            <Link to="/skills" className="text-link">Skills and tools <span className="arrow" aria-hidden="true">→</span></Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
 
 export default function Home() {
-  const { ref: headlineRef, done: headlineDone } = useTypewriterSegments(HEADLINE_SEGMENTS, 45)
-
   return (
-    <div className="page-wrapper">
-      <section className="hero-section hero-centered">
-        <HeroCircuit />
-        <div className="container hero-section-content">
-          <ScrollReveal delay={1} className="hero-avatar-photo-wrap">
-            <img
-              src={img('/images/profile/maanas-photo.jpg')}
-              alt="Maanas Rastogi"
-              className="hero-avatar-photo"
-            />
-          </ScrollReveal>
-
-          <ScrollReveal delay={1} className="hero-credential-row">
-            <div className="hero-avatar-stack">
-              {orgs.slice(0, 4).map(o => (
-                <div key={o.name} className="hero-avatar-chip" title={o.name}>{o.initials}</div>
-              ))}
-            </div>
-            <span className="hero-credential-text">Across 6 engineering teams at UT Austin</span>
-          </ScrollReveal>
-
-          <ScrollReveal delay={2}>
-            <h1 className={`hero-headline${headlineDone ? '' : ' typing'}`} ref={headlineRef} />
-          </ScrollReveal>
-
-          <ScrollReveal delay={3}>
-            <p className="hero-subtext">
-              I'm Maanas Rastogi, an Electrical/Computer Engineering student at the University of
-              Texas at Austin focused on Integrated Circuits and Systems. I work across VLSI design,
-              embedded electronics, and vehicle systems, from custom RISC-V processors to race-car
-              electronics and ferroelectric memory device simulation.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={4} className="hero-actions-centered">
-            <a
-              href={img('/Resume_Maanas_Rastogi.pdf')}
-              download="Resume_Maanas_Rastogi.pdf"
-              className="btn btn-primary"
-            >
-              <FiDownload size={14} />
-              Download Resume
-            </a>
-            <Link to="/experience" className="btn btn-outline">View Work</Link>
-          </ScrollReveal>
-
-          <ScrollReveal delay={5} className="hero-quick-links">
-            {quickLinks.map(l => (
-              <Link key={l.to} to={l.to} className="hero-quick-link">
-                {l.label} <span>&rarr;</span>
-              </Link>
-            ))}
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Trust strip */}
-      <section className="trust-strip-section">
-        <div className="container">
-          <ScrollReveal>
-            <div className="trust-strip-label">Where I&rsquo;ve Worked</div>
-            <div className="trust-strip">
-              {orgs.map((o) => (
-                <div key={o.name} className="trust-strip-item">
-                  <div className="trust-strip-avatar">{o.initials}</div>
-                  <span className="trust-strip-name">{o.name}</span>
-                </div>
-              ))}
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* A tour of the work, pulled from across the site */}
-      <section style={{ padding: '0 0 60px' }}>
-        <div className="container">
-          <ScrollReveal>
-            <HomeCarousel />
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Quick list: hover a title for a one-line description, click to go there */}
-      <section style={{ padding: '0 0 100px' }}>
-        <div className="container" style={{ maxWidth: 640 }}>
-          {quickListGroups.map(group => (
-            <ScrollReveal key={group.label}>
-              <div className="quick-list-group">
-                <div className="quick-list-label">{group.label}</div>
-                {group.items.map(item => (
-                  <Link key={item.title} to={item.to} className="quick-item">
-                    <div className="quick-item-row">
-                      <span className="quick-item-title">{item.title}</span>
-                      <span className="quick-item-arrow">&rarr;</span>
-                    </div>
-                    <div className="quick-item-desc-wrap">
-                      <div className="quick-item-desc-inner">
-                        <img src={item.image} alt="" className="quick-item-photo" />
-                        <p className="quick-item-desc">{item.description}</p>
-                      </div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-      </section>
+    <div className="page page-home">
+      <Hero />
+      <SelectedWork />
+      <Experience />
+      <AboutTeaser />
     </div>
   )
 }
