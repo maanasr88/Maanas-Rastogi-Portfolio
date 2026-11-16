@@ -26,8 +26,8 @@ export default function Neurotech() {
   return (
     <DetailPage
         toc={toc}
-        backTo="/work"
-        backLabel="All work"
+        backTo="/team"
+        backLabel="Team Projects"
         tag="Longhorn Neurotech · Aug 2024 – Aug 2026"
         title="LHNT Electric Wheelchair — Control System & Electronics Integration"
         heroImage={img('/images/neurotech/wheelchair-render-cover.jpg')}

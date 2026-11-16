@@ -1,47 +1,45 @@
 import { Link } from 'react-router-dom'
+import ScrollReveal from './ScrollReveal'
 import StatusBadge from './StatusBadge'
-import { CONTEXTS } from '../data/projects'
 
-// One card family for every project listing. `size="lg"` is the featured variant.
-export default function ProjectCard({ project, size = 'md', headingLevel = 3 }) {
-  const { to, code, title, org, role, context, status, image, imagePosition, screen, summary, metrics = [] } = project
-  const Heading = `h${headingLevel}`
+export default function ProjectCard({ icon, image, imageStyle, tag, status, title, description, to, delay = 0 }) {
+  const inner = (
+    <div className="card project-card" style={{ cursor: to ? 'pointer' : 'default' }}>
+      <div className="project-card-img-wrap">
+        {image ? (
+          <>
+            <img src={image} alt={title} className="project-card-img" loading="lazy" style={imageStyle} />
+            <div className="project-card-overlay">
+              <div className="project-card-overlay-title">{title}</div>
+              {description && <p className="project-card-overlay-desc">{description}</p>}
+              {to && <span className="project-card-overlay-cta">View Project →</span>}
+            </div>
+          </>
+        ) : (
+          <div className="icon-tile">{icon}</div>
+        )}
+      </div>
+      <div className="project-card-body">
+        {(tag || status) && (
+          <div className="project-card-tag-row">
+            {tag && <span className="project-card-tag">{tag}</span>}
+            <StatusBadge status={status} />
+          </div>
+        )}
+        <h3 className="project-card-title">{title}</h3>
+        {description && <p className="project-card-desc">{description}</p>}
+        {to && (
+          <div className="project-card-footer">
+            <span className="project-card-link">View Project →</span>
+          </div>
+        )}
+      </div>
+    </div>
+  )
 
   return (
-    <Link to={to} className={`pcard pcard-${size}`}>
-      <div className={`pcard-media${screen ? ' is-screen' : ''}`}>
-        <img
-          src={image}
-          alt=""
-          loading="lazy"
-          decoding="async"
-          style={imagePosition ? { objectPosition: imagePosition } : undefined}
-        />
-        <span className="pcard-code mono">{code}</span>
-      </div>
-
-      <div className="pcard-body">
-        <div className="pcard-meta">
-          <span className="mono">{CONTEXTS[context]}</span>
-          <StatusBadge status={status} />
-        </div>
-        <Heading className="pcard-title">{title}</Heading>
-        <p className="pcard-org">{role} · {org}</p>
-        {size === 'lg' && <p className="pcard-summary">{summary}</p>}
-
-        {metrics.length > 0 && (
-          <dl className="pcard-metrics">
-            {metrics.slice(0, 3).map(m => (
-              <div key={m.label}>
-                <dt>{m.label}</dt>
-                <dd>{m.value}</dd>
-              </div>
-            ))}
-          </dl>
-        )}
-
-        <span className="pcard-cta" aria-hidden="true">Read case study <span className="arrow">→</span></span>
-      </div>
-    </Link>
+    <ScrollReveal delay={delay}>
+      {to ? <Link to={to} style={{ display: 'block', height: '100%', textDecoration: 'none', color: 'inherit' }}>{inner}</Link> : inner}
+    </ScrollReveal>
   )
 }

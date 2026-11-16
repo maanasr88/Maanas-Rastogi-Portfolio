@@ -1,6 +1,31 @@
-// Formerly faded every block in as it scrolled into view. Content now appears
-// immediately (scroll fades slow reading and hide content from some visitors), so
-// this is a plain wrapper kept for the many project pages that still use it.
-export default function ScrollReveal({ children, className = '', style }) {
-  return <div className={className || undefined} style={style}>{children}</div>
+import { useEffect, useRef } from 'react'
+
+export default function ScrollReveal({ children, delay = 0, className = '', style }) {
+  const ref = useRef(null)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add('visible')
+          observer.unobserve(el)
+        }
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <div
+      ref={ref}
+      className={`reveal ${delay ? `reveal-delay-${delay}` : ''} ${className}`}
+      style={style}
+    >
+      {children}
+    </div>
+  )
 }
