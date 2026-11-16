@@ -23,8 +23,8 @@ export default function Ironlattice() {
   return (
     <DetailPage
         toc={toc}
-        backTo="/experience"
-        backLabel="Industry & Research Experience"
+        backTo="/work"
+        backLabel="All work"
         tag="Ironlattice · Internship, Aug 2026 – Present"
         status="nda"
         title="Gator Memory™ FeFET Device Validation & Simulation"
@@ -53,7 +53,8 @@ export default function Ironlattice() {
         <ScrollReveal>
           <div id="about" className="project-section">
             <h3>About Ironlattice</h3>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16, flexWrap: 'wrap' }}>
+            {/* The wordmark is white-only, so it sits on a dark plate */}
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 16, marginBottom: 16, flexWrap: 'wrap', padding: '12px 18px', background: 'var(--screen)', borderRadius: 'var(--radius)' }}>
               <img
                 src={img('/images/ironlattice/ironlattice-icon-color.png')}
                 alt="Ironlattice logo mark"
@@ -67,7 +68,7 @@ export default function Ironlattice() {
                 loading="lazy"
               />
             </div>
-            <p style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '1.1rem', color: 'var(--accent-light)', fontWeight: 600, marginBottom: 4 }}>
+            <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1.1rem', color: 'var(--accent-light)', fontWeight: 600, marginBottom: 4 }}>
               "More Memory. Less Power.™"
             </p>
             <p>

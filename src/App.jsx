@@ -1,13 +1,12 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, Navigate, Link, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import { AnimatePresence, MotionConfig } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import PageTransition from './components/PageTransition'
 import Home from './pages/Home'
-import Experience from './pages/Experience'
-import TeamProjects from './pages/TeamProjects'
-import PersonalProjects from './pages/PersonalProjects'
+import Work from './pages/Work'
+import About from './pages/About'
 import Skills from './pages/Skills'
 import Ironlattice from './pages/projects/Ironlattice'
 import QuantumComputing from './pages/projects/QuantumComputing'
@@ -27,16 +26,34 @@ import VlsiRiscV from './pages/projects/VlsiRiscV'
 import HelmetHud from './pages/projects/HelmetHud'
 import GambleOnTheGo from './pages/projects/GambleOnTheGo'
 
+function NotFound() {
+  return (
+    <div className="page">
+      <div className="wrap not-found">
+        <p className="eyebrow">404</p>
+        <h1 className="page-title">This page doesn&rsquo;t exist.</h1>
+        <p className="page-lede">The link may be old. Everything now lives under Work.</p>
+        <div style={{ display: 'flex', gap: 12, marginTop: 32, flexWrap: 'wrap' }}>
+          <Link to="/work" className="btn btn-primary">View work</Link>
+          <Link to="/" className="btn btn-outline">Go home</Link>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 const SITE_TITLE = 'Maanas Rastogi — Electrical & Computer Engineering Portfolio'
 
 // One table drives both the routes and the browser-tab title for each page.
 const ROUTES = [
   { path: '/',                                          element: <Home />,                     title: null },
-  { path: '/experience',                                element: <Experience />,               title: 'Industry & Research Experience' },
+  { path: '/work',                                      element: <Work />,                     title: 'Work' },
+  { path: '/about',                                     element: <About />,                    title: 'About' },
+  { path: '/experience',                                element: <Navigate to="/work" replace />, title: 'Work' },
   { path: '/experience/ironlattice',                    element: <Ironlattice />,              title: 'Gator Memory FeFET Validation · Ironlattice' },
   { path: '/experience/quantum-computing',              element: <QuantumComputing />,         title: 'Surface-Code Simulation for Modular Quantum Processors' },
   { path: '/experience/banerjee-lab',                   element: <BanerjeeLab />,              title: 'Thin Film Growth & FeFET Characterization · Banerjee Lab' },
-  { path: '/team',                                      element: <TeamProjects />,             title: 'Team Projects' },
+  { path: '/team',                                      element: <Navigate to="/work" replace />, title: 'Work' },
   { path: '/team/baja-racing',                          element: <BajaRacing />,               title: 'Longhorn Baja Racing · Electronics Lead' },
   { path: '/team/baja-racing/fuel-level-indicator',      element: <FuelLevelIndicator />,       title: 'Fuel Level Indicator · Baja Sensor Suite' },
   { path: '/team/baja-racing/rpm-sensor',                element: <RpmSensor />,                title: 'RPM Sensor · Baja Sensor Suite' },
@@ -48,20 +65,21 @@ const ROUTES = [
   { path: '/team/baja-racing/nfc-tracker',               element: <NfcTracker />,               title: 'NFC Tracker · Baja Sensor Suite' },
   { path: '/team/neurotech',                            element: <Neurotech />,                title: 'Longhorn Neurotech · Electric Wheelchair' },
   { path: '/team/robotics-society',                     element: <RoboticsSociety />,          title: 'UT Robotics & Automation Society · Power Electronics' },
-  { path: '/projects',                                  element: <PersonalProjects />,         title: 'Personal Projects' },
+  { path: '/projects',                                  element: <Navigate to="/work" replace />, title: 'Work' },
   { path: '/projects/vlsi-risc-v',                      element: <VlsiRiscV />,                title: '32-bit Custom RISC-V Processor' },
   { path: '/projects/helmet-hud',                       element: <HelmetHud />,                title: 'Motorcycle Helmet HUD' },
   { path: '/projects/gamble-on-the-go',                 element: <GambleOnTheGo />,            title: 'Gamble on the Go' },
   { path: '/skills',                                    element: <Skills />,                   title: 'Skills' },
+  { path: '*',                                          element: <NotFound />,                 title: 'Page not found' },
 ]
 
-const TITLES = Object.fromEntries(ROUTES.map(r => [r.path, r.title]))
+const TITLES = Object.fromEntries(ROUTES.filter(r => r.path !== '*').map(r => [r.path, r.title]))
 
 function RouteEffects() {
   const { pathname } = useLocation()
   useEffect(() => {
     window.scrollTo(0, 0)
-    const title = TITLES[pathname]
+    const title = pathname in TITLES ? TITLES[pathname] : 'Page not found'
     document.title = title ? `${title} | Maanas Rastogi` : SITE_TITLE
   }, [pathname])
   return null

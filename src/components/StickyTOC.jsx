@@ -1,8 +1,20 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { scrollBehavior } from '../motion'
 
+// "On this page" index. A sticky sidebar on desktop; a sticky, horizontally
+// scrolling strip under the nav on small screens (see .case-toc in case.css).
 export default function StickyTOC({ sections }) {
   const [active, setActive] = useState(sections[0]?.id)
+  const listRef = useRef(null)
+
+  // On small screens the list is a horizontal strip: keep the active chip in view
+  useEffect(() => {
+    const list = listRef.current
+    const item = list?.querySelector('.toc-item.active')
+    if (!list || !item || list.scrollWidth <= list.clientWidth) return
+    const target = item.offsetLeft - (list.clientWidth - item.offsetWidth) / 2
+    list.scrollTo({ left: Math.max(0, target), behavior: scrollBehavior() })
+  }, [active])
 
   useEffect(() => {
     const observers = sections.map(({ id }) => {
@@ -19,24 +31,28 @@ export default function StickyTOC({ sections }) {
   }, [sections])
 
   return (
-    <nav className="sidebar-card sticky-toc">
-      <h4>On This Page</h4>
-      {sections.map(({ id, label }) => (
-        <a
-          key={id}
-          href={`#${id}`}
-          className={`sticky-toc-item${active === id ? ' active' : ''}`}
-          aria-current={active === id ? 'location' : undefined}
-          onClick={e => {
-            e.preventDefault()
-            const target = document.getElementById(id)
-            target?.scrollIntoView({ behavior: scrollBehavior() })
-            setActive(id)
-          }}
-        >
-          {label}
-        </a>
-      ))}
+    <nav className="toc" aria-label="On this page">
+      <p className="toc-title">On this page</p>
+      <ol className="toc-list" ref={listRef}>
+        {sections.map(({ id, label }, i) => (
+          <li key={id}>
+            <a
+              href={`#${id}`}
+              className={`toc-item${active === id ? ' active' : ''}`}
+              aria-current={active === id ? 'location' : undefined}
+              onClick={e => {
+                // HashRouter owns the URL hash, so scroll manually
+                e.preventDefault()
+                document.getElementById(id)?.scrollIntoView({ behavior: scrollBehavior() })
+                setActive(id)
+              }}
+            >
+              <span className="toc-num">{String(i + 1).padStart(2, '0')}</span>
+              {label}
+            </a>
+          </li>
+        ))}
+      </ol>
     </nav>
   )
 }

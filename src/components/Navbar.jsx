@@ -1,101 +1,109 @@
 import { useEffect, useRef, useState } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { FiDownload } from 'react-icons/fi'
 import img from '../img'
-import { scrollBehavior } from '../motion'
+
+const LINKS = [
+  { to: '/work', label: 'Work', match: ['/work', '/experience', '/team', '/projects'] },
+  { to: '/about', label: 'About', match: ['/about'] },
+  { to: '/skills', label: 'Skills', match: ['/skills'] },
+]
+
+const RESUME = img('/Resume_Maanas_Rastogi.pdf')
+
+function isActive(pathname, link) {
+  return link.match.some(m => pathname === m || pathname.startsWith(m + '/'))
+}
 
 export default function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const [open, setOpen] = useState(false)
   const toggleRef = useRef(null)
   const { pathname } = useLocation()
 
-  // Close the menu whenever the route changes (back/forward included)
-  useEffect(() => { setMobileOpen(false) }, [pathname])
+  // Close the menu on any route change (back/forward included)
+  useEffect(() => { setOpen(false) }, [pathname])
 
-  // Escape closes the menu and returns focus to the toggle
+  // Escape closes the menu and returns focus to the toggle; the page behind doesn't scroll
   useEffect(() => {
-    if (!mobileOpen) return
+    if (!open) return
     const onKey = (e) => {
       if (e.key === 'Escape') {
-        setMobileOpen(false)
+        setOpen(false)
         toggleRef.current?.focus()
       }
     }
     document.addEventListener('keydown', onKey)
-    return () => document.removeEventListener('keydown', onKey)
-  }, [mobileOpen])
-
-  const links = [
-    { to: '/', label: 'Home' },
-    { to: '/experience', label: 'Experience' },
-    { to: '/team', label: 'Team Projects' },
-    { to: '/projects', label: 'Personal Projects' },
-    { to: '/skills', label: 'Skills' },
-  ]
+    const prevOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = prevOverflow
+    }
+  }, [open])
 
   return (
     <>
-      <nav className="navbar" aria-label="Main">
-        <div className="navbar-inner">
-          <NavLink
-            to="/"
-            className="navbar-brand"
-            onClick={() => window.scrollTo({ top: 0, behavior: scrollBehavior() })}
-          >
-            <span className="navbar-brand-mark">MR</span>
-            MAANAS RASTOGI
-          </NavLink>
-          <ul className="navbar-links">
-            {links.map(l => (
-              <li key={l.to}>
-                <NavLink to={l.to} end={l.to === '/'} className={({ isActive }) => isActive ? 'active' : ''}>
-                  {l.label}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-          <a
-            href={img('/Resume_Maanas_Rastogi.pdf')}
-            download="Resume_Maanas_Rastogi.pdf"
-            className="btn btn-primary navbar-cta"
-          >
-            <FiDownload size={13} />
-            Resume
-          </a>
-          <button
-            ref={toggleRef}
-            className="navbar-hamburger"
-            onClick={() => setMobileOpen(o => !o)}
-            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-menu"
-          >
-            <span />
-            <span />
-            <span />
-          </button>
+      <header className="nav">
+        <div className="wrap nav-inner">
+          <Link to="/" className="nav-brand" aria-label="Maanas Rastogi, home">
+            <span className="nav-brand-mark" aria-hidden="true" />
+            <span className="nav-brand-name">Maanas Rastogi</span>
+            <span className="nav-brand-meta">ECE · UT Austin</span>
+          </Link>
+
+          <nav aria-label="Main">
+            <ul className="nav-links">
+              {LINKS.map(l => (
+                <li key={l.to}>
+                  <Link
+                    to={l.to}
+                    className="nav-link"
+                    aria-current={isActive(pathname, l) ? 'page' : undefined}
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="nav-actions">
+            <a href={RESUME} download="Resume_Maanas_Rastogi.pdf" className="btn btn-outline btn-sm">
+              <FiDownload size={14} aria-hidden="true" />
+              Resume
+            </a>
+            <button
+              ref={toggleRef}
+              type="button"
+              className="nav-toggle"
+              onClick={() => setOpen(o => !o)}
+              aria-label={open ? 'Close menu' : 'Open menu'}
+              aria-expanded={open}
+              aria-controls="nav-menu"
+            >
+              <span /><span /><span />
+            </button>
+          </div>
         </div>
-      </nav>
-      <nav id="mobile-menu" aria-label="Mobile" className={`navbar-mobile${mobileOpen ? ' open' : ''}`}>
-        {links.map(l => (
-          <NavLink
+      </header>
+
+      <nav id="nav-menu" aria-label="Mobile" className={`nav-menu${open ? ' open' : ''}`} hidden={!open}>
+        <Link to="/" className="nav-menu-link" aria-current={pathname === '/' ? 'page' : undefined}>
+          Home <span className="mono">00</span>
+        </Link>
+        {LINKS.map((l, i) => (
+          <Link
             key={l.to}
             to={l.to}
-            end={l.to === '/'}
-            className={({ isActive }) => isActive ? 'active' : ''}
-            onClick={() => setMobileOpen(false)}
+            className="nav-menu-link"
+            aria-current={isActive(pathname, l) ? 'page' : undefined}
           >
-            {l.label}
-          </NavLink>
+            {l.label} <span className="mono">0{i + 1}</span>
+          </Link>
         ))}
-        <a
-          href={img('/Resume_Maanas_Rastogi.pdf')}
-          download="Resume_Maanas_Rastogi.pdf"
-          className="navbar-mobile-resume"
-          onClick={() => setMobileOpen(false)}
-        >
-          <FiDownload size={14} />
-          Download Resume
+        <a href={RESUME} download="Resume_Maanas_Rastogi.pdf" className="btn btn-primary">
+          <FiDownload size={14} aria-hidden="true" />
+          Download resume
         </a>
       </nav>
     </>

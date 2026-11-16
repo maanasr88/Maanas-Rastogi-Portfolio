@@ -37,8 +37,8 @@ export default function BajaRacing() {
   return (
     <DetailPage
         toc={toc}
-        backTo="/team"
-        backLabel="Team Projects"
+        backTo="/work"
+        backLabel="All work"
         tag="Longhorn Baja Racing · Aug 2025 – Present"
         status="in-progress"
         title="Racing Team Electronics Lead"
