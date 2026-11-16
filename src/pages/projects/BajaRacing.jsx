@@ -81,14 +81,13 @@ export default function BajaRacing() {
 
         <ScrollReveal>
           <div id="suite" className="project-section">
-            <h3>Sensor Suite Research (Co-Lead)</h3>
+            <h3>Sensor Suite Research</h3>
             <p>
-              Alongside the vehicle electronics scope, I co-lead the team's Baja GM-Electronics
-              Research initiative with Sreekant G, researching and prototyping the 2025–26 sensor suite
-              with teammates Clement P, Devak J, Soham M, and Jose V. Each subsystem below went through
-              the same process: research existing approaches, score candidate designs against the Baja
-              SAE rulebook and our own requirements, then prototype and test before committing to
-              vehicle hardware.
+              Alongside the vehicle electronics scope, I lead the team&rsquo;s electronics research
+              initiative, researching and prototyping the 2025&ndash;26 sensor suite. Each subsystem below
+              went through the same process: research existing approaches, score candidate designs
+              against the Baja SAE rulebook and our own requirements, then prototype and test before
+              committing to vehicle hardware.
             </p>
             <BajaSensorMap />
             <div className="baja-subprojects-grid">

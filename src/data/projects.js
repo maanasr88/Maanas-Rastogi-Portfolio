@@ -158,7 +158,8 @@ export const projects = [
     start: '2024-08',
     context: 'team',
     domains: ['pcb', 'robotics'],
-    image: img('/images/neurotech/wheelchair-render-cover.jpg'),
+    image: img('/images/neurotech/system-architecture-cover.svg'),
+    screen: true,
     summary: 'Led 5 engineers fusing joystick, EEG and ultrasonic sensing on an ESP32, plus the motor, drivetrain and electronics mounting.',
     metrics: [
       { value: '20 ms', label: 'Wireless control latency' },

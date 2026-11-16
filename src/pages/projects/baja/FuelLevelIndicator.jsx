@@ -23,7 +23,7 @@ export default function FuelLevelIndicator() {
         title="Fuel Level Indicator"
         icon={<IconFuel />}
         software={['KiCad', 'ESP32', 'Hall-Effect Sensing']}
-        roles={['Sensor Suite Co-Lead']}
+        roles={['Electronics Lead']}
       >
         <ScrollReveal>
           <div id="overview" className="project-section">

@@ -22,7 +22,7 @@ export default function EngineTemperatureSensing() {
         title="Engine Temperature Sensing"
         icon={<IconThermometer />}
         software={['LTspice', 'ESP32', 'SPI / RTD Sensing']}
-        roles={['Sensor Suite Co-Lead']}
+        roles={['Electronics Lead']}
       >
         <ScrollReveal>
           <div id="overview" className="project-section">

@@ -14,7 +14,7 @@ export default function TelemetryLink() {
       title="Wireless Telemetry Link"
       icon={<IconRadio />}
       software={['LoRa (RFM95W)', 'ESP32']}
-      roles={['Sensor Suite Co-Lead']}
+      roles={['Electronics Lead']}
     >
       <ScrollReveal>
         <div className="project-section">

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" width="1600" height="800">
+<title>Sensor-fused wheelchair system: joystick, EEG headset and spatial sensors feed an ESP32, which drives a motor controller and brushed motor, powered from a 24 V supply through buck converters</title>
+<defs><pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#fff" fill-opacity="0.05"/></pattern>
+<radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#e8432c" stop-opacity="0.28"/><stop offset="1" stop-color="#e8432c" stop-opacity="0"/></radialGradient>
+<marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#ff7a52"/></marker>
+<marker id="ap" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#ffb347"/></marker></defs>
+<rect width="1600" height="800" fill="#0b0c0f"/><rect width="1600" height="800" fill="url(#dots)"/>
+<ellipse cx="810" cy="380" rx="300" ry="300" fill="url(#glow)"/>
+<text x="260" y="96" text-anchor="middle" fill="#7c7f89" font-size="18" letter-spacing="3" font-family="JetBrains Mono, ui-monospace, monospace">INPUTS</text>
+<text x="810" y="96" text-anchor="middle" fill="#7c7f89" font-size="18" letter-spacing="3" font-family="JetBrains Mono, ui-monospace, monospace">POWER / COMPUTE</text>
+<text x="1300" y="96" text-anchor="middle" fill="#7c7f89" font-size="18" letter-spacing="3" font-family="JetBrains Mono, ui-monospace, monospace">OUTPUTS</text>
+<line x1="560" y1="70" x2="560" y2="740" stroke="#2c2f36" stroke-width="2" stroke-dasharray="3 9"/>
+<line x1="1030" y1="70" x2="1030" y2="740" stroke="#2c2f36" stroke-width="2" stroke-dasharray="3 9"/>
+<rect x="90" y="180" width="200" height="80" rx="12" fill="#121318" stroke="#2c2f36" stroke-width="2"/>
+<text x="190.0" y="227.0" text-anchor="middle" fill="#f4f4f5" font-size="21" font-weight="600" font-family="Inter Tight, system-ui, sans-serif">Joystick</text>
+<rect x="360" y="180" width="140" height="80" rx="12" fill="#121318" stroke="#2c2f36" stroke-width="2"/>
+<text x="430.0" y="227.0" text-anchor="middle" fill="#f4f4f5" font-size="21" font-weight="600" font-family="Inter Tight, system-ui, sans-serif">ADC</text>
+<rect x="90" y="320" width="260" height="80" rx="12" fill="#121318" stroke="#2c2f36" stroke-width="2"/>
+<text x="220.0" y="367.0" text-anchor="middle" fill="#f4f4f5" font-size="21" font-weight="600" font-family="Inter Tight, system-ui, sans-serif">EEG headset</text>
+<rect x="90" y="460" width="260" height="80" rx="12" fill="#121318" stroke="#2c2f36" stroke-width="2"/>
+<text x="220.0" y="507.0" text-anchor="middle" fill="#f4f4f5" font-size="21" font-weight="600" font-family="Inter Tight, system-ui, sans-serif">Spatial sensors</text>
+<rect x="660" y="190" width="300" height="320" rx="12" fill="#121318" stroke="#ff7a52" stroke-width="3"/>
+<text x="810.0" y="349.0" text-anchor="middle" fill="#f4f4f5" font-size="26" font-weight="600" font-family="Inter Tight, system-ui, sans-serif">ESP32</text>
+<text x="810.0" y="376.0" text-anchor="middle" fill="#a1a3ab" font-size="16" font-family="JetBrains Mono, ui-monospace, monospace">microcontroller</text>
+<rect x="690" y="575" width="240" height="70" rx="12" fill="#121318" stroke="#2c2f36" stroke-width="2"/>
+<text x="810.0" y="617.0" text-anchor="middle" fill="#f4f4f5" font-size="21" font-weight="600" font-family="Inter Tight, system-ui, sans-serif">Buck converter</text>
+<rect x="690" y="690" width="240" height="80" rx="12" fill="#121318" stroke="#2c2f36" stroke-width="2"/>
+<text x="810.0" y="729.0" text-anchor="middle" fill="#f4f4f5" font-size="21" font-weight="600" font-family="Inter Tight, system-ui, sans-serif">Power</text>
+<text x="810.0" y="756.0" text-anchor="middle" fill="#a1a3ab" font-size="16" font-family="JetBrains Mono, ui-monospace, monospace">24 V</text>
+<rect x="1080" y="250" width="250" height="90" rx="12" fill="#121318" stroke="#2c2f36" stroke-width="2"/>
+<text x="1205.0" y="302.0" text-anchor="middle" fill="#f4f4f5" font-size="21" font-weight="600" font-family="Inter Tight, system-ui, sans-serif">Motor controller</text>
+<rect x="1400" y="250" width="170" height="90" rx="12" fill="#121318" stroke="#2c2f36" stroke-width="2"/>
+<text x="1485.0" y="294.0" text-anchor="middle" fill="#f4f4f5" font-size="21" font-weight="600" font-family="Inter Tight, system-ui, sans-serif">Motor</text>
+<text x="1485.0" y="321.0" text-anchor="middle" fill="#a1a3ab" font-size="16" font-family="JetBrains Mono, ui-monospace, monospace">brushed</text>
+<rect x="1080" y="560" width="250" height="80" rx="12" fill="#121318" stroke="#2c2f36" stroke-width="2"/>
+<text x="1205.0" y="607.0" text-anchor="middle" fill="#f4f4f5" font-size="21" font-weight="600" font-family="Inter Tight, system-ui, sans-serif">Buck converter</text>
+<path d="M290,220 L358,220" fill="none" stroke="#ff7a52" stroke-width="3"  marker-end="url(#as)"/>
+<text x="324" y="206" text-anchor="middle" fill="#ff7a52" font-size="15" font-family="JetBrains Mono, ui-monospace, monospace">analog</text>
+<path d="M500,220 L656,220" fill="none" stroke="#ff7a52" stroke-width="3"  marker-end="url(#as)"/>
+<text x="578" y="206" text-anchor="middle" fill="#ff7a52" font-size="15" font-family="JetBrains Mono, ui-monospace, monospace">digital</text>
+<path d="M350,360 L656,360" fill="none" stroke="#ff7a52" stroke-width="3"  marker-end="url(#as)"/>
+<text x="578" y="346" text-anchor="middle" fill="#ff7a52" font-size="15" font-family="JetBrains Mono, ui-monospace, monospace">digital</text>
+<path d="M350,500 L500,500 L500,470 L656,470" fill="none" stroke="#ff7a52" stroke-width="3"  marker-end="url(#as)"/>
+<text x="578" y="456" text-anchor="middle" fill="#ff7a52" font-size="15" font-family="JetBrains Mono, ui-monospace, monospace">digital</text>
+<path d="M960,295 L1076,295" fill="none" stroke="#ff7a52" stroke-width="3"  marker-end="url(#as)"/>
+<text x="1018" y="281" text-anchor="middle" fill="#ff7a52" font-size="15" font-family="JetBrains Mono, ui-monospace, monospace">digital</text>
+<path d="M1330,295 L1396,295" fill="none" stroke="#ff7a52" stroke-width="3"  marker-end="url(#as)"/>
+<text x="1363" y="281" text-anchor="middle" fill="#ff7a52" font-size="15" font-family="JetBrains Mono, ui-monospace, monospace">PWM</text>
+<path d="M810,690 L810,649" fill="none" stroke="#ffb347" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#ap)"/>
+<text x="852" y="676" text-anchor="middle" fill="#ffb347" font-size="15" font-family="JetBrains Mono, ui-monospace, monospace">24 V</text>
+<path d="M810,575 L810,514" fill="none" stroke="#ffb347" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#ap)"/>
+<text x="856" y="550" text-anchor="middle" fill="#ffb347" font-size="15" font-family="JetBrains Mono, ui-monospace, monospace">3.3 V</text>
+<path d="M930,730 L1205,730 L1205,644" fill="none" stroke="#ffb347" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#ap)"/>
+<text x="1060" y="718" text-anchor="middle" fill="#ffb347" font-size="15" font-family="JetBrains Mono, ui-monospace, monospace">24 V</text>
+<path d="M1205,560 L1205,344" fill="none" stroke="#ffb347" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#ap)"/>
+<text x="1240" y="470" text-anchor="middle" fill="#ffb347" font-size="15" font-family="JetBrains Mono, ui-monospace, monospace">5 V</text>
+<path d="M1205,730 L1485,730 L1485,344" fill="none" stroke="#ffb347" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#ap)"/>
+<text x="1520" y="560" text-anchor="middle" fill="#ffb347" font-size="15" font-family="JetBrains Mono, ui-monospace, monospace">24 V</text>
+</svg>

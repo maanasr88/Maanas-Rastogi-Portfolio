@@ -14,7 +14,7 @@ export default function SuspensionPositionSensor() {
       title="Suspension Position Sensor"
       icon={<IconSuspension />}
       software={['Linear Potentiometers', 'ESP32 ADC']}
-      roles={['Sensor Suite Co-Lead']}
+      roles={['Electronics Lead']}
     >
       <ScrollReveal>
         <div className="project-section">

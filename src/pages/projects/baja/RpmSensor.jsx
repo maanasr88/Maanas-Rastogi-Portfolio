@@ -22,7 +22,7 @@ export default function RpmSensor() {
       title="RPM Sensor"
       icon={<IconChip />}
       software={['Hall-Effect Sensing', 'CAD Mounting Design']}
-      roles={['Sensor Suite Co-Lead']}
+      roles={['Electronics Lead']}
     >
       <ScrollReveal>
         <div className="project-section">
