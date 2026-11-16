@@ -389,9 +389,12 @@ export default function Skills() {
 
           <ScrollReveal>
             <div className="skills-header-block">
-              <h2 className="skills-heading"><span className="section-title-accent"><em className="accent-serif">Skills</em></span></h2>
+              <h1 className="skills-heading"><span className="section-title-accent"><em className="accent-text">Skills</em></span></h1>
               <div className="skills-underline-bar" />
-              <p ref={subtitleRef} className="skills-subtitle-tw" aria-label={SUBTITLE}>&nbsp;</p>
+              <p className="skills-subtitle-tw">
+                <span className="sr-only">{SUBTITLE}</span>
+                <span aria-hidden="true" ref={subtitleRef}>&nbsp;</span>
+              </p>
             </div>
           </ScrollReveal>
 

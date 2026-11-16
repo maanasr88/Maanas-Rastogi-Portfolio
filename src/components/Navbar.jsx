@@ -1,10 +1,29 @@
-import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
+import { NavLink, useLocation } from 'react-router-dom'
 import { FiDownload } from 'react-icons/fi'
 import img from '../img'
+import { scrollBehavior } from '../motion'
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const toggleRef = useRef(null)
+  const { pathname } = useLocation()
+
+  // Close the menu whenever the route changes (back/forward included)
+  useEffect(() => { setMobileOpen(false) }, [pathname])
+
+  // Escape closes the menu and returns focus to the toggle
+  useEffect(() => {
+    if (!mobileOpen) return
+    const onKey = (e) => {
+      if (e.key === 'Escape') {
+        setMobileOpen(false)
+        toggleRef.current?.focus()
+      }
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [mobileOpen])
 
   const links = [
     { to: '/', label: 'Home' },
@@ -16,12 +35,12 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="navbar">
+      <nav className="navbar" aria-label="Main">
         <div className="navbar-inner">
           <NavLink
             to="/"
             className="navbar-brand"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={() => window.scrollTo({ top: 0, behavior: scrollBehavior() })}
           >
             <span className="navbar-brand-mark">MR</span>
             MAANAS RASTOGI
@@ -44,9 +63,12 @@ export default function Navbar() {
             Resume
           </a>
           <button
+            ref={toggleRef}
             className="navbar-hamburger"
             onClick={() => setMobileOpen(o => !o)}
-            aria-label="Toggle menu"
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
           >
             <span />
             <span />
@@ -54,7 +76,7 @@ export default function Navbar() {
           </button>
         </div>
       </nav>
-      <div className={`navbar-mobile${mobileOpen ? ' open' : ''}`}>
+      <nav id="mobile-menu" aria-label="Mobile" className={`navbar-mobile${mobileOpen ? ' open' : ''}`}>
         {links.map(l => (
           <NavLink
             key={l.to}
@@ -75,7 +97,7 @@ export default function Navbar() {
           <FiDownload size={14} />
           Download Resume
         </a>
-      </div>
+      </nav>
     </>
   )
 }

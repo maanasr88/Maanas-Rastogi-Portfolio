@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { scrollBehavior } from '../motion'
 
 export default function StickyTOC({ sections }) {
   const [active, setActive] = useState(sections[0]?.id)
@@ -25,9 +26,12 @@ export default function StickyTOC({ sections }) {
           key={id}
           href={`#${id}`}
           className={`sticky-toc-item${active === id ? ' active' : ''}`}
+          aria-current={active === id ? 'location' : undefined}
           onClick={e => {
             e.preventDefault()
-            document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+            const target = document.getElementById(id)
+            target?.scrollIntoView({ behavior: scrollBehavior() })
+            setActive(id)
           }}
         >
           {label}

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import img from '../img'
 
@@ -14,29 +14,30 @@ const SLIDES = [
   { image: img('/images/gamble-on-the-go/handheld-cover.svg'), category: 'Personal Projects', label: 'Gamble on the Go', to: '/projects/gamble-on-the-go' },
 ]
 
+// Advances only when the visitor asks (arrows, dots, or Left/Right keys). It no longer
+// auto-plays: timed motion with no pause control fails WCAG 2.2.2 on touch and keyboard.
 export default function HomeCarousel() {
   const [active, setActive] = useState(0)
-  const timerRef = useRef(null)
   const n = SLIDES.length
 
   const goTo = (i) => setActive(((i % n) + n) % n)
   const next = () => goTo(active + 1)
   const prev = () => goTo(active - 1)
 
-  useEffect(() => {
-    timerRef.current = setInterval(() => setActive(a => (a + 1) % n), 4500)
-    return () => clearInterval(timerRef.current)
-  }, [n])
-
-  const pause = () => clearInterval(timerRef.current)
-  const resume = () => {
-    pause()
-    timerRef.current = setInterval(() => setActive(a => (a + 1) % n), 4500)
+  const onKeyDown = (e) => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); next() }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev() }
   }
 
   return (
-    <div className="slideshow" onMouseEnter={pause} onMouseLeave={resume}>
-      <div className="slideshow-track">
+    <div
+      className="slideshow"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Project highlights"
+      onKeyDown={onKeyDown}
+    >
+      <div className="slideshow-track" aria-live="polite">
         {SLIDES.map((s, i) => (
           <Link
             key={s.to}
@@ -65,7 +66,8 @@ export default function HomeCarousel() {
             key={s.to}
             className={`slideshow-dot${i === active ? ' active' : ''}`}
             onClick={() => goTo(i)}
-            aria-label={`Go to slide ${i + 1}`}
+            aria-label={`Show ${s.label}`}
+            aria-current={i === active ? 'true' : undefined}
           />
         ))}
       </div>

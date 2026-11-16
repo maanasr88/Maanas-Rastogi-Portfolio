@@ -9,11 +9,13 @@ import img from '../img'
 
 const HEADLINE_SEGMENTS = [
   { text: 'From Silicon to ' },
-  { text: 'Race Cars', className: 'accent-serif' },
+  { text: 'Race Cars', className: 'accent-text' },
   { text: ',' },
   { break: true },
   { text: 'I Build It.' },
 ]
+
+const HEADLINE_TEXT = HEADLINE_SEGMENTS.map(s => (s.break ? ' ' : s.text)).join('')
 
 const orgs = [
   { name: 'Banerjee Lab', initials: 'BL' },
@@ -62,7 +64,10 @@ export default function Home() {
           </ScrollReveal>
 
           <ScrollReveal delay={2}>
-            <h1 className={`hero-headline${headlineDone ? '' : ' typing'}`} ref={headlineRef} />
+            <h1 className={`hero-headline${headlineDone ? '' : ' typing'}`}>
+              <span className="sr-only">{HEADLINE_TEXT}</span>
+              <span aria-hidden="true" ref={headlineRef} />
+            </h1>
           </ScrollReveal>
 
           <ScrollReveal delay={3}>

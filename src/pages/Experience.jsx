@@ -9,7 +9,7 @@ export default function Experience() {
         <div className="container">
           <ScrollReveal>
             <div className="section-header">
-              <h2><span className="section-title-accent">Industry &amp; Research <em className="accent-serif">Experience</em></span></h2>
+              <h1><span className="section-title-accent">Industry &amp; Research <em className="accent-text">Experience</em></span></h1>
               <div className="section-header-bar" />
             </div>
             <p style={{ color: 'var(--text-secondary)', marginBottom: 40, maxWidth: 600, fontSize: '0.95rem' }}>
