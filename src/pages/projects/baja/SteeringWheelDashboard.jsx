@@ -25,8 +25,8 @@ export default function SteeringWheelDashboard() {
   return (
     <DetailPage
       toc={toc}
-      backTo="/team/baja-racing"
-      backLabel="Longhorn Baja Racing"
+      backTo="/baja"
+      backLabel="All Baja work"
       tag="Longhorn Baja Racing · Steering Wheel Dashboard"
       status="in-progress"
       title="Steering Wheel Dashboard PCB"

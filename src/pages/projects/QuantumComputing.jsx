@@ -108,8 +108,8 @@ export default function QuantumComputing() {
         backLabel="All work"
         tag="UT Austin · Undergraduate Research, Oct – Dec 2025"
         title="Surface-Code Simulation for Modular Quantum Processors"
-        heroImage={img('/images/quantum-computing/chiplet-render-cover.jpg')}
-        heroStyle={{ filter: 'brightness(0.65) saturate(1.1)', transform: 'scale(1.08)' }}
+        heroImage={img('/images/quantum-computing/surface-code-chiplets.svg')}
+        heroStyle={{ backgroundPosition: 'center 55%' }}
         software={['Stim', 'Sinter', 'PyMatching', 'Python']}
         roles={['Quantum Computing Undergraduate Researcher', 'MIT iQuHack Participant']}
       >

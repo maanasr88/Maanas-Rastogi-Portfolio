@@ -4,7 +4,8 @@ import { FiDownload } from 'react-icons/fi'
 import img from '../img'
 
 const LINKS = [
-  { to: '/work', label: 'Work', match: ['/work', '/experience', '/team', '/projects'] },
+  { to: '/work', label: 'Work', match: ['/work', '/experience', '/team', '/projects'], exclude: ['/team/baja-racing'] },
+  { to: '/baja', label: 'Baja', match: ['/baja', '/team/baja-racing'] },
   { to: '/about', label: 'About', match: ['/about'] },
   { to: '/skills', label: 'Skills', match: ['/skills'] },
 ]
@@ -12,7 +13,8 @@ const LINKS = [
 const RESUME = img('/Resume_Maanas_Rastogi.pdf')
 
 function isActive(pathname, link) {
-  return link.match.some(m => pathname === m || pathname.startsWith(m + '/'))
+  const hit = m => pathname === m || pathname.startsWith(m + '/')
+  return link.match.some(hit) && !(link.exclude || []).some(hit)
 }
 
 export default function Navbar() {

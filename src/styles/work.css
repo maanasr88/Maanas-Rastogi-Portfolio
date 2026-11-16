@@ -299,3 +299,42 @@
   .work-tabs::-webkit-scrollbar { display: none; }
   .work-tabs .filter-chip { flex-shrink: 0; }
 }
+
+/* Baja hub */
+.baja-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-7);
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--rule);
+}
+
+.baja-facts dt {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--ink-subtle);
+}
+
+.baja-facts dd {
+  margin-top: 4px;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  letter-spacing: var(--tracking-tight);
+}
+
+.baja-hero { margin-top: 0; aspect-ratio: 21 / 8; }
+
+.baja-overview-tile { min-height: 460px; }
+
+.baja-sub-tile { min-height: 380px; }
+.baja-sub-tile .tile-summary { font-size: var(--text-sm); }
+
+.photo-gallery-wide { columns: 4 240px; }
+
+@media (max-width: 640px) {
+  .baja-hero { aspect-ratio: 4 / 3; }
+  .baja-overview-tile { min-height: 380px; }
+}

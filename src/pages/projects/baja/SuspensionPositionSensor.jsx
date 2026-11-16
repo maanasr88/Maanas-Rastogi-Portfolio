@@ -8,8 +8,8 @@ import img from '../../../img'
 export default function SuspensionPositionSensor() {
   return (
     <DetailPage
-      backTo="/team/baja-racing"
-      backLabel="Longhorn Baja Racing"
+      backTo="/baja"
+      backLabel="All Baja work"
       tag="Baja GM-Electronics Research · Sensor Suite"
       title="Suspension Position Sensor"
       icon={<IconSuspension />}

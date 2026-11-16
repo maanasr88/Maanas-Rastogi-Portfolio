@@ -16,8 +16,8 @@ const specs = [
 export default function RpmSensor() {
   return (
     <DetailPage
-      backTo="/team/baja-racing"
-      backLabel="Longhorn Baja Racing"
+      backTo="/baja"
+      backLabel="All Baja work"
       tag="Baja GM-Electronics Research · Sensor Suite"
       title="RPM Sensor"
       icon={<IconChip />}

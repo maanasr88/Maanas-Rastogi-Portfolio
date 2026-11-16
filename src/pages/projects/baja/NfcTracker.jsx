@@ -24,8 +24,8 @@ export default function NfcTracker() {
   return (
     <DetailPage
       toc={toc}
-      backTo="/team/baja-racing"
-      backLabel="Longhorn Baja Racing"
+      backTo="/baja"
+      backLabel="All Baja work"
       tag="Longhorn Baja Racing · Electronics Team Tool"
       status="coming-soon"
       title="NFC Tracker — Shop Tap Station"

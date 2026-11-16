@@ -8,8 +8,8 @@ import BajaSensorMap from '../../../components/BajaSensorMap'
 export default function TelemetryLink() {
   return (
     <DetailPage
-      backTo="/team/baja-racing"
-      backLabel="Longhorn Baja Racing"
+      backTo="/baja"
+      backLabel="All Baja work"
       tag="Baja GM-Electronics Research · Sensor Suite"
       title="Wireless Telemetry Link"
       icon={<IconRadio />}

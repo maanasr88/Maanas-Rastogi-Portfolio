@@ -16,8 +16,8 @@ export default function DriverInputTelemetry() {
   return (
     <DetailPage
         toc={toc}
-        backTo="/team/baja-racing"
-        backLabel="Longhorn Baja Racing"
+        backTo="/baja"
+        backLabel="All Baja work"
         tag="Baja GM-Electronics Research · Sensor Suite"
         title="Driver Input Telemetry (Pedal Box)"
         icon={<IconPedal />}
