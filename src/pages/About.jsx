@@ -23,24 +23,23 @@ export default function About() {
         />
         <div className="about-copy">
           <p className="about-lead">
-            I&rsquo;m Maanas Rastogi, an Electrical and Computer Engineering student at the
-            University of Texas at Austin focused on integrated circuits and systems.
+            I&rsquo;m Maanas Rastogi, an Electrical and Computer Engineering student at UT Austin
+            focused on semiconductor devices, integrated circuits, and chip design.
           </p>
           <p>
-            My work runs across VLSI design, embedded electronics and vehicle systems: from a
-            custom RISC-V processor I&rsquo;m taking from RTL to physical layout, to race-car electronics, to
-            ferroelectric memory devices simulated at Ironlattice and grown in the cleanroom at the
-            Microelectronics Research Center.
+            My work spans from atomic-scale device physics to physical hardware systems. At
+            IronLattice, I simulate ferroelectric memory architectures and 1-FeFET cells, while in the
+            cleanroom at UT&rsquo;s Microelectronics Research Center, I work on thin-film growth for
+            next-generation devices. On the digital side, I&rsquo;m taking a custom RISC-V accelerator
+            from RTL through physical layout and floorplanning.
           </p>
           <p>
-            I move between device physics and RTL design. Understanding how a transistor actually
-            fails informs how I architect the logic built on top of it.
-          </p>
-          <p>
-            On teams I tend to end up leading the electrical side. At Longhorn Baja Racing I lead
-            10+ members and run workshops on Altium Designer, circuit theory and PCB design so the
-            whole team can contribute to the electrical scope. At Longhorn Neurotech I directed five
-            engineers building a sensor-fused electric wheelchair.
+            Outside the lab, I lead the electronics team for Longhorn Baja Racing&mdash;designing custom
+            PCBs in Altium, building vehicle telemetry, and running hardware workshops for over a dozen
+            teammates. Previously, I led electronics and drivetrain integration for Longhorn
+            Neurotech&rsquo;s motorized wheelchair project. Whether I&rsquo;m debugging a CAN bus in the
+            pits or analyzing transistor failure modes, knowing how the silicon behaves makes me a
+            better architect.
           </p>
 
           <dl className="about-facts">
@@ -50,11 +49,11 @@ export default function About() {
             </div>
             <div>
               <dt>Focus</dt>
-              <dd>Integrated circuits and systems</dd>
+              <dd>Integrated Circuits &amp; Chip Design</dd>
             </div>
             <div>
               <dt>Now</dt>
-              <dd>Validation/Design Intern at Ironlattice · Researcher at Banerjee Lab</dd>
+              <dd>Device Modeling at IronLattice &bull; Thin-Film Research at UT MRC</dd>
             </div>
           </dl>
 

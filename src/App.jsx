@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { AnimatePresence, MotionConfig } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import Mascots from './components/ScrollMascot'
 import PageTransition from './components/PageTransition'
 import Home from './pages/Home'
 import Work from './pages/Work'
@@ -120,6 +121,7 @@ export default function App() {
         <AnimatedRoutes />
       </main>
       <Footer />
+      <Mascots />
     </MotionConfig>
   )
 }
