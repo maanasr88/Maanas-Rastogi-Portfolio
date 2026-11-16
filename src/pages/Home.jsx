@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { FiDownload } from 'react-icons/fi'
 import ProjectCard from '../components/ProjectCard'
-import ExperienceList from '../components/ExperienceList'
+import ExperienceTimeline from '../components/ExperienceTimeline'
 import PhotoStrip from '../components/PhotoStrip'
 import { projects, projectCount, experience } from '../data/projects'
 import img from '../img'
@@ -130,7 +130,7 @@ function Experience() {
             <h2 id="exp-title" className="section-title">Industry, research <span className="serif">and</span> teams.</h2>
           </div>
         </div>
-        <ExperienceList />
+        <ExperienceTimeline />
       </div>
     </section>
   )

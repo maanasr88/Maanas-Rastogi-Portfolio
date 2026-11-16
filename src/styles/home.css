@@ -396,3 +396,178 @@
 @media (max-width: 640px) {
   .photo-strip-item { height: 220px; }
 }
+
+/* ===== EXPERIENCE TIMELINE ===== */
+.timeline {
+  --label-w: 340px;
+  --industry: #ff7a52;
+  --research: #ffb347;
+  --team: #8aa2c8;
+}
+
+.timeline-axis,
+.timeline-row {
+  display: grid;
+  grid-template-columns: var(--label-w) minmax(0, 1fr);
+  gap: var(--space-5);
+}
+
+.timeline-axis-track { position: relative; height: 28px; }
+
+.timeline-year,
+.timeline-now {
+  position: absolute;
+  bottom: 6px;
+  transform: translateX(-50%);
+  font-size: var(--text-xs);
+  color: var(--ink-subtle);
+}
+
+.timeline-now { color: var(--signal); }
+
+.timeline-rows {
+  list-style: none;
+  border-top: 1px solid var(--rule-strong);
+}
+
+.timeline-row {
+  align-items: center;
+  min-height: 76px;
+  padding: var(--space-3) var(--space-2);
+  border-bottom: 1px solid var(--rule);
+  transition: background var(--transition);
+}
+
+.timeline-row:hover { background: var(--panel); }
+
+.timeline-label { display: grid; gap: 4px; min-width: 0; }
+
+.timeline-role {
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+.timeline-org {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+}
+
+.timeline-track { position: relative; height: 36px; }
+
+.timeline-grid {
+  position: absolute;
+  top: -14px;
+  bottom: -14px;
+  width: 1px;
+  background: var(--rule);
+}
+
+.timeline-grid.is-now {
+  background: none;
+  border-left: 1px dashed rgba(61, 220, 132, 0.6);
+}
+
+.timeline-bar {
+  position: absolute;
+  top: 6px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--bar);
+  box-shadow: 0 0 18px -4px var(--bar);
+  display: flex;
+  align-items: center;
+  overflow: visible;
+  transition: transform var(--transition), filter var(--transition);
+  transform-origin: left center;
+}
+
+.timeline-row:hover .timeline-bar { filter: brightness(1.12); transform: scaleY(1.12); }
+
+.is-industry { --bar: var(--industry); }
+.is-research { --bar: var(--research); }
+.is-team { --bar: var(--team); }
+
+/* Ongoing roles fade out past the "now" line */
+.timeline-bar.is-ongoing {
+  background: linear-gradient(90deg, var(--bar) 70%, color-mix(in srgb, var(--bar) 35%, transparent));
+}
+
+.timeline-bar.is-ongoing::after {
+  content: '';
+  position: absolute;
+  right: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .timeline-bar.is-ongoing::after { animation: now-pulse 2s ease-out infinite; }
+  .timeline-bar { animation: bar-grow 0.9s var(--ease) both; }
+}
+
+@keyframes now-pulse {
+  to { box-shadow: 0 0 0 8px rgba(255, 255, 255, 0); }
+}
+
+@keyframes bar-grow {
+  from { transform: scaleX(0); }
+  to { transform: none; }
+}
+
+/* Dates sit just past the end of the bar */
+.timeline-period {
+  position: absolute;
+  left: calc(100% + 10px);
+  white-space: nowrap;
+  font-size: 11px;
+  color: var(--ink-subtle);
+}
+
+/* Ongoing bars reach the right edge, so put their dates inside instead */
+.timeline-bar.is-ongoing .timeline-period {
+  left: auto;
+  right: calc(100% + 10px);
+}
+
+.timeline-legend {
+  display: flex;
+  gap: var(--space-5);
+  margin-top: var(--space-4);
+  list-style: none;
+  font-size: var(--text-xs);
+  color: var(--ink-subtle);
+}
+
+.timeline-legend li { display: inline-flex; align-items: center; gap: 8px; }
+
+.timeline-key {
+  width: 18px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--bar);
+}
+
+@media (max-width: 860px) {
+  .timeline { --label-w: 1fr; }
+  .timeline-axis { display: none; }
+  .timeline-row { grid-template-columns: 1fr; gap: var(--space-3); padding-block: var(--space-4); }
+  .timeline-grid { display: none; }
+  .timeline-track { height: 28px; background: var(--panel-2); border-radius: 999px; }
+  .timeline-bar { top: 2px; }
+}
+
+.timeline-when { display: none; font-size: var(--text-xs); color: var(--ink-subtle); }
+
+@media (max-width: 860px) {
+  .timeline-when { display: block; }
+  .timeline-period { display: none; }
+  .timeline-track { overflow: hidden; }
+}

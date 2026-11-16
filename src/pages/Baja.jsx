@@ -138,7 +138,7 @@ export default function Baja() {
               </p>
             </div>
           </div>
-          <div className="work-grid">
+          <div className="work-grid baja-sub-grid">
             {bajaSubprojects.map((s, i) => (
               <Link key={s.to} to={s.to} className="tile tile-sm baja-sub-tile">
                 <div className="tile-media">

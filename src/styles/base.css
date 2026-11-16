@@ -388,3 +388,12 @@ main:focus { outline: none; }
 }
 
 .email-copy { padding-inline: 14px; }
+
+/* Accent button: the one bright call to action (Contact) */
+.btn-accent {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 6px 20px -8px rgba(232, 67, 44, 0.8);
+}
+
+.btn-accent:hover { background: #f05436; }
