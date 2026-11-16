@@ -36,9 +36,9 @@ export const projects = [
     imagePosition: 'center 60%',
     summary: 'Power distribution, dashboard hardware and a virtual driving coach fed by 7+ onboard sensors, for an off-road competition car.',
     metrics: [
-      { value: '7+', label: 'Onboard sensors' },
-      { value: '<50 ms', label: 'Control latency' },
-      { value: '10+', label: 'Members led' },
+      { value: '65th / 83', label: 'First competition' },
+      { value: 'Passed', label: 'Tech inspection' },
+      { value: '3 laps', label: 'Endurance' },
     ],
     tools: ['Altium Designer', 'KiCad', 'PCB Design', 'Circuit Theory', 'Power Distribution', 'ESP32', 'CAN Bus', 'LTspice', 'Sensor Integration', 'Kalman Filtering', 'LoRa'],
   },
@@ -117,8 +117,8 @@ export const projects = [
     context: 'industry',
     domains: ['silicon'],
     status: 'nda',
-    image: img('/images/ironlattice/dell-event/team-wide.jpg'),
-    imagePosition: 'center 30%',
+    image: img('/images/ironlattice/wafer-cutout.webp'),
+    screen: true,
     summary: 'Simulation pipelines for Gator Memory, a capacitor-free 1-FeFET superlattice memory, from gate-stack physics to array-level SPICE.',
     metrics: [
       { value: '10 ns', label: 'Read and write' },
