@@ -33,7 +33,7 @@ export default function Ironlattice() {
         backTo="/work"
         backLabel="All work"
         tag="Ironlattice · Internship, Aug 2026 – Present"
-        status="nda"
+        status={['in-progress', 'nda']}
         title="Gator Memory™ FeFET Device Validation & Simulation"
         heroImage={img('/images/ironlattice/wafer-cutout.webp')}
         heroFit="contain"

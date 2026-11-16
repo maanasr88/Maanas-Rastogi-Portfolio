@@ -45,7 +45,7 @@ export default function DetailPage({ backTo, backLabel, tag, title, icon, heroIm
           {status && (
             <div className="spec-cell">
               <dt>Status</dt>
-              <dd><StatusBadge status={status} /></dd>
+              <dd className="status-stack">{[].concat(status).map(st => <StatusBadge key={st} status={st} />)}</dd>
             </div>
           )}
           {software && software.length > 0 && (

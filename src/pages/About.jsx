@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
-import { FiArrowUpRight, FiDownload, FiMail } from 'react-icons/fi'
+import { FiArrowUpRight, FiDownload } from 'react-icons/fi'
 import ExperienceList from '../components/ExperienceList'
+import EmailButton from '../components/EmailButton'
 import { DOMAINS, projectsInDomain } from '../data/projects'
 import img from '../img'
 
@@ -58,9 +59,7 @@ export default function About() {
           </dl>
 
           <div className="about-actions">
-            <a href="mailto:maanasrastogi@utexas.edu" className="btn btn-primary">
-              <FiMail size={14} aria-hidden="true" /> Email me
-            </a>
+            <EmailButton label="Email me" />
             <a href={img('/Resume_Maanas_Rastogi.pdf')} download="Resume_Maanas_Rastogi.pdf" className="btn btn-outline">
               <FiDownload size={14} aria-hidden="true" /> Resume
             </a>
