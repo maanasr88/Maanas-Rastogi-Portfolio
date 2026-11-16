@@ -152,7 +152,7 @@ function AboutTeaser() {
         </div>
         <div>
           <p className="eyebrow">About</p>
-          <h2 id="about-title" className="section-title">Device physics informs <span className="serif">the logic</span> on top of it.</h2>
+          <h2 id="about-title" className="section-title">Engineering across <span className="serif">the whole</span> hardware stack.</h2>
           <p className="section-lede">
             I&rsquo;m Maanas Rastogi, an Electrical and Computer Engineering student at UT Austin
             focused on integrated circuits and chip design. I work across the hardware stack&mdash;from

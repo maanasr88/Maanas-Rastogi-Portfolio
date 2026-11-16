@@ -1,9 +1,48 @@
 import { Link } from 'react-router-dom'
+import RadarChart from '../components/RadarChart'
 import { projects } from '../data/projects'
 
-// Skills are listed with the projects that show them in use, instead of
-// self-rated percentages. `match` lists the tool names (from data/projects.js)
-// that count as evidence for a skill; it defaults to the skill's own name.
+// Toolbox: every skill, with the projects that show it in use. `match` lists the
+// tool names (from data/projects.js) that count as evidence; it defaults to the
+// skill's own name.
+
+// At a glance: my own self-assessment across the areas I use most, 0 to 100
+const RADARS = [
+  {
+    title: 'VLSI & hardware',
+    axes: [
+      { label: 'Verilog', value: 82 },
+      { label: 'RISC-V design', value: 75 },
+      { label: 'OpenROAD', value: 65 },
+      { label: 'Vivado / FPGA', value: 78 },
+      { label: 'PCB design', value: 85 },
+      { label: 'Timing closure', value: 68 },
+    ],
+  },
+  {
+    title: 'Embedded & programming',
+    axes: [
+      { label: 'Python', value: 85 },
+      { label: 'C / C++', value: 80 },
+      { label: 'Assembly', value: 65 },
+      { label: 'Java', value: 72 },
+      { label: 'Microcontrollers', value: 83 },
+      { label: 'Sensor interfacing', value: 78 },
+    ],
+  },
+  {
+    title: 'Simulation & research',
+    axes: [
+      { label: 'COMSOL', value: 70 },
+      { label: 'QuantumATK', value: 65 },
+      { label: 'Synopsys TCAD', value: 68 },
+      { label: 'Stim / PyMatching', value: 75 },
+      { label: 'Monte Carlo', value: 80 },
+      { label: 'SPICE', value: 72 },
+    ],
+  },
+]
+
 const CATEGORIES = [
   {
     label: 'VLSI & digital design',
@@ -112,47 +151,73 @@ function evidenceFor(skill) {
 export default function Skills() {
   return (
     <div className="page">
-      <header className="wrap page-head">
+      <header className="wrap page-head" data-enter>
         <p className="eyebrow">Skills</p>
         <h1 className="page-title">Skills, with <span className="serif">the work</span> behind them</h1>
         <p className="page-lede">
-          Each skill links to the projects where I used it, so you can see the work instead of a
-          self-rating.
+          Where I&rsquo;m strongest at a glance, then the full toolbox, with every skill linked to
+          the projects where I used it.
         </p>
       </header>
 
-      <div className="wrap skills" style={{ paddingBottom: 'var(--space-9)' }}>
-        {CATEGORIES.map((cat, ci) => (
-          <section key={cat.label} className="skill-group" aria-labelledby={`skill-cat-${ci}`}>
-            <div className="skill-group-head">
-              <span className="mono skill-group-index">{String(ci + 1).padStart(2, '0')}</span>
-              <h2 id={`skill-cat-${ci}`} className="skill-group-title">{cat.label}</h2>
+      <section className="wrap skills-glance" aria-labelledby="glance-title">
+        <h2 id="glance-title" className="sr-only">At a glance</h2>
+        <div className="radar-grid">
+          {RADARS.map(r => <RadarChart key={r.title} title={r.title} axes={r.axes} />)}
+        </div>
+        <p className="radar-note mono">Self-assessed, 0&ndash;100. Hover a point to see its value.</p>
+      </section>
+
+      <section className="section" aria-labelledby="toolbox-title">
+        <div className="wrap">
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">Toolbox</p>
+              <h2 id="toolbox-title" className="section-title">Everything <span className="serif">I</span> work with</h2>
+              <p className="section-lede">
+                Highlighted skills link straight to a project that uses them.
+              </p>
             </div>
-            <ul className="skill-rows" role="list">
-              {cat.skills.map(skill => {
-                const evidence = evidenceFor(skill)
-                return (
-                  <li key={skill.name} className="skill-row">
-                    <span className="skill-name">{skill.name}</span>
-                    <span className="skill-evidence">
-                      {evidence.length > 0 ? (
-                        evidence.map(p => (
-                          <Link key={p.id} to={p.to} className="skill-chip" title={p.title}>
-                            <span className="mono">{p.code}</span>
-                            <span className="skill-chip-label">{p.title}</span>
-                          </Link>
-                        ))
-                      ) : (
-                        <span className="skill-none">No write-up yet</span>
-                      )}
-                    </span>
-                  </li>
-                )
-              })}
-            </ul>
-          </section>
-        ))}
-      </div>
+          </div>
+
+          <div className="toolbox-grid">
+            {CATEGORIES.map((cat, ci) => {
+              const used = new Set(cat.skills.flatMap(sk => evidenceFor(sk).map(p => p.id)))
+              return (
+                <section key={cat.label} className="toolbox-card" aria-labelledby={`skill-cat-${ci}`}>
+                  <div className="toolbox-card-head">
+                    <span className="mono toolbox-index">{String(ci + 1).padStart(2, '0')}</span>
+                    <h3 id={`skill-cat-${ci}`} className="toolbox-title">{cat.label}</h3>
+                    <span className="mono toolbox-count">{used.size} project{used.size === 1 ? '' : 's'}</span>
+                  </div>
+                  <ul className="toolbox-chips" role="list">
+                    {cat.skills.map(skill => {
+                      const evidence = evidenceFor(skill)
+                      return (
+                        <li key={skill.name}>
+                          {evidence.length > 0 ? (
+                            <Link
+                              to={evidence[0].to}
+                              className="toolbox-chip has-evidence"
+                              title={`Used in: ${evidence.map(p => p.title).join(', ')}`}
+                            >
+                              <span className="toolbox-dot" aria-hidden="true" />
+                              {skill.name}
+                              {evidence.length > 1 && <span className="mono toolbox-n">&times;{evidence.length}</span>}
+                            </Link>
+                          ) : (
+                            <span className="toolbox-chip">{skill.name}</span>
+                          )}
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </section>
+              )
+            })}
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom'
 import { FiArrowUpRight, FiDownload } from 'react-icons/fi'
 import img from '../img'
 
-const EMAIL = 'maanasrastogi@utexas.edu'
-const LINKEDIN = 'https://www.linkedin.com/in/maanas-rastogi'
+import EmailButton from './EmailButton'
+import { LINKEDIN } from '../contact'
 
 export default function Footer() {
   return (
@@ -12,10 +12,10 @@ export default function Footer() {
       <div className="wrap">
         <div className="footer-cta">
           <p className="eyebrow">Contact</p>
-          <h2 className="footer-title">Let&rsquo;s build <span className="serif grad">something.</span></h2>
+          <h2 className="footer-title">Let&rsquo;s work <span className="serif grad">together.</span></h2>
           <p className="footer-lede">Looking for electrical systems and silicon engineering roles.</p>
           <div className="footer-actions">
-            <a href={`mailto:${EMAIL}`} className="btn btn-primary">{EMAIL}</a>
+            <EmailButton />
             <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
               LinkedIn <FiArrowUpRight size={15} aria-hidden="true" />
             </a>

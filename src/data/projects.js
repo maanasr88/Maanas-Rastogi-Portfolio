@@ -116,7 +116,7 @@ export const projects = [
     start: '2026-08',
     context: 'industry',
     domains: ['silicon'],
-    status: 'nda',
+    status: ['in-progress', 'nda'],
     image: img('/images/ironlattice/wafer-cutout.webp'),
     screen: true,
     summary: 'Simulation pipelines for Gator Memory, a capacitor-free 1-FeFET superlattice memory, from gate-stack physics to array-level SPICE.',

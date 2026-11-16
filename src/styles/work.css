@@ -365,3 +365,5 @@
 @media (max-width: 640px) {
   .next-list { grid-template-columns: 1fr; }
 }
+
+.tile-status { display: flex; gap: 6px; }

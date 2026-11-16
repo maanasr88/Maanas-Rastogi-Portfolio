@@ -876,3 +876,5 @@ a.sensor-map-item:hover { background: var(--panel-2); }
   .mascot-hank { width: 72px; bottom: 6px; }
   .mascot-car { width: 84px; }
 }
+
+.status-stack { display: flex; flex-wrap: wrap; gap: 6px; }

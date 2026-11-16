@@ -378,3 +378,13 @@ main:focus { outline: none; }
 
   .btn:hover, .btn:active { transform: none; }
 }
+
+/* Email action: open-a-draft button plus a copy button */
+.email-action {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.email-copy { padding-inline: 14px; }

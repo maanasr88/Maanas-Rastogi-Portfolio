@@ -28,7 +28,7 @@ export default function ProjectCard({ project, size = 'md', headingLevel = 3, cl
         />
       </div>
       <span className="tile-des mono">{designator} · {code}</span>
-      {status && <span className="tile-status"><StatusBadge status={status} /></span>}
+      {status && <span className="tile-status">{[].concat(status).map(st => <StatusBadge key={st} status={st} />)}</span>}
 
       <div className="tile-body">
         <p className="tile-org mono">{org} · {role}</p>
