@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { FiDownload } from 'react-icons/fi'
 import ProjectCard from '../components/ProjectCard'
 import ExperienceList from '../components/ExperienceList'
+import PhotoStrip from '../components/PhotoStrip'
 import { projects, projectCount, experience } from '../data/projects'
 import img from '../img'
 
@@ -103,6 +104,22 @@ function SelectedWork() {
   )
 }
 
+function InTheField() {
+  return (
+    <section className="section section-strip" aria-labelledby="field-title">
+      <div className="wrap">
+        <div className="section-head">
+          <div>
+            <p className="eyebrow">Off the screen</p>
+            <h2 id="field-title" className="section-title">The lab, the pits <span className="serif">and</span> the field.</h2>
+          </div>
+        </div>
+      </div>
+      <PhotoStrip />
+    </section>
+  )
+}
+
 function Experience() {
   return (
     <section className="section" aria-labelledby="exp-title">
@@ -137,9 +154,10 @@ function AboutTeaser() {
           <p className="eyebrow">About</p>
           <h2 id="about-title" className="section-title">Device physics informs <span className="serif">the logic</span> on top of it.</h2>
           <p className="section-lede">
-            I&rsquo;m an Electrical and Computer Engineering student at UT Austin focused on integrated
-            circuits and systems. I move between device physics and RTL design: understanding how
-            a transistor actually fails informs how I architect the logic built on top of it.
+            I&rsquo;m Maanas Rastogi, an Electrical and Computer Engineering student at UT Austin
+            focused on integrated circuits and chip design. I work across the hardware stack&mdash;from
+            modeling ferroelectric transistors in TCAD to laying out custom RISC-V logic and wiring up
+            race cars.
           </p>
           <div className="about-teaser-actions">
             <Link to="/about" className="btn btn-outline">More about me</Link>
@@ -156,6 +174,7 @@ export default function Home() {
     <div className="page page-home">
       <Hero />
       <SelectedWork />
+      <InTheField />
       <Experience />
       <AboutTeaser />
     </div>

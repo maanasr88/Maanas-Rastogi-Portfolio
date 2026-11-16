@@ -834,23 +834,30 @@ a.sensor-map-item:hover { background: var(--panel-2); }
   .hank-figure { flex-direction: column; align-items: flex-start; }
 }
 
-/* Hank walking along the bottom of the screen as you scroll */
-.hank-scroller {
+/* Scroll mascots: Hank on Ironlattice, car 185 on the Baja pages */
+.scroll-mascot {
   position: fixed;
   left: 0;
   bottom: 10px;
   z-index: 40;
-  width: 96px;
   pointer-events: none;
   transform: translateX(16px);
   transition: transform 0.12s linear;
   filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.5));
 }
 
-.hank-scroller img { width: 100%; height: auto; }
+.scroll-mascot img,
+.scroll-mascot svg { display: block; width: 100%; height: auto; }
+
+.mascot-hank { width: 96px; }
+.mascot-car { width: 140px; bottom: 4px; }
+
+.mascot-wheel { transform-box: fill-box; transform-origin: center; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .hank-scroller.is-walking img { animation: hank-step 0.24s ease-in-out infinite alternate; }
+  .mascot-hank.is-moving img { animation: hank-step 0.24s ease-in-out infinite alternate; }
+  .mascot-car.is-moving svg { animation: car-bounce 0.18s ease-in-out infinite alternate; }
+  .mascot-car.is-moving .mascot-wheel { animation: wheel-spin 0.35s linear infinite; }
 }
 
 @keyframes hank-step {
@@ -858,6 +865,14 @@ a.sensor-map-item:hover { background: var(--panel-2); }
   to { transform: translateY(-3px) rotate(1.5deg); }
 }
 
+@keyframes car-bounce {
+  from { transform: translateY(0) rotate(-0.8deg); }
+  to { transform: translateY(-2px) rotate(0.8deg); }
+}
+
+@keyframes wheel-spin { to { transform: rotate(360deg); } }
+
 @media (max-width: 640px) {
-  .hank-scroller { width: 72px; bottom: 6px; }
+  .mascot-hank { width: 72px; bottom: 6px; }
+  .mascot-car { width: 84px; }
 }

@@ -331,3 +331,68 @@
 
 /* The hero sits under the transparent nav, so the home page skips the nav offset */
 .page-home { padding-top: 0; }
+
+/* ===== PHOTO STRIP ===== */
+/* A continuously moving row of real photos; edges fade into the page */
+.photo-strip {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.photo-strip-track {
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  list-style: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .photo-strip-track { animation: strip-scroll 90s linear infinite; }
+  .photo-strip:hover .photo-strip-track { animation-play-state: paused; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo-strip { overflow-x: auto; -webkit-mask-image: none; mask-image: none; padding-inline: var(--gutter); }
+}
+
+@keyframes strip-scroll {
+  to { transform: translateX(calc(-50% - 7px)); }
+}
+
+.photo-strip-item {
+  position: relative;
+  flex-shrink: 0;
+  height: 300px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  background: var(--panel-2);
+}
+
+.photo-strip-item img {
+  height: 100%;
+  width: auto;
+  transition: transform 0.8s var(--ease);
+}
+
+.photo-strip-item:hover img { transform: scale(1.03); }
+
+.photo-strip-label {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--rule-strong);
+  background: rgba(7, 8, 10, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--ink-muted);
+}
+
+@media (max-width: 640px) {
+  .photo-strip-item { height: 220px; }
+}

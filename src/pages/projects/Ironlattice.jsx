@@ -3,7 +3,6 @@ import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
 import DataTable from '../../components/DataTable'
 import img from '../../img'
-import HankScroller from '../../components/HankScroller'
 
 // Company figures below come from IronLattice's public Gator Memory spec sheet (Nov 2026).
 // My own internship work stays at the level the NDA allows.
@@ -41,7 +40,6 @@ export default function Ironlattice() {
         software={['COMSOL', 'QuantumATK', 'Synopsys TCAD', 'SPICE']}
         roles={['Validation/Design Intern']}
       >
-        <HankScroller />
         <ScrollReveal>
           <div id="overview" className="project-section">
             <h3>Overview</h3>
