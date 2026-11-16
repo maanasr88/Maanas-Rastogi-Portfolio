@@ -274,3 +274,9 @@
   .footer { padding-top: var(--space-9); }
   .footer-bottom { text-align: left; }
 }
+
+.footer-lede {
+  margin-top: var(--space-5);
+  font-size: var(--text-lg);
+  color: var(--ink-muted);
+}

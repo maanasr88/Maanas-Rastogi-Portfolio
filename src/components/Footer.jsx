@@ -13,6 +13,7 @@ export default function Footer() {
         <div className="footer-cta">
           <p className="eyebrow">Contact</p>
           <h2 className="footer-title">Let&rsquo;s build <span className="serif grad">something.</span></h2>
+          <p className="footer-lede">Looking for electrical systems and silicon engineering roles.</p>
           <div className="footer-actions">
             <a href={`mailto:${EMAIL}`} className="btn btn-primary">{EMAIL}</a>
             <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className="btn btn-outline">

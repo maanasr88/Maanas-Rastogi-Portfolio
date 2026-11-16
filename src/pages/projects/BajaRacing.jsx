@@ -4,6 +4,7 @@ import ScrollReveal from '../../components/ScrollReveal'
 import StatRow from '../../components/StatRow'
 import { IconRacing } from '../../components/Icons'
 import img from '../../img'
+import { bajaSubprojects } from '../../data/projects'
 import BajaSensorMap from '../../components/BajaSensorMap'
 
 const toc = [
@@ -13,24 +14,32 @@ const toc = [
   { id: 'suite',       label: 'Sensor Suite Research' },
   { id: 'control',     label: 'Control Algorithms' },
   { id: 'leadership',  label: 'Leadership' },
+  { id: 'gallery',     label: 'At Competition' },
 ]
 
-const subsystems = [
-  { to: '/team/baja-racing/fuel-level-indicator',       title: 'Fuel Level Indicator',          desc: 'Turbine flow meter with a built-in Hall-effect sensor, measuring consumption without modifying the fuel tank.', image: img('/images/baja-racing/fuel-level/turbine-flow-meter.jpg') },
-  { to: '/team/baja-racing/rpm-sensor',                  title: 'RPM Sensor',                    desc: 'Contactless Hall-effect wheel-speed sensing rated to ±2% accuracy from 0–2,000 RPM.', image: img('/images/baja-racing/rpm-sensor/hall-effect-circuit.jpg') },
-  { to: '/team/baja-racing/engine-temperature-sensing',  title: 'Engine Temperature Sensing',     desc: 'Redundant RTD array read through MAX31865 breakouts, with threshold-based driver warnings.', image: img('/images/baja-racing/engine-temp/esp32-rtd-wiring.jpg') },
-  { to: '/team/baja-racing/imu-gps',                     title: 'IMU / GPS Vehicle Tracking',     desc: 'Kalman-filtered IMU + GPS fusion to track vehicle position, acceleration, and driver response.', image: img('/images/baja-racing/imu-gps/wiring-diagram.jpg') },
-  { to: '/team/baja-racing/driver-input-telemetry',      title: 'Driver Input Telemetry',         desc: 'Pedal-box potentiometer and CAN bus module logging throttle and brake activity in real time.', image: img('/images/baja-racing/driver-inputs/system-wiring.jpg') },
-  { to: '/team/baja-racing/suspension-position-sensor',  title: 'Suspension Position Sensor',     desc: 'Linear potentiometer travel sensing for a semi-active suspension, accurate to ±10mm.', image: img('/images/baja-racing/suspension/suspension-assembly-diagram.svg') },
-  { to: '/team/baja-racing/telemetry-link',              title: 'Wireless Telemetry Link',        desc: '915 MHz LoRa radio link carrying sensor data from the car to a pit-side dashboard.', image: img('/images/baja-racing/telemetry/signal-flow.jpg') },
-  { to: '/team/baja-racing/nfc-tracker',                 title: 'NFC Tracker — Shop Tap Station', desc: 'ESP32-S3 + PN532 NFC reader with a touch display and D-pad, for tapping a tool, part, or team card to pull up its record.', image: img('/images/baja-racing/nfc-tracker/board-layout-render.jpg'), imageStyle: { objectPosition: 'center 15%' } },
-]
 
 const specs = [
   { value: '10+',    label: 'Members Led' },
   { value: '7+',     label: 'Onboard Sensors' },
   { value: '<50 ms', label: 'Processing Delay' },
   { value: '20 AWG', label: 'Power Distribution' },
+]
+
+
+// Competition photos, shown as a masonry gallery
+const gallery = [
+  { src: 'driver-staging.jpg',  alt: 'Car 185 in the staging area with a driver in the seat, next to another team’s car' },
+  { src: 'pit-lineup.jpg',      alt: 'Car 185 lined up in the pits between other Baja cars under a blue sky' },
+  { src: 'rear-sunset.jpg',     alt: 'Rear view of car 185 at sunset under power lines' },
+  { src: 'side-panel.jpg',      alt: 'Close-up of the orange side panel artwork and Fox shocks on car 185' },
+  { src: 'cage-sunset.jpg',     alt: 'A team member sitting on the roll cage of car 185 at sunset' },
+  { src: 'team-photo.jpg',      alt: 'The Longhorn Baja Racing team celebrating around car 185, one member holding a helmet up' },
+  { src: 'pit-crew.jpg',        alt: 'Team members working on car 185 in the paddock' },
+  { src: 'car-trees.jpg',       alt: 'Low-angle shot of car 185 on grass in front of tall trees' },
+  { src: 'loading-truck.jpg',   alt: 'Team members loading car 185 into a pickup truck at dusk' },
+  { src: 'teammates.jpg',       alt: 'Two team members laughing in the paddock at golden hour' },
+  { src: 'pit-crew-low.jpg',    alt: 'Low-angle shot of the crew around car 185, one member tossing a screwdriver' },
+  { src: 'wiring.jpg',          alt: 'Hands twisting a red and white wire pair while wiring the car' },
 ]
 
 export default function BajaRacing() {
@@ -43,8 +52,8 @@ export default function BajaRacing() {
         status="in-progress"
         title="Racing Team Electronics Lead"
         icon={<IconRacing />}
-        heroImage={img('/images/baja-racing/car-course-action.jpg')}
-        heroStyle={{ backgroundPosition: 'center 50%' }}
+        heroImage={img('/images/baja-racing/competition/side-sunset.jpg')}
+        heroStyle={{ backgroundPosition: 'center 62%' }}
         software={['Altium Designer', 'Circuit Theory', 'PCB Design', 'Sensor Integration']}
         roles={['Racing Team Electronics Lead']}
       >
@@ -100,7 +109,7 @@ export default function BajaRacing() {
             </p>
             <BajaSensorMap />
             <div className="baja-subprojects-grid">
-              {subsystems.map(s => (
+              {bajaSubprojects.map(s => (
                 <Link key={s.to} to={s.to} className="baja-sub-card">
                   <div className="baja-sub-card-img-wrap">
                     <img src={s.image} alt="" loading="lazy" className="baja-sub-card-img" style={s.imageStyle} />
@@ -148,6 +157,20 @@ export default function BajaRacing() {
               />
               <figcaption>The Longhorn Baja Racing team after a competition run.</figcaption>
             </figure>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <div id="gallery" className="project-section">
+            <h3>At Competition</h3>
+            <p>The car, the pits and the team at competition.</p>
+            <div className="photo-gallery">
+              {gallery.map(g => (
+                <div key={g.src} className="photo-gallery-item">
+                  <img src={img(`/images/baja-racing/competition/${g.src}`)} alt={g.alt} loading="lazy" decoding="async" />
+                </div>
+              ))}
+            </div>
           </div>
         </ScrollReveal>
       </DetailPage>

@@ -2,15 +2,15 @@ import { Link } from 'react-router-dom'
 import { FiDownload } from 'react-icons/fi'
 import ProjectCard from '../components/ProjectCard'
 import ExperienceList from '../components/ExperienceList'
-import { projects } from '../data/projects'
+import { projects, projectCount, experience } from '../data/projects'
 import img from '../img'
 
-// Hero readout strip: each figure comes from a case study
+// Hero readout strip
 const READOUT = [
-  { k: 'Projects documented', v: String(projects.length) },
-  { k: 'Robot power output', v: '12→90', unit: ' W' },
-  { k: 'ASIC flow', v: 'RTL→GDS' },
-  { k: 'Engineers led', v: '15', unit: '+' },
+  { k: 'Projects', v: String(projectCount) },
+  { k: 'Roles held', v: String(experience.length) },
+  { k: 'Teams led', v: '2' },              // Baja electronics, Neurotech
+  { k: 'Graduating', v: 'May', unit: ' 2028' },
 ]
 
 // Homepage bento: which projects appear, and how big
@@ -30,26 +30,43 @@ function Hero() {
       <div className="hero-grid-bg" aria-hidden="true" />
       <div className="hero-beams" aria-hidden="true"><span /><span /><span /></div>
 
-      <div className="wrap hero-inner" data-enter>
-        <Link to="/experience/ironlattice" className="hero-kicker">
-          <span className="hero-kicker-dot" aria-hidden="true" />
-          Interning at Ironlattice · Fall 2026
-        </Link>
-        <h1 className="hero-title">
-          Maanas Rastogi
-          <span className="hero-title-line serif grad">from silicon to race cars.</span>
-        </h1>
-        <p className="hero-sub">
-          Electrical &amp; computer engineering at UT Austin. I design <strong>chips, circuit
-          boards and the embedded systems</strong> that put them to work, from a RISC-V core to
-          a Baja car&rsquo;s sensor network.
-        </p>
-        <div className="hero-actions">
-          <Link to="/work" className="btn btn-primary">See the work <span aria-hidden="true">→</span></Link>
-          <a href={img('/Resume_Maanas_Rastogi.pdf')} download="Resume_Maanas_Rastogi.pdf" className="btn btn-outline">
-            <FiDownload size={15} aria-hidden="true" /> Download resume
-          </a>
+      <div className="wrap hero-inner">
+        <div className="hero-copy" data-enter>
+          <p className="hero-kicker">
+            <span className="hero-kicker-dot" aria-hidden="true" />
+            Open to electrical systems &amp; silicon engineering roles
+          </p>
+          <h1 className="hero-title">
+            Maanas Rastogi
+            <span className="hero-title-line serif grad">from silicon to race cars.</span>
+          </h1>
+          <p className="hero-sub">
+            Electrical &amp; computer engineering at UT Austin. I design <strong>chips, circuit
+            boards and the embedded systems</strong> that put them to work, from a RISC-V core to
+            a Baja car&rsquo;s sensor network.
+          </p>
+          <div className="hero-actions">
+            <Link to="/work" className="btn btn-primary">See the work <span aria-hidden="true">→</span></Link>
+            <a href={img('/Resume_Maanas_Rastogi.pdf')} download="Resume_Maanas_Rastogi.pdf" className="btn btn-outline">
+              <FiDownload size={15} aria-hidden="true" /> Download resume
+            </a>
+          </div>
         </div>
+
+        <figure className="hero-portrait">
+          <img
+            src={img('/images/profile/maanas-on-car.jpg')}
+            alt="Maanas Rastogi standing on the Longhorn Baja car, number 185"
+            width="1333"
+            height="2000"
+            fetchpriority="high"
+            decoding="async"
+          />
+          <figcaption className="hero-portrait-tag mono">
+            <span>Maanas · Electronics Lead</span>
+            <span>LBR 185</span>
+          </figcaption>
+        </figure>
       </div>
 
       <dl className="readout">
@@ -73,7 +90,7 @@ function SelectedWork() {
             <p className="eyebrow">Selected work</p>
             <h2 id="work-title" className="section-title">Hardware with <span className="serif">numbers</span> behind it.</h2>
           </div>
-          <Link to="/work" className="btn btn-outline btn-sm">All {projects.length} projects <span aria-hidden="true">→</span></Link>
+          <Link to="/work" className="btn btn-outline btn-sm">All work <span aria-hidden="true">→</span></Link>
         </div>
         <div className="bento">
           {BENTO.map(({ id, span, size }) => {

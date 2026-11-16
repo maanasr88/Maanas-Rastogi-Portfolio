@@ -32,8 +32,8 @@ export const projects = [
     domains: ['pcb', 'robotics'],
     status: 'in-progress',
     featured: true,
-    image: img('/images/baja-racing/car-course-action.jpg'),
-    imagePosition: 'center 55%',
+    image: img('/images/baja-racing/competition/side-sunset.jpg'),
+    imagePosition: 'center 60%',
     summary: 'Power distribution, dashboard hardware and a virtual driving coach fed by 7+ onboard sensors, for an off-road competition car.',
     metrics: [
       { value: '7+', label: 'Onboard sensors' },
@@ -210,6 +210,22 @@ export const projects = [
 export const featuredProjects = projects.filter(p => p.featured)
 
 // Experience timeline: roles with dates, newest first
+// Every sub-project inside the Baja case study, also counted in the homepage total
+export const bajaSubprojects = [
+  { to: '/team/baja-racing/fuel-level-indicator',       title: 'Fuel Level Indicator',          desc: 'Turbine flow meter with a built-in Hall-effect sensor, measuring consumption without modifying the fuel tank.', image: img('/images/baja-racing/fuel-level/turbine-flow-meter.jpg') },
+  { to: '/team/baja-racing/rpm-sensor',                  title: 'RPM Sensor',                    desc: 'Contactless Hall-effect wheel-speed sensing rated to ±2% accuracy from 0–2,000 RPM.', image: img('/images/baja-racing/rpm-sensor/hall-effect-circuit.jpg') },
+  { to: '/team/baja-racing/engine-temperature-sensing',  title: 'Engine Temperature Sensing',     desc: 'Redundant RTD array read through MAX31865 breakouts, with threshold-based driver warnings.', image: img('/images/baja-racing/engine-temp/esp32-rtd-wiring.jpg') },
+  { to: '/team/baja-racing/imu-gps',                     title: 'IMU / GPS Vehicle Tracking',     desc: 'Kalman-filtered IMU + GPS fusion to track vehicle position, acceleration, and driver response.', image: img('/images/baja-racing/imu-gps/wiring-diagram.jpg') },
+  { to: '/team/baja-racing/driver-input-telemetry',      title: 'Driver Input Telemetry',         desc: 'Pedal-box potentiometer and CAN bus module logging throttle and brake activity in real time.', image: img('/images/baja-racing/driver-inputs/system-wiring.jpg') },
+  { to: '/team/baja-racing/suspension-position-sensor',  title: 'Suspension Position Sensor',     desc: 'Linear potentiometer travel sensing for a semi-active suspension, accurate to ±10mm.', image: img('/images/baja-racing/suspension/suspension-assembly-diagram.svg') },
+  { to: '/team/baja-racing/telemetry-link',              title: 'Wireless Telemetry Link',        desc: '915 MHz LoRa radio link carrying sensor data from the car to a pit-side dashboard.', image: img('/images/baja-racing/telemetry/signal-flow.jpg') },
+  { to: '/team/baja-racing/steering-wheel-dashboard',   title: 'Steering Wheel Dashboard PCB',   desc: 'Double-sided carrier board putting a 2.8" TFT, thumb buttons and status LEDs on the wheel, with an ESP32-S3 on the hub side fed over ESP-NOW.', image: img('/images/baja-racing/steering-wheel/wheel-dash-rev-e-layout.png'), imageStyle: { objectPosition: 'center top' } },
+  { to: '/team/baja-racing/nfc-tracker',                 title: 'NFC Tracker — Shop Tap Station', desc: 'ESP32-S3 + PN532 NFC reader with a touch display and D-pad, for tapping a tool, part, or team card to pull up its record.', image: img('/images/baja-racing/nfc-tracker/board-layout-render.jpg'), imageStyle: { objectPosition: 'center 15%' } },
+]
+
+// Projects counted on the homepage: each Baja sub-project counts on its own
+export const projectCount = projects.length - 1 + bajaSubprojects.length
+
 export const experience = [...projects]
   .filter(p => p.start)
   .sort((a, b) => b.start.localeCompare(a.start))
